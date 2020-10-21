@@ -8,5 +8,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 {
     class Merchandise
     {
+        public string Name { get; set; }
+        public string Supplier { get; set; }
+        public int Stock { get; set; }
     }
 }
