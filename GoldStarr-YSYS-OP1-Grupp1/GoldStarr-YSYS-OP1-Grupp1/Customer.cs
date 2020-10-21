@@ -8,7 +8,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 {
     class Customer
     {
-        public string Name { get; set; }
+        public string Name { get; set; } //Hejhoppp
         public string Address { get; set; }// jfdljljf
         public int PhonenNumber { get; set; }//This shall be optional to register
     }

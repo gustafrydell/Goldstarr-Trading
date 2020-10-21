@@ -9,7 +9,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     class CustomerOrder : Customer
     {
         public DateTime DateTime { get; set; }
-        public Customer customer { get; set; }
+        public Customer Customer { get; set; }
         public string Product { get; set; }
         public int Quantity { get; set; }
     }
