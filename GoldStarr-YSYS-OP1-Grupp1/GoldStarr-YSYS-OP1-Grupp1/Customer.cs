@@ -12,5 +12,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public string Address { get; set; }
         public int PhonenNumber { get; set; }
 
+        
+
+        
+
+        
     }
 }

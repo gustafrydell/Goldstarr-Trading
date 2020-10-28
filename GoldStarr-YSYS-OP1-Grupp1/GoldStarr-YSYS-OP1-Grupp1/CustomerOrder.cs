@@ -12,5 +12,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public Customer Customer { get; set; }
         public string Product { get; set; }
         public int Quantity { get; set; }
+
+
+
     }
 }
