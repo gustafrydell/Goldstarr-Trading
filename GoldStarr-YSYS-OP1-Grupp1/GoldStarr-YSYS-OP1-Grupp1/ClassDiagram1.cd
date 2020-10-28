@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.Customer">
+    <Position X="2.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAQAAAAAABACAAAAAAAAAAA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.CustomerInformation">
+    <Position X="5.5" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CustomerInformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.CustomerOrder">
+    <Position X="2.5" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAAAAAAAAAAQAAAAAAAAAQAAAAAgAAAAAA=</HashCode>
+      <FileName>CustomerOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.Merchandise">
+    <Position X="11" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAQAgIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Merchandise.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.MerchandiseInformation">
+    <Position X="10.75" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MerchandiseInformation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
