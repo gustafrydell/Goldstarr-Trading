@@ -11,7 +11,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public string Name { get; set; }
         public string Address { get; set; }
         public int PhoneNumber { get; set; }
-
         public int CustomerId { get; set; }
 
         
