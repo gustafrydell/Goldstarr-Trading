@@ -22,9 +22,59 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public Frame AppFrame => frame;
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        public readonly string CustomerListLabel = "Customers";
+        public readonly string CustomerOrderListLabel = "Customer Orders";
+        public readonly string MerchandiseListLabel = "Merchandise";
+
+        private void NavView_Loaded(object sender, RoutedEventArgs e)
+        {
+            NavView.IsPaneOpen = false;
+            frame.Navigate(typeof(CustomerView));
+            CustomerListMenyItem.IsSelected = true;
+        }
+
+        private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            var label = args.InvokedItem as string;
+            var pageType =
+                label == CustomerListLabel ? typeof(CustomerView) :
+                label == CustomerOrderListLabel ? typeof(CustomerOrderView) :
+                label == MerchandiseListLabel ? typeof(MerchandiseView) : null;
+            if (pageType != null && pageType != AppFrame.CurrentSourcePageType)
+            {
+                AppFrame.Navigate(pageType);
+            }
+        }
+        private void NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            if (AppFrame.CanGoBack)
+            {
+                AppFrame.GoBack();
+            }
+        }
+        private void frame_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+            if (e.NavigationMode == NavigationMode.Back)
+            {
+                if (e.SourcePageType == typeof(CustomerView))
+                {
+                    NavView.SelectedItem = CustomerListMenyItem;
+                }
+                else if (e.SourcePageType == typeof(CustomerOrderView))
+                {
+                    NavView.SelectedItem = CustomerOrdersListMeny;
+                }
+                else if (e.SourcePageType == typeof(MerchandiseView))
+                {
+                    NavView.SelectedItem = typeof(MerchandiseView);
+                }
+            }
         }
     }
 }
