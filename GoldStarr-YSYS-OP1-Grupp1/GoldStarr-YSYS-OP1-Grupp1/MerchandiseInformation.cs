@@ -25,5 +25,14 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             merchList.Add(new Merchandise { Name = "SuperStrumpor", Supplier = "WeLoveSocksEnterprise", Stock = 100, MerchandiseId = 5 });
             merchList.Add(new Merchandise { Name = "LabbJacka", Supplier = "KemisternaAB", Stock = 100 , MerchandiseId = 6 }) ;
         }
+
+        public void DisplayMerchList()
+        {
+            MakeMerchList();
+            foreach (var item in merchList)
+            {
+                Console.WriteLine($"Product: {item.Name}, Supplier: {item.Supplier}, Stock: {item.Stock}");
+            }
+        }
     }
 }

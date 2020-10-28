@@ -14,7 +14,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public string Product { get; set; }
         public int Quantity { get; set; }
 
-       
+
+       public void AddProduct()
+        {
+
+        }
 
     }
 }
