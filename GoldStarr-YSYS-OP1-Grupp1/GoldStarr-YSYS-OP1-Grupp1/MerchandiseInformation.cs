@@ -5,8 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
-{
-    class MerchandiseInformation : Merchandise
+{ 
+    
+
+
+    public class MerchandiseInformation 
     {
 
         public List<Merchandise> merchList { get; set; }

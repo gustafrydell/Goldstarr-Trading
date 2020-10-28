@@ -24,7 +24,7 @@
   <Class Name="GoldStarr_YSYS_OP1_Grupp1.Merchandise">
     <Position X="11" Y="1" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAAAAAAAQAgIAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAQEgIAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Merchandise.cs</FileName>
     </TypeIdentifier>
   </Class>

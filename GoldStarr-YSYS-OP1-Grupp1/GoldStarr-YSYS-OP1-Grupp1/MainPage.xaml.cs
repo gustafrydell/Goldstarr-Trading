@@ -24,6 +24,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     {
         public MainPage()
         {
+            
+
             this.InitializeComponent();
         }
     }
