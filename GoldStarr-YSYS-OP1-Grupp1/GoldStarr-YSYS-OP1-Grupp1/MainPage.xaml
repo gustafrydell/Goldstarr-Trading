@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <NavigationView 
+       <NavigationView 
         Loaded="NavView_Loaded"
         x:Name="NavView" 
         Visibility="Visible" 
@@ -18,7 +18,7 @@
         IsPaneOpen="False"
         ItemInvoked="NavigationView_ItemInvoked"
         BackRequested="NavigationView_BackRequested"
-        IsBackEnabled="{x:Bind AppFrame.CanGoBack, Mode=OneWay}">
+        IsBackEnabled="{x:Bind AppFrame.CanGoBack, Mode=OneWay}" PaneDisplayMode="Top">
 
 
         <NavigationView.MenuItems>
@@ -42,7 +42,7 @@
                 Icon="Favorite" FontSize="20"/>
 
         </NavigationView.MenuItems>
-
+        
         <NavigationView.ContentTransitions>
             <TransitionCollection/>
         </NavigationView.ContentTransitions>
