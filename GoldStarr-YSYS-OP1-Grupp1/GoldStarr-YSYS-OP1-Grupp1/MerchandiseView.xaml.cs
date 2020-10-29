@@ -22,9 +22,12 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     /// </summary>
     public sealed partial class MerchandiseView : Page
     {
+
+        private List<Merchandise> merchListView;
         public MerchandiseView()
         {
             this.InitializeComponent();
+            merchListView = MerchandiseManager.GetMerchList();
         }
     }
 }
