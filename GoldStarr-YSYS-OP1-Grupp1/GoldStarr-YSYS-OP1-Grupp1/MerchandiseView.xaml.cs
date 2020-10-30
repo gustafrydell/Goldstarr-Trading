@@ -29,5 +29,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             this.InitializeComponent();
             merchListView = MerchandiseManager.GetMerchList();
         }
+        //Gör produktrutan clickable
+        private void MerchClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
     }
 }
