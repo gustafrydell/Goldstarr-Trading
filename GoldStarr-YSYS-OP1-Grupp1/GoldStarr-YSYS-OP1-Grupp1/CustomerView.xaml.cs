@@ -28,15 +28,15 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             this.InitializeComponent();
             listCustomers = CustomerViewList.GetCustomers();
-            ShowCustomerList();
+            //ShowCustomerList();
         }
 
-        public void ShowCustomerList()
-        {
-            foreach(var c in listCustomers)
-            {
-                CustomerNameText.Text += $"{c.Name}\n";
-            }
-        }
+        //public void ShowCustomerList()
+        //{
+        //    foreach(var c in listCustomers)
+        //    {
+        //        CustomerNameText.Text += $"{c.Name}\n";
+        //    }
+        //}
     }
 }

@@ -9,8 +9,37 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Current Customers" FontSize="35
+                   " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,150,0,0"/>
         
-        <TextBlock HorizontalAlignment="Left" Margin="95,432,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="130" Width="575" FontSize="100" Text="Customer"/>
-        <TextBox x:Name="CustomerNameText" HorizontalAlignment="Left" Margin="775,120,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="786" Width="1039" FontSize="48" IsReadOnly="True"/>
+        
+
+        <ListView ItemsSource="{x:Bind listCustomers}" Grid.Column="1">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Customer">
+                    <StackPanel>
+                        <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{x:Bind Address}" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{x:Bind PhonenNumber}" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+
+
+
     </Grid>
 </Page>
