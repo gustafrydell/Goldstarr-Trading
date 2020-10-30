@@ -135,6 +135,9 @@
       <DependentUpon>MerchandiseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestockOption.xaml.cs">
+      <DependentUpon>RestockOption.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -176,6 +179,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MerchandiseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RestockOption.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
