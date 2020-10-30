@@ -9,6 +9,34 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Restock" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"/>
+        <GridView ItemsSource="{x:Bind _merchandiseManager.merchlist}" Grid.Column="1">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="local:Merchandise">
+                    <StackPanel>
+                        <Image Width="200" Source="{x:Bind CoverImage}" />
+                        <TextBlock FontSize="20" Name="NameTextBlock" Text="{x:Bind Name}" HorizontalAlignment="Left"/>
+                        <TextBlock FontSize="14" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
+                        <TextBlock FontSize="10" Text="{x:Bind Stock}" HorizontalAlignment="Left"/>
+                        
+                        <TextBox x:Name="AmountBox" FontSize="15" Text=""/>
+                        <Button Name="Submit" Click="Submit_Click" Tag="{ RelativeSource Mode=TemplatedParent }" FontSize="15" Width="50" Height="40" Content="Add"/>
+
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
 
     </Grid>
 </Page>
