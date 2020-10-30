@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -23,7 +24,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class RestockOption : Page
+    public sealed partial class RestockOption : Page, INotifyPropertyChanged
     {
         //public Merchandise _merchandise;
         public MerchandiseManager _merchandiseManager;
@@ -33,22 +34,22 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             this.InitializeComponent();
            // _merchandise = new Merchandise();
             _merchandiseManager = new MerchandiseManager();
-            
           
         }
-        
-        public void AddToStock(int amount, string itemName)
-        {
 
-            foreach (var item in _merchandiseManager.merchlist)
-            {
-                if(item.Name == itemName)
-                {
-                    item.Stock += amount;
-                }
-            }
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        }
+        //public void AddToStock(int amount, string itemName)
+        //{
+        //    foreach (var item in _merchandiseManager.merchlist)
+        //    {
+        //        if(item.Name == itemName)
+        //        {
+        //            item.Stock += amount;
+        //        }
+        //    }
+
+        //}
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
@@ -57,9 +58,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             StackPanel parent = VisualTreeHelper.GetParent(button) as StackPanel;
             TextBox textBox = (TextBox)parent.FindName("AmountBox");
 
+
+            TextBlock stockTextBlock = (TextBlock)parent.FindName("UpdatedStock");
             int addToStock = 0;
             // int.Parse()
-
             //try
             //{
             //    addToStock = int.Parse(textBox.Text);
@@ -77,11 +79,12 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 var nameOfMerch = ((TextBlock)parent.FindName("NameTextBlock")).Text;
                 var merch = _merchandiseManager.merchlist.FirstOrDefault(m => m.Name == nameOfMerch);
                 merch.Stock += addToStock;
+                stockTextBlock.Text = merch.Stock.ToString();
+                
 
             }
             else
             {
-                //
                 var dialog = new MessageDialog("Gör om, gör rätt");
                 var t = dialog.ShowAsync().GetAwaiter();
             }
