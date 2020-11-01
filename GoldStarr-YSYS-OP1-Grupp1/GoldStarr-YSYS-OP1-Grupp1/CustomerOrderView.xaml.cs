@@ -26,11 +26,15 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private List<Customer> customersList;
 
         private CustomerOrder customerOrder;
+
+        private List<Merchandise> merchListView;
+
         public CustomerOrderView()
         {
           
             this.InitializeComponent();
             customersList = CustomerViewList.GetCustomers();
+            merchListView = MerchandiseManager.GetMerchList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -43,9 +47,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             customerOrder.Customer = (Customer)e.ClickedItem;
             //this.text.Text = customerOrder.Customer.Name;
+            this.merchViewList.Visibility = Visibility.Visible;
 
-            
-            
+
 
 
         }
