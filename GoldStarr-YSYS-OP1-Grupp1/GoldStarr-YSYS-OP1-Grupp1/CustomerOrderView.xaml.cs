@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -60,15 +61,48 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private void SubmitOrderLine(object sender, RoutedEventArgs e)
         {
             customerOrder.ProductsBought.Add(clickedProduct);
-           
 
-            
+            var parent = (sender as Button).Parent; // listviewItem
+            TextBox textBoxx = parent.GetChildrenOfType<TextBox>().First( x => x.Name == "quantityInput"); //  
+            Debug.WriteLine(textBoxx.Text);
+
+        
+
             // lägga till antalet produkter ???
 
             /*foreach (var item in customerOrder.ProductsBought)
             {
                 this.text.Text = item.Name;
             }*/
+        }
+
+      
+
+    }
+
+    public static class Extensions
+    {
+        public static IEnumerable<T> GetChildrenOfType<T>(this DependencyObject start) where T : class // går alla grejjer som finns i listviewn
+        {
+            var queue = new Queue<DependencyObject>();
+            queue.Enqueue(start);
+
+            while (queue.Count > 0)
+            {
+                var item = queue.Dequeue();
+
+                var realItem = item as T;
+                if (realItem != null)
+                {
+                    yield return realItem;
+                }
+
+                int count = VisualTreeHelper.GetChildrenCount(item);
+                for (int i = 0; i < count; i++)
+                {
+                    queue.Enqueue(VisualTreeHelper.GetChild(item, i));
+                }
+            }
         }
     }
 }
