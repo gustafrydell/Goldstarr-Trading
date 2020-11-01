@@ -40,7 +40,7 @@
                         <TextBlock FontSize="14" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
                         <TextBlock FontSize="10" Text="{x:Bind Stock}" HorizontalAlignment="Left"/>
                         <!--<Button Content="Add" HorizontalAlignment="Right"/>-->
-                        <TextBox Text="" FontSize="15"></TextBox>
+                        <TextBox x:Name="quantityInput"  FontSize="15"/>
                         <Button Content="Add product to order" Click="SubmitOrderLine"/>
                     </StackPanel>
                 </DataTemplate>

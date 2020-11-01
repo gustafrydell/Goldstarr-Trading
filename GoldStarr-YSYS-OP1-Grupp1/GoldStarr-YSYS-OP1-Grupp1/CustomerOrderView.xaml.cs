@@ -27,6 +27,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private CustomerOrder customerOrder;
         private List<Merchandise> merchListView;
         private Merchandise clickedProduct;
+       
 
         public CustomerOrderView()
         {
@@ -39,6 +40,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             customerOrder = new CustomerOrder();
+          
+            customerOrder.DateTime = DateTime.Now;
+
             this.customerListView.Visibility = Visibility.Visible;
         }
 
@@ -56,6 +60,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private void SubmitOrderLine(object sender, RoutedEventArgs e)
         {
             customerOrder.ProductsBought.Add(clickedProduct);
+           
+
+            
+            // lägga till antalet produkter ???
+
             /*foreach (var item in customerOrder.ProductsBought)
             {
                 this.text.Text = item.Name;
