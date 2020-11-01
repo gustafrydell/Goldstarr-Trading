@@ -55,18 +55,38 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         private void ProductListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            clickedProduct = (Merchandise)e.ClickedItem;
+            //clickedProduct = (Merchandise)e.ClickedItem;
+
+           
         }
 
         private void SubmitOrderLine(object sender, RoutedEventArgs e)
         {
-            customerOrder.ProductsBought.Add(clickedProduct);
-
             var parent = (sender as Button).Parent; // listviewItem
-            TextBox textBoxx = parent.GetChildrenOfType<TextBox>().First( x => x.Name == "quantityInput"); //  
+
+            //customerOrder.ProductsBought.Add(clickedProduct);
+
+            var parent1 = (sender as Button).Parent; // listviewItem
+            TextBlock merchTextBox1 = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "productName");
+
+            foreach (var item in merchListView)
+            {
+                if (item.Name == merchTextBox1.Text)
+                {
+                    clickedProduct = item;
+                    customerOrder.ProductsBought.Add(clickedProduct);
+                }
+            }
+
+            TextBox merchTextBox = parent.GetChildrenOfType<TextBox>().First( x => x.Name == "quantityInput");
+            for (int i = 0; i < customerOrder.ProductsBought.Count; i++)
+            {
+                Debug.WriteLine(customerOrder.ProductsBought[i].Name);
+            }
+           
      
-            clickedProduct.QuantityPurchased = Int32.Parse(textBoxx.Text);
-            clickedProduct.Stock -= clickedProduct.QuantityPurchased;
+            clickedProduct.QuantityPurchased = Int32.Parse(merchTextBox.Text);
+            clickedProduct.Stock -= clickedProduct.QuantityPurchased; 
 
             //Debug.WriteLine(clickedProduct.Stock);
 
