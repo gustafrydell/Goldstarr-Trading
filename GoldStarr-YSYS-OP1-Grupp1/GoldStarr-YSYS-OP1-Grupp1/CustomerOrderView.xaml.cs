@@ -22,9 +22,26 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     /// </summary>
     public sealed partial class CustomerOrderView : Page
     {
+        private List<Customer> customersList;
+
+        private CustomerOrder customerOrder;
         public CustomerOrderView()
         {
+          
             this.InitializeComponent();
+            customersList = CustomerViewList.GetCustomers();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            customerOrder = new CustomerOrder();
+            this.customerListView.Visibility = Visibility.Visible;
+        }
+
+        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //customerOrder.Customer = (Customer)sender;
+            
         }
     }
 }

@@ -9,8 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        
-        <TextBlock HorizontalAlignment="Left" Margin="95,432,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="130" Width="575" FontSize="100" Text="Customer"/>
-        <TextBox x:Name="CustomerNameText" HorizontalAlignment="Left" Margin="775,120,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Height="786" Width="1039" FontSize="48" IsReadOnly="True"/>
+
+       
+
     </Grid>
 </Page>

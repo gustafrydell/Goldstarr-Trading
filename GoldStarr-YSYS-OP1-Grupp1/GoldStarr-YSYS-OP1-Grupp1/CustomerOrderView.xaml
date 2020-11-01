@@ -9,14 +9,32 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="396,440,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="230" Width="1135" FontSize="150" Text="Customer Orders"/>
-        <CommandBar ClosedDisplayMode="Hidden">
-            <CommandBar.Content>
-                <Grid/>
-            </CommandBar.Content>
-            <AppBarButton Icon="Accept"/>
-            <AppBarButton Icon="Cancel"/>
-        </CommandBar>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="278*"/>
+            <RowDefinition Height="621*"/>
+        </Grid.RowDefinitions>
+
+        <ListView ItemsSource="{x:Bind customersList}" x:Name = "customerListView"  Grid.Column="0" Grid.Row="1" IsItemClickEnabled="True" ItemClick="ListView_ItemClick" Visibility="Collapsed">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Customer">
+                    <StackPanel>
+                        <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{x:Bind Address}" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{x:Bind PhonenNumber}" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Grid.Column="0" Content="Lägg till ny order" Click="Button_Click" Width="400" Height="200" Margin="43,0,0,0" FontSize="40" RenderTransformOrigin="0.497,0.526" Background="#33D42727"/>
+
+
 
     </Grid>
 </Page>
