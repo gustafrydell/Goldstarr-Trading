@@ -64,9 +64,12 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
             var parent = (sender as Button).Parent; // listviewItem
             TextBox textBoxx = parent.GetChildrenOfType<TextBox>().First( x => x.Name == "quantityInput"); //  
-            Debug.WriteLine(textBoxx.Text);
+     
+            clickedProduct.QuantityPurchased = Int32.Parse(textBoxx.Text);
+            clickedProduct.Stock -= clickedProduct.QuantityPurchased;
 
-        
+            //Debug.WriteLine(clickedProduct.Stock);
+
 
             // lägga till antalet produkter ???
 
@@ -76,7 +79,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             }*/
         }
 
-      
+
 
     }
 
