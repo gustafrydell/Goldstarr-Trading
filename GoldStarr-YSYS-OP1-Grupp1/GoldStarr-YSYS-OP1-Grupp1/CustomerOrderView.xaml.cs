@@ -22,12 +22,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     /// </summary>
     public sealed partial class CustomerOrderView : Page
     {
-       //private string customerName = "hkjfdhkdf";
+        //private string ProductName = "keps";
         private List<Customer> customersList;
-
         private CustomerOrder customerOrder;
-
         private List<Merchandise> merchListView;
+        private Merchandise clickedProduct;
 
         public CustomerOrderView()
         {
@@ -46,12 +45,21 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             customerOrder.Customer = (Customer)e.ClickedItem;
-            //this.text.Text = customerOrder.Customer.Name;
             this.merchViewList.Visibility = Visibility.Visible;
+        }
 
+        private void ProductListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            clickedProduct = (Merchandise)e.ClickedItem;
+        }
 
-
-
+        private void SubmitOrderLine(object sender, RoutedEventArgs e)
+        {
+            customerOrder.ProductsBought.Add(clickedProduct);
+            /*foreach (var item in customerOrder.ProductsBought)
+            {
+                this.text.Text = item.Name;
+            }*/
         }
     }
 }

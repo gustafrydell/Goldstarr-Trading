@@ -32,7 +32,7 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <ListView ItemsSource="{x:Bind merchListView}" x:Name="merchViewList" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" IsItemClickEnabled="True">
+        <ListView ItemsSource="{x:Bind merchListView}" x:Name="merchViewList" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" IsItemClickEnabled="True" ItemClick="ProductListView_ItemClick">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Merchandise">
                     <StackPanel>
@@ -40,11 +40,13 @@
                         <TextBlock FontSize="14" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
                         <TextBlock FontSize="10" Text="{x:Bind Stock}" HorizontalAlignment="Left"/>
                         <!--<Button Content="Add" HorizontalAlignment="Right"/>-->
+                        <TextBox Text="" FontSize="15"></TextBox>
+                        <Button Content="Add product to order" Click="SubmitOrderLine"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <!--<TextBlock  Grid.Row="1" Grid.Column="1" x:Name="text" Text="{x:Bind customerName, Mode=TwoWay}" HorizontalAlignment="Right" Width=" 500" Height="200"></TextBlock >-->
+        <!--<TextBlock  Grid.Row="1" Grid.Column="1" x:Name="text" Text="{x:Bind ProductName, Mode=TwoWay}" HorizontalAlignment="Right" Width=" 500" Height="200"></TextBlock >-->
 
         <Button Grid.Column="0" Content="Lägg till ny order" Click="Button_Click" Width="400" Height="200" Margin="43,0,0,0" FontSize="40" RenderTransformOrigin="0.497,0.526" Background="#33D42727"/>
 
