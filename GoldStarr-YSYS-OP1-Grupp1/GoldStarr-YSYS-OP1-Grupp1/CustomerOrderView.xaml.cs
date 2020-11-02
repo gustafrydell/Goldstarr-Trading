@@ -79,15 +79,18 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             }
 
             TextBox merchTextBox = parent.GetChildrenOfType<TextBox>().First( x => x.Name == "quantityInput");
-            for (int i = 0; i < customerOrder.ProductsBought.Count; i++)
-            {
-                Debug.WriteLine(customerOrder.ProductsBought[i].Name);
-            }
+           // for (int i = 0; i < customerOrder.ProductsBought.Count; i++)
+          //  {
+            //    Debug.WriteLine(customerOrder.ProductsBought[i].Name);
+            //}
            
      
            customerOrder.Quantity = Int32.Parse(merchTextBox.Text);
             
            clickedProduct.Stock -= customerOrder.Quantity;
+
+            TextBlock merchStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "merchStockTextBlock");
+            merchStockTextBlock.Text = clickedProduct.Stock.ToString();
 
 
 
