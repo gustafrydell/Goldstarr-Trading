@@ -24,7 +24,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class RestockOption : Page, INotifyPropertyChanged
+    public sealed partial class RestockOption : Page
     {
         //public Merchandise _merchandise;
         public MerchandiseManager _merchandiseManager;
@@ -37,7 +37,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
           
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
+
+        //public event PropertyChangedEventHandler PropertyChanged;
 
         //public void AddToStock(int amount, string itemName)
         //{
@@ -53,6 +55,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
+
             //AddToStock();
             Button button = (Button)sender;
             StackPanel parent = VisualTreeHelper.GetParent(button) as StackPanel;
