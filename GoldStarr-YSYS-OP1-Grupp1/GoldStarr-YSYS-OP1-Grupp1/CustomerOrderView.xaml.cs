@@ -85,10 +85,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             }
            
      
-            clickedProduct.QuantityPurchased = Int32.Parse(merchTextBox.Text);
-            clickedProduct.Stock -= clickedProduct.QuantityPurchased; 
+           customerOrder.Quantity = Int32.Parse(merchTextBox.Text);
+            
+            //clickedProduct.Stock -= clickedProduct.QuantityPurchased; 
 
-            //Debug.WriteLine(clickedProduct.Stock);
+            //Debug.WriteLine(customerOrder.Quantity);
 
 
             // lägga till antalet produkter ???

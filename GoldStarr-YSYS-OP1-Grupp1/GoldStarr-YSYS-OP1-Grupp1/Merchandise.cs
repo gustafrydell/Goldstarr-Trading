@@ -13,7 +13,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public int Stock { get; set; }
         public int MerchandiseId { get; set; }
         public string CoverImage { get; set; }
-        public int QuantityPurchased { get; set; }
+
 
     }
 
