@@ -31,6 +31,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public readonly string CustomerListLabel = "Customers";
         public readonly string CustomerOrderListLabel = "Customer Orders";
         public readonly string MerchandiseListLabel = "Merchandise";
+        public readonly string ReStockOptionLabel = "Restock";
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)
         {
@@ -45,7 +46,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             var pageType =
                 label == CustomerListLabel ? typeof(CustomerView) :
                 label == CustomerOrderListLabel ? typeof(CustomerOrderView) :
-                label == MerchandiseListLabel ? typeof(MerchandiseView) : null;
+                label == MerchandiseListLabel ? typeof(MerchandiseView) :
+                label == ReStockOptionLabel ? typeof(RestockOption) : null;
             if (pageType != null && pageType != AppFrame.CurrentSourcePageType)
             {
                 AppFrame.Navigate(pageType);
@@ -72,7 +74,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 }
                 else if (e.SourcePageType == typeof(MerchandiseView))
                 {
-                    NavView.SelectedItem = typeof(MerchandiseView);
+                    NavView.SelectedItem = MerchandiseListMeny;
+                }
+                else if(e.SourcePageType == typeof(RestockOption))
+                {
+                    NavView.SelectedItem = RestockOption;
                 }
             }
         }

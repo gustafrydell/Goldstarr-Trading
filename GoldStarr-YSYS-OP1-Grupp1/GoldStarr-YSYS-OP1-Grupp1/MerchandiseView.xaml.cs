@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,11 +24,18 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     public sealed partial class MerchandiseView : Page
     {
 
-        private List<Merchandise> merchListView;
+        public ObservableCollection<Merchandise> merchListView { get; set; }
+        
+        
+
+
         public MerchandiseView()
         {
             this.InitializeComponent();
-            merchListView = MerchandiseManager.GetMerchList();
+            merchListView = App.Restock._merchandiseManager.merchlist;
+
+
+            
         }
         //Gör produktrutan clickable
         private void MerchClick(object sender, ItemClickEventArgs e)
