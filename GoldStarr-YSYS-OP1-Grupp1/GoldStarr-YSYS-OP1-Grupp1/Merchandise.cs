@@ -9,31 +9,40 @@ using System.Threading.Tasks;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
 {
-    public class Merchandise
+    public class Merchandise : INotifyPropertyChanged
     {
         public string Name { get; set; }
         public string Supplier { get; set; }
-        public int Stock { get; set; }
+
+        private int _stock; //{ get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public int MerchandiseId { get; set; }
         public string CoverImage { get; set; }
+        
+        public int Stock { 
+            get { return _stock; } 
+            set { _stock = value; OnPropertyChanged(); }
+        }
 
-        //public int Stock { 
-        //    get { return _stock; } 
-        //    set { _stock = value; OnPropertyChanged(); }
-        //}
+        protected void OnPropertyChanged([CallerMemberName]string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
-        //protected void OnPropertyChanged([CallerMemberName]string propertyName = null)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
 
-        //public event PropertyChangedEventHandler PropertyChanged;
+        public string GetInStock()
+        {
+            return $"{Stock} i lager";
+        }
+        
 
 
     }
 
     public class MerchandiseManager
     {
+    
         public ObservableCollection<Merchandise> merchlist { get; set; }
 
         public MerchandiseManager()
@@ -41,8 +50,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             merchlist = GetMerchList();
 
         }
-
-            public static ObservableCollection<Merchandise> GetMerchList()
+            public ObservableCollection<Merchandise> GetMerchList()
             {
                 var merchList = new ObservableCollection<Merchandise>();
                 {

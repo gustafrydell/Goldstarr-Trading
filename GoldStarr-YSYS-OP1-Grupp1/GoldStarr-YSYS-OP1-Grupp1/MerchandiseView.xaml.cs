@@ -25,12 +25,17 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     {
 
         public ObservableCollection<Merchandise> merchListView { get; set; }
+        
+        
 
 
         public MerchandiseView()
         {
             this.InitializeComponent();
-            merchListView = MerchandiseManager.GetMerchList();
+            merchListView = App.Restock._merchandiseManager.merchlist;
+
+
+            
         }
     }
 }

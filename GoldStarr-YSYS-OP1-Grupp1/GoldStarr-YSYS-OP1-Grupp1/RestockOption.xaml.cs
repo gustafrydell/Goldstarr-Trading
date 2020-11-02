@@ -32,14 +32,16 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public RestockOption()
         {
             this.InitializeComponent();
-           // _merchandise = new Merchandise();
-            _merchandiseManager = new MerchandiseManager();
+            // _merchandise = new Merchandise();
+            _merchandiseManager = App._merchandiseManager;
+
+            
+            
           
         }
 
         //public event PropertyChangedEventHandler PropertyChanged;
 
-        //public event PropertyChangedEventHandler PropertyChanged;
 
         //public void AddToStock(int amount, string itemName)
         //{
@@ -55,7 +57,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-
+            
             //AddToStock();
             Button button = (Button)sender;
             StackPanel parent = VisualTreeHelper.GetParent(button) as StackPanel;
