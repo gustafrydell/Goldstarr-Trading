@@ -16,8 +16,8 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="278*"/>
-            <RowDefinition Height="621*"/>
+            <RowDefinition Height="407*"/>
+            <RowDefinition Height="593*"/>
         </Grid.RowDefinitions>
 
         <ListView ItemsSource="{x:Bind customersList}" x:Name = "customerListView"  Grid.Column="0" Grid.Row="1" IsItemClickEnabled="True" ItemClick="ListView_ItemClick" Visibility="Collapsed">
@@ -49,6 +49,11 @@
         <!--<TextBlock  Grid.Row="1" Grid.Column="1" x:Name="text" Text="{x:Bind ProductName, Mode=TwoWay}" HorizontalAlignment="Right" Width=" 500" Height="200"></TextBlock >-->
 
         <Button Grid.Column="0" Content="Lägg till ny order" Click="Button_Click" Width="400" Height="200" Margin="43,0,0,0" FontSize="40" RenderTransformOrigin="0.497,0.526" Background="#33D42727"/>
+        <TextBlock  x:Name="ProductNameTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,169,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="266" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
+        <TextBlock  x:Name="quantityPurchasedTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="418,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
+        <TextBlock  x:Name="CustomerNameTextBloc" Grid.Column="1" HorizontalAlignment="Left" Margin="58,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
+        <TextBlock  x:Name="DateTimeTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="418,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="230,28,0,0" Text="Din Order" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="286" TextAlignment="Center" FontSize="36"/>
 
 
 

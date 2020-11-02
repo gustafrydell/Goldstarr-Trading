@@ -87,7 +87,14 @@ namespace GoldStarr_YSYS_OP1_Grupp1
      
            customerOrder.Quantity = Int32.Parse(merchTextBox.Text);
             
-            //clickedProduct.Stock -= clickedProduct.QuantityPurchased; 
+           clickedProduct.Stock -= customerOrder.Quantity;
+
+
+
+            ProductNameTextBlock.Text = clickedProduct.Name;
+            quantityPurchasedTextBlock.Text = merchTextBox.Text;
+            CustomerNameTextBlock.Text = customerOrder.Customer.Name;
+            DateTimeTextBlock.Text = customerOrder.DateTime.ToString();
 
             //Debug.WriteLine(customerOrder.Quantity);
 
