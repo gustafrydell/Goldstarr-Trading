@@ -26,7 +26,7 @@
                     <StackPanel>
                         <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left"/>
                         <TextBlock Text="{x:Bind Address}" HorizontalAlignment="Left"/>
-                        <TextBlock Text="{x:Bind PhonenNumber}" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{x:Bind PhoneNumber}" HorizontalAlignment="Left"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
