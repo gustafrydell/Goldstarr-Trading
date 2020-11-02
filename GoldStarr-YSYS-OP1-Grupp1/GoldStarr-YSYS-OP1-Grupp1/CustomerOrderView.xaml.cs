@@ -83,12 +83,14 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             {
                 Debug.WriteLine(customerOrder.ProductsBought[i].Name);
             }
-           
-     
-           customerOrder.Quantity = Int32.Parse(merchTextBox.Text);
+
+            
+
+            customerOrder.Quantity = Int32.Parse(merchTextBox.Text);
             
            clickedProduct.Stock -= customerOrder.Quantity;
-
+            TextBlock merchStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "merchTextBlock");
+            merchStockTextBlock.Text = clickedProduct.Stock.ToString();
 
 
             ProductNameTextBlock.Text = clickedProduct.Name;

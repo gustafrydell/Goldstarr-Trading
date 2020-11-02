@@ -38,7 +38,7 @@
                     <StackPanel>
                         <TextBlock x:Name="productName" FontSize="20"  Text="{x:Bind Name}" HorizontalAlignment="Left"/>
                         <TextBlock  FontSize="14" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
-                        <TextBlock FontSize="10" Text="{x:Bind Stock}" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="merchTextBlock" FontSize="10" Text="{x:Bind Stock}" HorizontalAlignment="Left"/>
                         <!--<Button Content="Add" HorizontalAlignment="Right"/>-->
                         <TextBox x:Name="quantityInput"  FontSize="15" Visibility="Visible"/>
                         <Button Content="Add product to order" Click="SubmitOrderLine"/>
