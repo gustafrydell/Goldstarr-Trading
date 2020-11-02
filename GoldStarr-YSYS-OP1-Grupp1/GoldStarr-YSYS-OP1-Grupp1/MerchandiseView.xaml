@@ -28,9 +28,9 @@
                 <DataTemplate x:DataType="local:Merchandise">
                     <StackPanel>
                         <Image Width="200" Source="{x:Bind CoverImage}" />
-                        <TextBlock FontSize="20"  Text="{x:Bind Name}" HorizontalAlignment="Left"/>
-                        <TextBlock FontSize="14" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
-                        <TextBlock FontSize="10" Text="{x:Bind Stock}" HorizontalAlignment="Left"/>
+                        <TextBlock FontSize="25"  Text="{x:Bind Name}" HorizontalAlignment="Left"/>
+                        <TextBlock FontSize="18" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
+                        <TextBlock FontSize="15" Text="{x:Bind Stock, Mode=TwoWay}" HorizontalAlignment="Left"/>
 
                     </StackPanel>
                 </DataTemplate>
