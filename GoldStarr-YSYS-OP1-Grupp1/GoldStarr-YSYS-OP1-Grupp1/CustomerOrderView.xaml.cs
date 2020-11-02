@@ -26,16 +26,16 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         //private string ProductName = "keps";
         private List<Customer> customersList;
         private CustomerOrder customerOrder;
-        private List<Merchandise> merchListView;
+        //private List<Merchandise> merchListView;
         private Merchandise clickedProduct;
-       
+        public MerchandiseManager merchListView;
 
         public CustomerOrderView()
         {
           
             this.InitializeComponent();
             customersList = CustomerViewList.GetCustomers();
-            merchListView = MerchandiseManager.GetMerchList();
+            merchListView = App._merchandiseManager;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -69,7 +69,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             var parent1 = (sender as Button).Parent; // listviewItem
             TextBlock merchTextBox1 = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "productName");
 
-            foreach (var item in merchListView)
+            foreach (var item in merchListView.merchlist)
             {
                 if (item.Name == merchTextBox1.Text)
                 {
