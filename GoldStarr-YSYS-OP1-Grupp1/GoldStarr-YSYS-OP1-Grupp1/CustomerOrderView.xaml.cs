@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -29,6 +30,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         //private List<Merchandise> merchListView;
         private Merchandise clickedProduct;
         public MerchandiseManager merchListView;
+        private int _quantity;
 
         public CustomerOrderView()
         {
@@ -74,29 +76,63 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 if (item.Name == merchTextBox1.Text)
                 {
                     clickedProduct = item;
-                    customerOrder.ProductsBought.Add(clickedProduct);
+                    
                 }
             }
 
             TextBox merchTextBox = parent.GetChildrenOfType<TextBox>().First( x => x.Name == "quantityInput");
+
+            //
+
+            if (int.TryParse(merchTextBox.Text, out _quantity))
+            {
+                customerOrder.Quantity = _quantity;
+                // allt är ok
+                // addToStock är uppdaterad
+                if (customerOrder.Quantity <= clickedProduct.Stock)
+                {
+                    customerOrder.ProductsBought.Add(clickedProduct);
+                    clickedProduct.Stock -= customerOrder.Quantity;
+
+                    TextBlock merchStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "merchTextBlock");
+                    merchStockTextBlock.Text = clickedProduct.Stock.ToString();
+
+
+                    ProductNameTextBlock.Text = clickedProduct.Name;
+                    quantityPurchasedTextBlock.Text = merchTextBox.Text;
+                    CustomerNameTextBlock.Text = customerOrder.Customer.Name;
+                    DateTimeTextBlock.Text = customerOrder.DateTime.ToString();
+                }
+                else
+                {
+                    var anotherDialog = new MessageDialog("du är för fattig, du har inte så många på lager");
+                    var y = anotherDialog.ShowAsync().GetAwaiter();
+                }
+                
+               
+
+               
+
+            }
+            else
+            {
+                var dialog = new MessageDialog ("Gör om, gör rätt");
+                var t = dialog.ShowAsync().GetAwaiter();
+            }
+
+
             for (int i = 0; i < customerOrder.ProductsBought.Count; i++)
             {
                 Debug.WriteLine(customerOrder.ProductsBought[i].Name);
             }
 
-            
 
-            customerOrder.Quantity = Int32.Parse(merchTextBox.Text);
-            
-           clickedProduct.Stock -= customerOrder.Quantity;
-            TextBlock merchStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "merchTextBlock");
-            merchStockTextBlock.Text = clickedProduct.Stock.ToString();
+            //if (customerOrder.Quantity)merchTextBox.Text
 
 
-            ProductNameTextBlock.Text = clickedProduct.Name;
-            quantityPurchasedTextBlock.Text = merchTextBox.Text;
-            CustomerNameTextBlock.Text = customerOrder.Customer.Name;
-            DateTimeTextBlock.Text = customerOrder.DateTime.ToString();
+
+
+
 
             //Debug.WriteLine(customerOrder.Quantity);
 
