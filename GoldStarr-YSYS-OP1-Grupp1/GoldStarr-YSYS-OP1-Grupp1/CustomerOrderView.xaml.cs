@@ -27,9 +27,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         //private string ProductName = "keps";
         private List<Customer> customersList;
         private CustomerOrder customerOrder;
-        //private List<Merchandise> merchListView;
+        //private List<Merchandise> merchandiseManager;
         private Merchandise clickedProduct;
-        public MerchandiseManager merchListView;
+        public MerchandiseManager merchandiseManager;
         private int _quantity;
 
         public CustomerOrderView()
@@ -37,10 +37,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
           
             this.InitializeComponent();
             customersList = CustomerViewList.GetCustomers();
-            merchListView = App._merchandiseManager;
+            merchandiseManager = App._merchandiseManager;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddNewOrderButton_Click(object sender, RoutedEventArgs e)
         {
             customerOrder = new CustomerOrder();
           
@@ -49,20 +49,20 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             this.customerListView.Visibility = Visibility.Visible;
         }
 
-        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        private void SelectCustomer_ItemClick(object sender, ItemClickEventArgs e)
         {
             customerOrder.Customer = (Customer)e.ClickedItem;
             this.merchViewList.Visibility = Visibility.Visible;
         }
 
-        private void ProductListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //clickedProduct = (Merchandise)e.ClickedItem;
+        //private void ProductListView_ItemClick(object sender, ItemClickEventArgs e)
+        //{
+        //    //clickedProduct = (Merchandise)e.ClickedItem;
 
            
-        }
+        //}
 
-        private void SubmitOrderLine(object sender, RoutedEventArgs e)
+        private void AddProductToOrder_Click(object sender, RoutedEventArgs e)
         {
             var parent = (sender as Button).Parent; // listviewItem
 
@@ -71,7 +71,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             var parent1 = (sender as Button).Parent; // listviewItem
             TextBlock merchTextBox1 = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "productName");
 
-            foreach (var item in merchListView.merchlist)
+            foreach (var item in merchandiseManager.merchlist)
             {
                 if (item.Name == merchTextBox1.Text)
                 {

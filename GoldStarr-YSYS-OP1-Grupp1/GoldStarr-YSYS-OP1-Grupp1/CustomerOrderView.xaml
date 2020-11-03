@@ -20,35 +20,35 @@
             <RowDefinition Height="593*"/>
         </Grid.RowDefinitions>
 
-        <ListView ItemsSource="{x:Bind customersList}" x:Name = "customerListView"  Grid.Column="0" Grid.Row="1" IsItemClickEnabled="True" ItemClick="ListView_ItemClick" Visibility="Collapsed">
+        <ListView ItemsSource="{x:Bind customersList}" x:Name ="customerListView"  Grid.Column="0" Grid.Row="1" IsItemClickEnabled="True" ItemClick="SelectCustomer_ItemClick" Visibility="Collapsed">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Customer">
                     <StackPanel>
-                        <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left"/>
-                        <TextBlock Text="{x:Bind Address}" HorizontalAlignment="Left"/>
-                        <TextBlock Text="{x:Bind PhoneNumber}" HorizontalAlignment="Left"/>
+                        <TextBlock Name="CustomerName" Text="{x:Bind Name}" HorizontalAlignment="Left"/>
+                        <TextBlock Name="CustomerAddress" Text="{x:Bind Address}" HorizontalAlignment="Left"/>
+                        <TextBlock Name="CustomerPhoneNumber" Text="{x:Bind PhoneNumber}" HorizontalAlignment="Left"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <ListView ItemsSource="{x:Bind merchListView.merchlist}" x:Name="merchViewList" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" IsItemClickEnabled="True" ItemClick="ProductListView_ItemClick">
+        <ListView ItemsSource="{x:Bind merchandiseManager.merchlist}" x:Name="merchViewList" Visibility="Collapsed" Grid.Column="1" Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Merchandise">
                     <StackPanel>
                         <TextBlock x:Name="productName" FontSize="20"  Text="{x:Bind Name}" HorizontalAlignment="Left"/>
                         <TextBlock  FontSize="14" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
                         <TextBlock x:Name="merchTextBlock" FontSize="10" Text="{x:Bind Stock}" HorizontalAlignment="Left"/>
-                        <!--<Button Content="Add" HorizontalAlignment="Right"/>-->
                         <TextBox x:Name="quantityInput"  FontSize="15" Visibility="Visible"/>
-                        <Button Content="Add product to order" Click="SubmitOrderLine"/>
+                        <Button Content="Add product to order" Click="AddProductToOrder_Click"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <!--<TextBlock  Grid.Row="1" Grid.Column="1" x:Name="text" Text="{x:Bind ProductName, Mode=TwoWay}" HorizontalAlignment="Right" Width=" 500" Height="200"></TextBlock >-->
-
-        <Button Grid.Column="0" Content="Lägg till ny order" Click="Button_Click" Width="400" Height="200" Margin="43,0,0,0" FontSize="40" RenderTransformOrigin="0.497,0.526" Background="#33D42727"/>
+        
+        <Button Name="AddNewOrderButton" Grid.Column="0" Content="Lägg till ny order" Click="AddNewOrderButton_Click" Width="400" Height="200" Margin="43,0,0,0" FontSize="40" RenderTransformOrigin="0.497,0.526" Background="#33D42727"/>
+        
+        <!--Orderlist-->
         <TextBlock  x:Name="ProductNameTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,105,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="266" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
         <TextBlock  x:Name="quantityPurchasedTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="480,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
         <TextBlock  x:Name="CustomerNameTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
