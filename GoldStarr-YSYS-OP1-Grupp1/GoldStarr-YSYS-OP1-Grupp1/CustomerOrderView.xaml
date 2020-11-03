@@ -57,7 +57,7 @@
         <TextBlock  x:Name="orderedQuantityPurchased_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="480,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Collapsed"/>
         <TextBlock  x:Name="orderedCustomerName_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Collapsed"/>
         <TextBlock  x:Name="orderedDateTime_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="429,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
-        <TextBlock x:Name="orderTitle" Text="Följande order är nu lagd:" Grid.Column="1" HorizontalAlignment="Left" Margin="180,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="286" TextAlignment="Center" FontSize="36" Visibility="Collapsed"/>
+        <TextBlock x:Name="orderTitle" Text="Följande order är nu lagd:" Grid.Column="1" HorizontalAlignment="Left" Margin="100,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="500" TextAlignment="Center" FontSize="36" Visibility="Collapsed"/>
 
     </Grid>
 </Page>
