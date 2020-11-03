@@ -20,42 +20,40 @@
             <RowDefinition Height="593*"/>
         </Grid.RowDefinitions>
 
-        <ListView ItemsSource="{x:Bind customersList}" x:Name ="customerListView"  Grid.Column="0" Grid.Row="1" IsItemClickEnabled="True" ItemClick="SelectCustomer_ItemClick" Visibility="Collapsed">
+        <Button Name="AddNewOrderButton" Grid.Column="0" Content="Lägg till ny order" Click="AddNewOrderButton_Click" Width="400" Height="200" Margin="43,0,0,0" FontSize="40" RenderTransformOrigin="0.497,0.526" Background="#33D42727"/>
+        
+        <ListView ItemsSource="{x:Bind customersList}" x:Name ="customerList_Listview"  Grid.Column="0" Grid.Row="1" IsItemClickEnabled="True" ItemClick="SelectCustomer_ItemClick" Visibility="Collapsed">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Customer">
                     <StackPanel>
-                        <TextBlock Name="CustomerName" Text="{x:Bind Name}" HorizontalAlignment="Left"/>
-                        <TextBlock Name="CustomerAddress" Text="{x:Bind Address}" HorizontalAlignment="Left"/>
-                        <TextBlock Name="CustomerPhoneNumber" Text="{x:Bind PhoneNumber}" HorizontalAlignment="Left"/>
+                        <TextBlock Name="customerName" Text="{x:Bind Name}" HorizontalAlignment="Left"/>
+                        <TextBlock Name="customerAddress" Text="{x:Bind Address}" HorizontalAlignment="Left"/>
+                        <TextBlock Name="customerPhoneNumber" Text="{x:Bind PhoneNumber}" HorizontalAlignment="Left"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <ListView ItemsSource="{x:Bind merchandiseManager.merchlist}" x:Name="merchViewList" Visibility="Collapsed" Grid.Column="1" Grid.Row="1">
+        <ListView ItemsSource="{x:Bind merchandiseManager.merchlist}" x:Name="merchandiseList_Listview" Visibility="Collapsed" Grid.Column="1" Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Merchandise">
                     <StackPanel>
                         <TextBlock x:Name="productName" FontSize="20"  Text="{x:Bind Name}" HorizontalAlignment="Left"/>
-                        <TextBlock  FontSize="14" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
-                        <TextBlock x:Name="merchTextBlock" FontSize="10" Text="{x:Bind Stock}" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="supplierName" FontSize="14" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="inStock_TextBlock" FontSize="10" Text="{x:Bind Stock}" HorizontalAlignment="Left"/>
                         <TextBox x:Name="quantityInput"  FontSize="15" Visibility="Visible"/>
-                        <Button Content="Add product to order" Click="AddProductToOrder_Click"/>
+                        <Button x:Name="AddProductToOrderButton" Content="Add product to order" Click="AddProductToOrderButton_Click"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         
-        <Button Name="AddNewOrderButton" Grid.Column="0" Content="Lägg till ny order" Click="AddNewOrderButton_Click" Width="400" Height="200" Margin="43,0,0,0" FontSize="40" RenderTransformOrigin="0.497,0.526" Background="#33D42727"/>
-        
         <!--Orderlist-->
-        <TextBlock  x:Name="ProductNameTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,105,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="266" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
-        <TextBlock  x:Name="quantityPurchasedTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="480,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
-        <TextBlock  x:Name="CustomerNameTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
-        <TextBlock  x:Name="DateTimeTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="528,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
+        <TextBlock  x:Name="orderedProductName_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,105,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="266" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
+        <TextBlock  x:Name="orderedQuantityPurchased_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="480,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
+        <TextBlock  x:Name="orderedCustomerName_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
+        <TextBlock  x:Name="orderedDateTime_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="528,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="230,28,0,0" Text="Din Order" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="286" TextAlignment="Center" FontSize="36"/>
-
-
 
     </Grid>
 </Page>
