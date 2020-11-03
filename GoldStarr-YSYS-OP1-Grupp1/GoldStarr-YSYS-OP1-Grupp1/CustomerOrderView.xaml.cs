@@ -81,11 +81,15 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
                     TextBlock findStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
                     findStockTextBlock.Text = clickedProduct.Stock.ToString();
-
+                    
                     orderedProductName_Textblock.Text = clickedProduct.Name;
                     orderedQuantityPurchased_Textblock.Text = findQuantityTextbox.Text;
                     orderedCustomerName_Textblock.Text = customerOrder.Customer.Name;
                     orderedDateTime_Textblock.Text = customerOrder.DateTime.ToString();
+
+                    enabledOrderVisibility();
+
+                    findQuantityTextbox.Text = "";
                 }
                 else
                 {
@@ -105,6 +109,15 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             //}
 
             //Debug.WriteLine(customerOrder.Quantity);
+        }
+
+        private void enabledOrderVisibility()
+        {
+            orderTitle.Visibility = Visibility.Visible;
+            orderedCustomerName_Textblock.Visibility = Visibility.Visible;
+            orderedDateTime_Textblock.Visibility = Visibility.Visible;
+            orderedProductName_Textblock.Visibility = Visibility.Visible;
+            orderedQuantityPurchased_Textblock.Visibility = Visibility.Visible;
         }
     }
 

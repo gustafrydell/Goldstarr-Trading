@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
 
         <Button Name="AddNewOrderButton" Grid.Column="0" Content="Lägg till ny order" Click="AddNewOrderButton_Click" Width="400" Height="200" Margin="43,0,0,0" FontSize="40" RenderTransformOrigin="0.497,0.526" Background="#33D42727"/>
-        
+
         <ListView ItemsSource="{x:Bind customersList}" x:Name ="customerList_Listview"  Grid.Column="0" Grid.Row="1" IsItemClickEnabled="True" ItemClick="SelectCustomer_ItemClick" Visibility="Collapsed">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Customer">
@@ -47,13 +47,13 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+
         <!--Orderlist-->
-        <TextBlock  x:Name="orderedProductName_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,105,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="266" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
-        <TextBlock  x:Name="orderedQuantityPurchased_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="480,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
-        <TextBlock  x:Name="orderedCustomerName_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
-        <TextBlock  x:Name="orderedDateTime_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="528,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="230,28,0,0" Text="Din Order" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="286" TextAlignment="Center" FontSize="36"/>
+        <TextBlock  x:Name="orderedProductName_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,105,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="266" RenderTransformOrigin="0.496,0.5" Visibility="Collapsed"/>
+        <TextBlock  x:Name="orderedQuantityPurchased_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="480,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Collapsed"/>
+        <TextBlock  x:Name="orderedCustomerName_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Collapsed"/>
+        <TextBlock  x:Name="orderedDateTime_Textblock" Grid.Column="1" HorizontalAlignment="Left" Margin="429,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
+        <TextBlock x:Name="orderTitle" Text="Följande order är nu lagd:" Grid.Column="1" HorizontalAlignment="Left" Margin="180,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="286" TextAlignment="Center" FontSize="20" Visibility="Collapsed"/>
 
     </Grid>
 </Page>
