@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2*"/>
 
         </Grid.ColumnDefinitions>
@@ -29,6 +29,7 @@
                         <TextBlock Name="customerName" Text="{x:Bind Name}" HorizontalAlignment="Left" FontWeight="Bold"/>
                         <TextBlock Name="customerAddress" Text="{x:Bind Address}" HorizontalAlignment="Left"/>
                         <TextBlock Name="customerPhoneNumber" Text="{x:Bind PhoneNumber}" HorizontalAlignment="Left"/>
+                        <TextBlock/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
