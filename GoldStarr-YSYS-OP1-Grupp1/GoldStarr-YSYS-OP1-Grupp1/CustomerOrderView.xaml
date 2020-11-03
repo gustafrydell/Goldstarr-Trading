@@ -16,17 +16,20 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="407*"/>
+            <RowDefinition Height="200*"/>
             <RowDefinition Height="593*"/>
         </Grid.RowDefinitions>
 
         <ListView ItemsSource="{x:Bind customersList}" x:Name = "customerListView"  Grid.Column="0" Grid.Row="1" IsItemClickEnabled="True" ItemClick="ListView_ItemClick" Visibility="Collapsed">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Customer">
-                    <StackPanel>
-                        <TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left"/>
-                        <TextBlock Text="{x:Bind Address}" HorizontalAlignment="Left"/>
-                        <TextBlock Text="{x:Bind PhoneNumber}" HorizontalAlignment="Left"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind Name}" Margin="0,0,8,0"/>
+                        <TextBlock Text="{x:Bind Address}" Margin="0,0,8,0"/>
+                        <TextBlock Text="{x:Bind PhoneNumber}" Margin="0,0,8,0"/>
+                        <!--<TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left"/>-->
+                        <!--<TextBlock Text="{x:Bind Address}" HorizontalAlignment="Left"/>-->
+                        <!--<TextBlock Text="{x:Bind PhoneNumber}" HorizontalAlignment="Left"/>-->
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -35,27 +38,41 @@
         <ListView ItemsSource="{x:Bind merchListView.merchlist}" x:Name="merchViewList" Visibility="Collapsed" Grid.Column="1" Grid.Row="1" IsItemClickEnabled="True" ItemClick="ProductListView_ItemClick">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Merchandise">
-                    <StackPanel>
-                        <TextBlock x:Name="productName" FontSize="20"  Text="{x:Bind Name}" HorizontalAlignment="Left"/>
-                        <TextBlock  FontSize="14" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
-                        <TextBlock x:Name="merchTextBlock" FontSize="10" Text="{x:Bind Stock}" HorizontalAlignment="Left"/>
-                        <!--<Button Content="Add" HorizontalAlignment="Right"/>-->
-                        <TextBox x:Name="quantityInput"  FontSize="15" Visibility="Visible"/>
+                    <!--<StackPanel>
+                        <TextBlock x:Name="productName" FontSize="20"  Text="{x:Bind Name}"/>
+                        <TextBlock  FontSize="20" Text="{x:Bind Supplier}" RenderTransformOrigin="0,0"/>
+                        <TextBlock Text="Lagerstatus: " FontSize="20"/>
+                        <TextBlock x:Name="merchTextBlock" FontSize="20" Text="{x:Bind Stock}"/>
+                        <Button Content="Qty" HorizontalAlignment="Right"/>
+                        <TextBox x:Name="quantityInput"  FontSize="20" Visibility="Visible"/>
                         <Button Content="Add product to order" Click="SubmitOrderLine"/>
+                    </StackPanel>-->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock x:Name="productName" FontSize="16"  Text="{x:Bind Name}" Margin="0,0,4,0"/>
+                        <TextBlock  FontSize="16" Text="{x:Bind Supplier}" Margin="0,0,10,0" Foreground="#FFA03131" FontStyle="Italic"/>
+                        <TextBlock Text="Lagerstatus: " FontSize="16" Margin="0,0,3,0"/>
+                        <TextBlock x:Name="merchTextBlock" FontSize="16" Text="{x:Bind Stock}" Margin="0,0,10,0" Foreground="#FF2F7021"/>
+                        <TextBlock FontSize="16" Text="Antal:" Height="30" Width="80" Margin="0,0,1,0" HorizontalAlignment="Right"/>
+                        <!--<Button Content="Antal" HorizontalAlignment="Right" Margin="0,0,8,0" Height="30" Width="90" FontSize="10"/>-->
+                        <TextBox x:Name="quantityInput" FontSize="14" Margin="0,0,3,0" Height="30" Width="40" HorizontalTextAlignment="Center" HorizontalAlignment="Left"/>
+                        <Button Content="Lägg till order" Click="SubmitOrderLine" Height="30" Width="100" FontSize="10"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <!--<TextBlock  Grid.Row="1" Grid.Column="1" x:Name="text" Text="{x:Bind ProductName, Mode=TwoWay}" HorizontalAlignment="Right" Width=" 500" Height="200"></TextBlock >-->
 
-        <Button Grid.Column="0" Content="Lägg till ny order" Click="Button_Click" Width="400" Height="200" Margin="43,0,0,0" FontSize="40" RenderTransformOrigin="0.497,0.526" Background="#33D42727"/>
-        <TextBlock  x:Name="ProductNameTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,105,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="266" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
-        <TextBlock  x:Name="quantityPurchasedTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="480,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
-        <TextBlock  x:Name="CustomerNameTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
-        <TextBlock  x:Name="DateTimeTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="528,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="50" Width="264" RenderTransformOrigin="0.496,0.5" Visibility="Visible"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="230,28,0,0" Text="Din Order" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="286" TextAlignment="Center" FontSize="36"/>
 
 
-
+        <Button Grid.Column="0" Content="LÄGG TILL NY ORDER" Click="Button_Click" Width="400" Height="150" Margin="43,0,0,0" FontSize="30" RenderTransformOrigin="0.497,0.526" Background="#33C58888" HorizontalAlignment="Center"/>
+        <TextBlock  x:Name="ProductNameTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,140,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="200" RenderTransformOrigin="0.496,0.5" Visibility="Visible" FontSize="16"/>
+        <TextBlock  x:Name="quantityPurchasedTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="270,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="200" RenderTransformOrigin="0.496,0.5" Visibility="Visible" FontSize="16"/>
+        <TextBlock  x:Name="CustomerNameTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="58,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="200" RenderTransformOrigin="0.496,0.5" Visibility="Visible" FontSize="16"/>
+        <TextBlock  x:Name="DateTimeTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="270,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="200" RenderTransformOrigin="0.496,0.5" Visibility="Visible" FontSize="16">
+            <TextBlock.RenderTransform>
+                <CompositeTransform SkewX="0" TranslateX="0"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="58,52,0,0" Text="DIN SLUTFÖRDA ORDER:" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="286" TextAlignment="Left" FontSize="20"/>
     </Grid>
 </Page>
