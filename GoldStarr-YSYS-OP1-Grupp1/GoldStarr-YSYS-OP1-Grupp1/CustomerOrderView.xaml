@@ -24,9 +24,9 @@
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Customer">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{x:Bind Name}" Margin="0,0,8,0"/>
-                        <TextBlock Text="{x:Bind Address}" Margin="0,0,8,0"/>
-                        <TextBlock Text="{x:Bind PhoneNumber}" Margin="0,0,8,0"/>
+                        <TextBlock Text="{x:Bind Name}" Margin="0,0,8,0" FontSize="16"/>
+                        <TextBlock Text="{x:Bind Address}" Margin="0,0,8,0" FontSize="16"/>
+                        <TextBlock Text="{x:Bind PhoneNumber}" Margin="0,0,8,0" FontSize="16"/>
                         <!--<TextBlock Text="{x:Bind Name}" HorizontalAlignment="Left"/>-->
                         <!--<TextBlock Text="{x:Bind Address}" HorizontalAlignment="Left"/>-->
                         <!--<TextBlock Text="{x:Bind PhoneNumber}" HorizontalAlignment="Left"/>-->
