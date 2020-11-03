@@ -26,7 +26,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Customer">
                     <StackPanel>
-                        <TextBlock Name="customerName" Text="{x:Bind Name}" HorizontalAlignment="Left"/>
+                        <TextBlock Name="customerName" Text="{x:Bind Name}" HorizontalAlignment="Left" FontWeight="Bold"/>
                         <TextBlock Name="customerAddress" Text="{x:Bind Address}" HorizontalAlignment="Left"/>
                         <TextBlock Name="customerPhoneNumber" Text="{x:Bind PhoneNumber}" HorizontalAlignment="Left"/>
                     </StackPanel>
@@ -38,7 +38,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Merchandise">
                     <StackPanel>
-                        <TextBlock x:Name="productName" FontSize="20"  Text="{x:Bind Name}" HorizontalAlignment="Left"/>
+                        <TextBlock x:Name="productName" FontSize="14"  Text="{x:Bind Name}" HorizontalAlignment="Left" FontWeight="Bold"/>
                         <TextBlock x:Name="supplierName" FontSize="14" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Lagerstatus: "/>
