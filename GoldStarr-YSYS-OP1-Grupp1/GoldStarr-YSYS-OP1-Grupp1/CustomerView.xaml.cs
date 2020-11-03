@@ -22,7 +22,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     /// </summary>
     public sealed partial class CustomerView : Page
     {
-
         List<Customer> Customers = new List<Customer>();
         public CustomerView()
         {
