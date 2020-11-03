@@ -17,30 +17,22 @@ using Windows.UI.Xaml.Navigation;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
 {
-
-    
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class CustomerView : Page
     {
-       
+        List<Customer> Customers = new List<Customer>();
+        public CustomerView()
+        {
+            this.InitializeComponent();
+            Customers = CustomerViewList.GetCustomers();
+        }
 
-        
-        //private List<Customer> listCustomers;
-        //public CustomerView()
-        //{
-        //    this.InitializeComponent();
-        //    listCustomers = CustomerViewList.GetCustomers();
-        //    ShowCustomerList();
-        //}
-
-        //public void ShowCustomerList()
-        //{
-        //    foreach(var c in listCustomers)
-        //    {
-        //        CustomerNameText.Text += $"{c.Name}\n";
-        //    }
-        //}
+        private async void AddNewUser(object sender, RoutedEventArgs e)
+        {
+            AddCustomerDialog ad = new AddCustomerDialog();
+            await ad.ShowAsync();
+        }
     }
 }
