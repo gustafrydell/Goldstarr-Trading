@@ -10,10 +10,14 @@
 
     <Grid Margin="444,116,104,116">
 
-        <CommandBar Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" Margin="575,-40,0,0">
+        
+        
+        <CommandBar Background="Transparent" DefaultLabelPosition="Right" Margin="575,-40,0,0" Visibility="Collapsed">
             <AppBarButton x:Name="Add_User_Button" Icon="Add" Label="Lägg till kund" Click="AddNewUser" />
             <AppBarButton Icon="Remove" Label="Ta bort kund"/>
         </CommandBar>
+        
+        
 
         <ListView x:Name="CustomerListView" ItemsSource="{x:Bind Customers}" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
             <ListView.ItemContainerStyle>
@@ -44,22 +48,13 @@
                         <TextBlock Grid.Column="2" FontSize="24">
                             <Run Text="{x:Bind PhoneNumber}"/>
                         </TextBlock>
-
                     </Grid>
 
                 </DataTemplate>
             </ListView.ItemTemplate>
-
-
-
         </ListView>
         <TextBlock HorizontalAlignment="Left" Margin="0,-50,0,0" Text="Namn" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="176" FontSize="36"/>
         <TextBlock HorizontalAlignment="Left" Margin="410,-50,0,0" Text="Adress" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="176" FontSize="36"/>
         <TextBlock HorizontalAlignment="Left" Margin="810,-50,0,0" Text="Telefon nummer" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="260" FontSize="36"/>
     </Grid>
-
-
-
-
-
 </Page>
