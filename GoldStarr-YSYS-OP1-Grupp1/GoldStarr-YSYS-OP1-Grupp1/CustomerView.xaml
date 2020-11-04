@@ -12,14 +12,14 @@
 
         
         
-        <CommandBar Background="Transparent" DefaultLabelPosition="Right" Margin="575,-40,0,0" Visibility="Collapsed">
+        <CommandBar Background="Transparent" DefaultLabelPosition="Right" Margin="575,-40,0,0">
             <AppBarButton x:Name="Add_User_Button" Icon="Add" Label="Lägg till kund" Click="AddNewUser" />
-            <AppBarButton Icon="Remove" Label="Ta bort kund"/>
+            <AppBarButton x:Name="Remove_User_Button" Icon="Remove" Label="Ta bort kund" Click="RemoveUser"/>
         </CommandBar>
         
         
 
-        <ListView x:Name="CustomerListView" ItemsSource="{x:Bind Customers}" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
+        <ListView x:Name="CustomerListView" ItemsSource="{x:Bind Customers, Mode=TwoWay}" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalAlignment" Value="Stretch"/>

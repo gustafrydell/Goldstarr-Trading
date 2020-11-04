@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Windows.ApplicationModel;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
@@ -6,17 +7,17 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     public class CustomerViewList
     {
 
-        public static List<Customer> Customers { get; set; } = new List<Customer>();
+        public static ObservableCollection<Customer> Customers { get; set; } = new ObservableCollection<Customer>();
 
         public CustomerViewList()
         {
-            Customers = GetCustomers();
+            Customers = CreateCustomers();
         }
 
 
-        public static List<Customer> GetCustomers()
+        public static ObservableCollection<Customer> CreateCustomers()
         {
-            var list = new List<Customer>();
+            var list = new ObservableCollection<Customer>();
 
             list.Add(new Customer { Name = "Gustaf Larsson", Address = "Malmögatan 69", PhoneNumber = "0706504929" });
             list.Add(new Customer { Name = "Calle Ballsson", Address = "Drottningatan 42", PhoneNumber = "040495939" });

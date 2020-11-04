@@ -35,6 +35,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             this.Suspending += OnSuspending;
 
             _merchandiseManager = new MerchandiseManager();
+            CustomerViewList cust = new CustomerViewList();
 
             Restock = new RestockOption();
             //Merchandise = new MerchandiseView();
