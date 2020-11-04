@@ -19,21 +19,23 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="Restock" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"/>
-        <ListView ItemsSource="{x:Bind _merchandiseManager.merchlist, Mode=TwoWay}" Grid.Column="1">
+        <ListView ItemsSource="{x:Bind _merchandiseManager.merchlist, Mode=TwoWay}" Grid.Column="1" Margin="20,20,20,20">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Merchandise">
                     <StackPanel>
                         <Image Width="200" Source="{x:Bind CoverImage}" />
                         <TextBlock FontSize="25" Name="NameTextBlock" Text="{x:Bind Name, Mode=OneWay}" HorizontalAlignment="Left"/>
                         <TextBlock FontSize="18" Text="{x:Bind Supplier, Mode=OneWay}" HorizontalAlignment="Left"/>
-                       <TextBlock Name="UpdatedStock" FontSize="15" Text="{x:Bind Stock, Mode=TwoWay}" HorizontalAlignment="Left" />
-                            <!--<TextBlock FontSize="10" Name="StockTextBlock" Text="{x:Bind Stock}" HorizontalAlignment="Left"/>-->
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Lagerstatus: " FontSize="15"/>
+                            <TextBlock Name="UpdatedStock" FontSize="15" Text="{x:Bind Stock, Mode=TwoWay}" HorizontalAlignment="Left" />
+                        </StackPanel>
+                         <!--<TextBlock FontSize="10" Name="StockTextBlock" Text="{x:Bind Stock}" HorizontalAlignment="Left"/>-->
                         <TextBox x:Name="AmountBox" FontSize="15" Text=""/>
-                        <Button Name="Submit" Click="Submit_Click" Tag="{ RelativeSource Mode=TemplatedParent }" FontSize="15" Width="50" Height="40" Content="Add"/>
+                        <Button Name="Submit" Click="Submit_Click" Tag="{ RelativeSource Mode=TemplatedParent }" FontSize="15" Width="50" Height="40" Content="Add" Margin="0,0,0,10"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

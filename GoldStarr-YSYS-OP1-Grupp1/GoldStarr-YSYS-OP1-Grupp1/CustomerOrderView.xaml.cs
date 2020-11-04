@@ -24,95 +24,78 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     /// </summary>
     public sealed partial class CustomerOrderView : Page
     {
-        //private string ProductName = "keps";
         private List<Customer> customersList;
         private CustomerOrder customerOrder;
-        //private List<Merchandise> merchListView;
         private Merchandise clickedProduct;
-        public MerchandiseManager merchListView;
+        public MerchandiseManager merchandiseManager;
         private int _quantity;
 
         public CustomerOrderView()
         {
-          
             this.InitializeComponent();
             customersList = CustomerViewList.GetCustomers();
-            merchListView = App._merchandiseManager;
+            merchandiseManager = App._merchandiseManager;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddNewOrderButton_Click(object sender, RoutedEventArgs e)
         {
             customerOrder = new CustomerOrder();
-          
             customerOrder.DateTime = DateTime.Now;
-
-            this.customerListView.Visibility = Visibility.Visible;
+            this.customerList_Listview.Visibility = Visibility.Visible;
         }
 
-        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        private void SelectCustomer_ItemClick(object sender, ItemClickEventArgs e)
         {
             customerOrder.Customer = (Customer)e.ClickedItem;
-            this.merchViewList.Visibility = Visibility.Visible;
+            this.merchandiseList_Listview.Visibility = Visibility.Visible;
         }
 
-        private void ProductListView_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            //clickedProduct = (Merchandise)e.ClickedItem;
-
-           
-        }
-
-        private void SubmitOrderLine(object sender, RoutedEventArgs e)
+        private void AddProductToOrderButton_Click(object sender, RoutedEventArgs e)
         {
             var parent = (sender as Button).Parent; // listviewItem
 
-            //customerOrder.ProductsBought.Add(clickedProduct);
+            //Find selected product item
+            TextBlock findSelectedProductTextblock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "productName");
 
-            var parent1 = (sender as Button).Parent; // listviewItem
-            TextBlock merchTextBox1 = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "productName");
-
-            foreach (var item in merchListView.merchlist)
+            //search through merchandise list to find and add that reference to clickedProduct
+            foreach (var item in merchandiseManager.merchlist)
             {
-                if (item.Name == merchTextBox1.Text)
+                if (item.Name == findSelectedProductTextblock.Text)
                 {
                     clickedProduct = item;
-                    
                 }
             }
 
-            TextBox merchTextBox = parent.GetChildrenOfType<TextBox>().First( x => x.Name == "quantityInput");
+            //find selected quantity textbox
+            TextBox findQuantityTextbox = parent.GetChildrenOfType<TextBox>().First( x => x.Name == "quantityInput");
 
-            //
 
-            if (int.TryParse(merchTextBox.Text, out _quantity))
+            if (int.TryParse(findQuantityTextbox.Text, out _quantity))
             {
                 customerOrder.Quantity = _quantity;
-                // allt är ok
-                // addToStock är uppdaterad
+                
                 if (customerOrder.Quantity <= clickedProduct.Stock)
                 {
                     customerOrder.ProductsBought.Add(clickedProduct);
                     clickedProduct.Stock -= customerOrder.Quantity;
 
-                    TextBlock merchStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "merchTextBlock");
-                    merchStockTextBlock.Text = clickedProduct.Stock.ToString();
+                    TextBlock findStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
+                    findStockTextBlock.Text = clickedProduct.Stock.ToString();
+                    
+                    orderedProductName_Textblock.Text = clickedProduct.Name;
+                    orderedQuantityPurchased_Textblock.Text = findQuantityTextbox.Text;
+                    orderedCustomerName_Textblock.Text = customerOrder.Customer.Name;
+                    orderedDateTime_Textblock.Text = customerOrder.DateTime.ToString();
 
+                    enabledOrderVisibility();
 
-                    ProductNameTextBlock.Text = clickedProduct.Name;
-                    quantityPurchasedTextBlock.Text = merchTextBox.Text;
-                    CustomerNameTextBlock.Text = customerOrder.Customer.Name;
-                    DateTimeTextBlock.Text = customerOrder.DateTime.ToString();
+                    findQuantityTextbox.Text = "";
                 }
                 else
                 {
                     var anotherDialog = new MessageDialog("du är för fattig, du har inte så många på lager");
                     var y = anotherDialog.ShowAsync().GetAwaiter();
                 }
-                
-               
-
-               
-
             }
             else
             {
@@ -120,33 +103,22 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 var t = dialog.ShowAsync().GetAwaiter();
             }
 
-
-            for (int i = 0; i < customerOrder.ProductsBought.Count; i++)
-            {
-                Debug.WriteLine(customerOrder.ProductsBought[i].Name);
-            }
-
-
-            //if (customerOrder.Quantity)merchTextBox.Text
-
-
-
-
-
+            //for (int i = 0; i < customerOrder.ProductsBought.Count; i++)
+            //{
+            //    Debug.WriteLine(customerOrder.ProductsBought[i].Name);
+            //}
 
             //Debug.WriteLine(customerOrder.Quantity);
-
-
-            // lägga till antalet produkter ???
-
-            /*foreach (var item in customerOrder.ProductsBought)
-            {
-                this.text.Text = item.Name;
-            }*/
         }
 
-
-
+        private void enabledOrderVisibility()
+        {
+            orderTitle.Visibility = Visibility.Visible;
+            orderedCustomerName_Textblock.Visibility = Visibility.Visible;
+            orderedDateTime_Textblock.Visibility = Visibility.Visible;
+            orderedProductName_Textblock.Visibility = Visibility.Visible;
+            orderedQuantityPurchased_Textblock.Visibility = Visibility.Visible;
+        }
     }
 
     public static class Extensions

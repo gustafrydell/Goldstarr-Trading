@@ -24,7 +24,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     public sealed partial class MerchandiseView : Page
     {
 
-        public List<Merchandise> merchListView { get; set; }
+        public List<Merchandise> merchandiseManager { get; set; }
         
         
 
@@ -32,7 +32,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public MerchandiseView()
         {
             this.InitializeComponent();
-            merchListView = App.Restock._merchandiseManager.merchlist;
+            merchandiseManager = App.Restock._merchandiseManager.merchlist;
 
 
             

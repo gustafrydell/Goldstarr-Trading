@@ -17,13 +17,12 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Merchandise" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+        <TextBlock Text="Merch" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"/>
 
 
-        <GridView ItemsSource="{x:Bind merchListView}" Grid.Column="1" IsItemClickEnabled="True" ItemClick="MerchClick">
+        <GridView ItemsSource="{x:Bind merchandiseManager}" Grid.Column="1" IsItemClickEnabled="True" ItemClick="MerchClick" Margin="20,20,20,20">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:Merchandise">
                     <StackPanel>
@@ -34,7 +33,6 @@
                             <TextBlock Text="Lagerstatus: " FontSize="15"/>
                             <TextBlock FontSize="15" Text="{x:Bind Stock, Mode=TwoWay}" HorizontalAlignment="Left"/>
                         </StackPanel>
-
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
