@@ -41,6 +41,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         private void AddNewOrderButton_Click(object sender, RoutedEventArgs e)
         {
+            disableAllList();
             customerOrder = new CustomerOrder();
             customerOrder.DateTime = DateTime.Now;
             chooseCustomerTextblock.Visibility = Visibility.Visible;
@@ -120,6 +121,33 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             //Debug.WriteLine(customerOrder.Quantity);
         }
 
+        private void disableAllList()
+        {
+            chooseCustomerTextblock.Visibility = Visibility.Collapsed;
+            this.customerList_Listview.Visibility = Visibility.Collapsed;
+            ChooseCustomer_label.Foreground = new SolidColorBrush(Colors.Gray);
+            ChooseCustomer_label.FontWeight = Windows.UI.Text.FontWeights.Normal;
+
+            chooseProductTextblock.Visibility = Visibility.Collapsed;
+            ChooseProduct_label.Foreground = new SolidColorBrush(Colors.Gray);
+            ChooseProduct_label.FontWeight = Windows.UI.Text.FontWeights.Normal;
+
+            chooseCustomerTextblock.Visibility = Visibility.Collapsed;
+            this.merchandiseList_Listview.Visibility = Visibility.Collapsed;
+
+            orderTitle.Visibility = Visibility.Collapsed;
+            orderedCustomerName_Textblock.Visibility = Visibility.Collapsed;
+            orderedDateTime_Textblock.Visibility = Visibility.Collapsed;
+            orderedProductName_Textblock.Visibility = Visibility.Collapsed;
+            orderedQuantityPurchased_Textblock.Visibility = Visibility.Collapsed;
+            orderedCustomer_Textblock.Visibility = Visibility.Collapsed;
+            orderedSTTextblock.Visibility = Visibility.Collapsed;
+            orderedDate_Textblock.Visibility = Visibility.Collapsed;
+            orderedProduct_Textblock.Visibility = Visibility.Collapsed;
+
+            Confirmation_label.Foreground = new SolidColorBrush(Colors.Gray);
+            Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Normal;
+        }
         private void enabledOrderVisibility()
         {
             orderTitle.Visibility = Visibility.Visible;
