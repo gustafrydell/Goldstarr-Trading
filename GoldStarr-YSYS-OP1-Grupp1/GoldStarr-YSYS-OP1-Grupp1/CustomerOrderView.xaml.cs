@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     /// </summary>
     public sealed partial class CustomerOrderView : Page
     {
-        private List<Customer> customersList;
+        private ObservableCollection<Customer> customersList;
         private CustomerOrder customerOrder;
         private Merchandise clickedProduct;
         public MerchandiseManager merchandiseManager;
@@ -33,7 +34,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public CustomerOrderView()
         {
             this.InitializeComponent();
-            customersList = CustomerViewList.GetCustomers();
+            customersList = CustomerViewList.Customers;
             merchandiseManager = App._merchandiseManager;
         }
 

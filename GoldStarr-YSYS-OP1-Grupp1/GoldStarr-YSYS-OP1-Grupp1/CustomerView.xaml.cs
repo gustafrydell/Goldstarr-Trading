@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,17 +23,23 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     /// </summary>
     public sealed partial class CustomerView : Page
     {
-        List<Customer> Customers = new List<Customer>();
+        ObservableCollection<Customer> Customers = new ObservableCollection<Customer>();
         public CustomerView()
         {
             this.InitializeComponent();
-            Customers = CustomerViewList.GetCustomers();
+            Customers = CustomerViewList.Customers;
         }
 
         private async void AddNewUser(object sender, RoutedEventArgs e)
         {
             AddCustomerDialog ad = new AddCustomerDialog();
             await ad.ShowAsync();
+        }
+
+        private void RemoveUser(object sender, RoutedEventArgs e)
+        {
+            Customer selectedCustomer = (Customer)CustomerListView.SelectedItem;
+            Customers.Remove(selectedCustomer);
         }
     }
 }
