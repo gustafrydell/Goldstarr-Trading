@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -44,6 +45,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             customerOrder.DateTime = DateTime.Now;
             chooseCustomerTextblock.Visibility = Visibility.Visible;
             this.customerList_Listview.Visibility = Visibility.Visible;
+            ChooseCustomer_label.Foreground = new SolidColorBrush(Colors.Black);
+            ChooseCustomer_label.FontWeight = Windows.UI.Text.FontWeights.Bold;
         }
 
         private void SelectCustomer_ItemClick(object sender, ItemClickEventArgs e)
@@ -51,6 +54,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             customerOrder.Customer = (Customer)e.ClickedItem;
             this.merchandiseList_Listview.Visibility = Visibility.Visible;
             chooseProductTextblock.Visibility = Visibility.Visible;
+            ChooseProduct_label.Foreground = new SolidColorBrush(Colors.Black);
+            ChooseProduct_label.FontWeight = Windows.UI.Text.FontWeights.Bold;
         }
 
         private void AddProductToOrderButton_Click(object sender, RoutedEventArgs e)
@@ -91,7 +96,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     orderedDateTime_Textblock.Text = customerOrder.DateTime.ToString();
 
                     enabledOrderVisibility();
-
+                    Confirmation_label.Foreground = new SolidColorBrush(Colors.Black);
+                    Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Bold;
                     findQuantityTextbox.Text = "";
                 }
                 else
