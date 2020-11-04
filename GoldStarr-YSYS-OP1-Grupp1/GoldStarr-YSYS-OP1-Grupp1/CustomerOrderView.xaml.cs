@@ -41,6 +41,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             customerOrder = new CustomerOrder();
             customerOrder.DateTime = DateTime.Now;
+            chooseCustomerTextblock.Visibility = Visibility.Visible;
             this.customerList_Listview.Visibility = Visibility.Visible;
         }
 
@@ -48,6 +49,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             customerOrder.Customer = (Customer)e.ClickedItem;
             this.merchandiseList_Listview.Visibility = Visibility.Visible;
+            chooseProductTextblock.Visibility = Visibility.Visible;
         }
 
         private void AddProductToOrderButton_Click(object sender, RoutedEventArgs e)
@@ -118,6 +120,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             orderedDateTime_Textblock.Visibility = Visibility.Visible;
             orderedProductName_Textblock.Visibility = Visibility.Visible;
             orderedQuantityPurchased_Textblock.Visibility = Visibility.Visible;
+            orderedCustomer_Textblock.Visibility = Visibility.Visible;
+            orderedSTTextblock.Visibility = Visibility.Visible;
+            orderedDate_Textblock.Visibility = Visibility.Visible;
+            orderedProduct_Textblock.Visibility = Visibility.Visible;
         }
     }
 
