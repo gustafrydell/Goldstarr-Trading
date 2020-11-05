@@ -38,11 +38,27 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             if(int.TryParse(PhoneNrText.Text, out phoneNr))
             {
 
-                _app.SupplierList.AddNewSupplier(CompanyNameText.Text, EmailNameText.Text, phoneNr);
+                //_app.SupplierList.AddNewSupplier(CompanyNameText.Text, EmailNameText.Text, phoneNr);
+
+                if(CompanyNameText.Text == string.Empty)
+                {
+                    var dialogtext = new MessageDialog("Företaget måste ha ett namn");
+                    var t1 = dialogtext.ShowAsync().GetAwaiter();
+                }
+                else if(EmailNameText.Text == string.Empty)
+                {
+                    var dialogtext = new MessageDialog("Du måste skriva en mail");
+                    var t = dialogtext.ShowAsync().GetAwaiter();
+
+                }
+                else
+                {
+                    _app.SupplierList.AddNewSupplier(CompanyNameText.Text, EmailNameText.Text, phoneNr);
+                }
             }
+           
             else
             {
-
                 var dialogtext = new MessageDialog("Endast siffror i telefonnummret tack.");
                 var t = dialogtext.ShowAsync().GetAwaiter();
             }
