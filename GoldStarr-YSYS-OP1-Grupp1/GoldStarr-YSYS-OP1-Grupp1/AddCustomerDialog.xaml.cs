@@ -28,10 +28,14 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            if (StoreCustomerRadioButton.IsChecked == true || OnlineCustomerRadioButton.IsChecked == true)
+            if (StoreCustomerRadioButton.IsChecked == true)
             {
-            CustomerViewList.AddNewUser(NameText.Text, AddressText.Text, PhonenumberText.Text);
+            CustomerViewList.AddNewStoreUser(NameText.Text, AddressText.Text, PhonenumberText.Text);
 
+            }
+            else if (OnlineCustomerRadioButton.IsChecked == true)
+            {
+                CustomerViewList.AddNewOnlineUser(NameText.Text, AddressText.Text, PhonenumberText.Text);
             }
             else
             {
@@ -48,6 +52,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             DeliveryAddressText.Visibility = Visibility.Visible;
             CreditCardText.Visibility = Visibility.Visible;
+            //customer.isOnline = CustomerType.Onlinekund;
+            
 
         }
 

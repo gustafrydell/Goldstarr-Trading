@@ -31,9 +31,14 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         }
 
 
-        public static void AddNewUser(string name, string address, string phonenumber)
+        public static void AddNewStoreUser(string name, string address, string phonenumber)
         {
-            Customers.Add(new Customer { Name = name, Address = address, PhoneNumber = phonenumber });
+            Customers.Add(new Customer { Name = name, Address = address, PhoneNumber = phonenumber , IsOnline = CustomerType.Butikskund});
+        }
+        
+        public static void AddNewOnlineUser(string name, string address, string phonenumber)
+        {
+            Customers.Add(new Customer { Name = name, Address = address, PhoneNumber = phonenumber, IsOnline = CustomerType.Onlinekund });
         }
     }
 }

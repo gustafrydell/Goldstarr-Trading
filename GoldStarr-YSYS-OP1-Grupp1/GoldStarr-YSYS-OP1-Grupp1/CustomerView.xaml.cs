@@ -41,5 +41,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             Customer selectedCustomer = (Customer)CustomerListView.SelectedItem;
             Customers.Remove(selectedCustomer);
         }
+
     }
 }

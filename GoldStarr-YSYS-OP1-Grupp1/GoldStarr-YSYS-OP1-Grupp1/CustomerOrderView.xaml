@@ -40,6 +40,7 @@
                         <TextBlock Name="customerName" Text="{x:Bind Name}" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20"/>
                         <TextBlock Name="customerAddress" Text="{x:Bind Address}" HorizontalAlignment="Left" FontSize="16"/>
                         <TextBlock Name="customerPhoneNumber" Text="{x:Bind PhoneNumber}" HorizontalAlignment="Left" FontSize="16"/>
+                        <TextBlock Name="customerIsOnline" Text="{x:Bind IsOnline}" HorizontalAlignment="Left" FontSize="16"/>
                         <TextBlock/>
                     </StackPanel>
                 </DataTemplate>

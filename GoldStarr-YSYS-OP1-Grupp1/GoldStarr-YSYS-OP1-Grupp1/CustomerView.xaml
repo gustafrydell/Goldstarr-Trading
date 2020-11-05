@@ -8,17 +8,13 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Light">
 
-    <Grid Margin="444,116,104,116">
+    <Grid Margin="200,116,104,116">
 
-        
-        
         <CommandBar Background="Transparent" DefaultLabelPosition="Right" Margin="575,-40,0,0">
             <AppBarButton x:Name="Add_User_Button" Icon="Add" Label="Lägg till kund" Click="AddNewUser" />
             <AppBarButton x:Name="Remove_User_Button" Icon="Remove" Label="Ta bort kund" Click="RemoveUser"/>
         </CommandBar>
         
-        
-
         <ListView x:Name="CustomerListView" ItemsSource="{x:Bind Customers, Mode=TwoWay}" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -31,30 +27,34 @@
                 <DataTemplate x:DataType="local:Customer">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="400"/>
-                            <ColumnDefinition Width="400"/>
-                            <ColumnDefinition Width="400"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
 
-                        <TextBlock Grid.Column="0" FontSize="24">
+                        <TextBlock Grid.Column="0" FontSize="24" Width="200" Margin="20,0,20,0">
                         <Run Text="{x:Bind Name}"/>
                         </TextBlock>
 
-                        <TextBlock Grid.Column="1" FontSize="24">
+                        <TextBlock Grid.Column="1" FontSize="24" Width="220" Margin="10,0,10,0">
                         <Run Text="{x:Bind Address}"/>
                         </TextBlock>
 
-                        <TextBlock Grid.Column="2" FontSize="24">
+                        <TextBlock Grid.Column="2" FontSize="24" Width="220" Margin="10,0,10,0">
                             <Run Text="{x:Bind PhoneNumber}"/>
+                        </TextBlock>
+                        <TextBlock Grid.Column="3" FontSize="24" Width="150" Margin="10,0,10,0">
+                            <Run Text="{x:Bind IsOnline}"/>
                         </TextBlock>
                     </Grid>
 
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock HorizontalAlignment="Left" Margin="0,-50,0,0" Text="Namn" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="176" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Margin="410,-50,0,0" Text="Adress" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="176" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Margin="810,-50,0,0" Text="Telefon nummer" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="260" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Text="Namn" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="176" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="1" Text="Adress" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="176" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Grid.Column="2" Text="Telefon nummer" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="260" FontSize="36"/>
     </Grid>
 </Page>
