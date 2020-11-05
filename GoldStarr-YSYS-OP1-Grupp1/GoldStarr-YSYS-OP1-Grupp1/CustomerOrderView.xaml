@@ -62,11 +62,11 @@
                             <TextBlock x:Name="productName" FontSize="20"  Text="{x:Bind Name}" HorizontalAlignment="Left" FontWeight="Bold"/>
                             <TextBlock x:Name="supplierName" FontSize="16" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Lagerstatus: " FontSize="16"/>
+                                <TextBlock Text="Lagerstatus: " FontSize="16" Margin="0,0,5,0"/>
                                 <TextBlock x:Name="inStock_TextBlock" Text="{x:Bind Stock}" HorizontalAlignment="Left" FontSize="16"/>
                             </StackPanel>
-                            <TextBox x:Name="quantityInput"  FontSize="16" Visibility="Visible"/>
-                            <Button x:Name="AddProductToOrderButton" Content="Add product to order" Click="AddProductToOrderButton_Click"/>
+                            <TextBox x:Name="quantityInput" FontSize="16" Width="180"/>
+                            <Button x:Name="AddProductToOrderButton" Width="180" Content="Köp produkten" Click="AddProductToOrderButton_Click"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
