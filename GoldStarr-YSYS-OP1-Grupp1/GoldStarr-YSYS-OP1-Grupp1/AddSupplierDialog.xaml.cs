@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -29,7 +30,22 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            _app.SupplierList.AddNewSupplier(CompanyNameText.Text, EmailNameText.Text, PhoneNrText.Text);
+            //_app.SupplierList.AddNewSupplier(CompanyNameText.Text, EmailNameText.Text, PhoneNrText.Text);
+
+            int phoneNr;
+            //phoneNr = int.Parse(PhoneNrText.Text);
+
+            if(int.TryParse(PhoneNrText.Text, out phoneNr))
+            {
+
+                _app.SupplierList.AddNewSupplier(CompanyNameText.Text, EmailNameText.Text, phoneNr);
+            }
+            else
+            {
+
+                var dialogtext = new MessageDialog("Endast siffror i telefonnummret tack.");
+                var t = dialogtext.ShowAsync().GetAwaiter();
+            }
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
