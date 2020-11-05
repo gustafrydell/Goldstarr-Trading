@@ -73,26 +73,26 @@
 
         <StackPanel Grid.Row="2" Grid.Column="2" Margin="20,0,0,0">
         <StackPanel Orientation="Horizontal">
-        <TextBlock x:Name="orderedDate_Textblock" Text="Orderdatum:" Margin="0,0,20,0" FontSize="16" Visibility="Collapsed"/>
-        <TextBlock  x:Name="orderedDateTime_Textblock" Visibility="Collapsed" FontSize="16" HorizontalAlignment="Right"/>
+        <TextBlock x:Name="orderedDate_Textblock" Text="Orderdatum:" Margin="0,0,20,0" Width="150" FontSize="16" Visibility="Collapsed"/>
+                <TextBlock  x:Name="orderedDateTime_Textblock" Visibility="Collapsed" Width="150" FontSize="16" HorizontalAlignment="Right"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="orderedCustomer_Textblock" Text="Kundnamn:" Margin="0,0,20,0" FontSize="16" Visibility="Collapsed"/>
-                <TextBlock  x:Name="orderedCustomerName_Textblock" Visibility="Collapsed" FontSize="16" HorizontalAlignment="Right"/>
+                <TextBlock x:Name="orderedCustomer_Textblock" Text="Kundnamn:" Margin="0,0,20,0" Width="150" FontSize="16" Visibility="Collapsed"/>
+                <TextBlock  x:Name="orderedCustomerName_Textblock" Visibility="Collapsed" FontSize="16" Width="150" HorizontalAlignment="Right"/>
                 
             </StackPanel>
             
             <StackPanel Orientation="Horizontal">
-                <TextBlock  x:Name="deliveryAddress_Textblock" Text="Leveransadress:" Margin="0,0,20,0" Visibility="Collapsed" FontSize="16"/>
-                <TextBlock  x:Name="customerDeliveryAddress_Textblock" Visibility="Collapsed" FontSize="16"/>
+                <TextBlock  x:Name="deliveryAddress_Textblock" Text="Leveransadress:" Margin="0,0,20,0" Width="150" Visibility="Collapsed" FontSize="16"/>
+                <TextBlock  x:Name="customerDeliveryAddress_Textblock" Visibility="Collapsed" FontSize="16" Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock  x:Name="Email_Textblock" Text="Email:" Visibility="Collapsed" Margin="0,0,20,0" FontSize="16"/>
-                <TextBlock  x:Name="customerEmail_Textblock" Visibility="Collapsed" FontSize="16"/>
+                <TextBlock  x:Name="Email_Textblock" Text="Email:" Visibility="Collapsed" Margin="0,0,20,0" Width="150" FontSize="16"/>
+                <TextBlock  x:Name="customerEmail_Textblock" Visibility="Collapsed" FontSize="16" Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock  x:Name="creditCardNumber_Textblock" Text="Kreditkortsnummer:" Margin="0,0,20,0" Visibility="Collapsed" FontSize="16"/>
-                <TextBlock  x:Name="customerCreditCardNumber_Textblock" Visibility="Collapsed" FontSize="16"/>
+                <TextBlock  x:Name="creditCardNumber_Textblock" Text="Kreditkortsnummer:" Margin="0,0,20,0" Width="150" Visibility="Collapsed" FontSize="16"/>
+                <TextBlock  x:Name="customerCreditCardNumber_Textblock" Visibility="Collapsed" FontSize="16" Width="150"/>
             </StackPanel>
             
         <TextBlock x:Name="orderedProduct_Textblock" Text="Produkter:" Margin="0,30,0,0" FontSize="16" Visibility="Collapsed"/>
