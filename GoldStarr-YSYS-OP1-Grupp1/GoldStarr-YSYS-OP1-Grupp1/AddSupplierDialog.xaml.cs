@@ -33,6 +33,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             //_app.SupplierList.AddNewSupplier(CompanyNameText.Text, EmailNameText.Text, PhoneNrText.Text);
 
             int phoneNr;
+
             //phoneNr = int.Parse(PhoneNrText.Text);
 
             if(int.TryParse(PhoneNrText.Text, out phoneNr))
@@ -43,7 +44,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 if(CompanyNameText.Text == string.Empty)
                 {
                     var dialogtext = new MessageDialog("Företaget måste ha ett namn");
-                    var t1 = dialogtext.ShowAsync().GetAwaiter();
+                    var t = dialogtext.ShowAsync().GetAwaiter();
                 }
                 else if(EmailNameText.Text == string.Empty)
                 {
@@ -53,7 +54,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 }
                 else
                 {
-                    _app.SupplierList.AddNewSupplier(CompanyNameText.Text, EmailNameText.Text, phoneNr);
+                    _app.SupplierList.AddNewSupplier(CompanyNameText.Text, EmailNameText.Text, PhoneNrText.Text);
                 }
             }
            
