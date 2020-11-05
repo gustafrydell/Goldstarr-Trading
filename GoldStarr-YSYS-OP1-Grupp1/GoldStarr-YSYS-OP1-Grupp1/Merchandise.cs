@@ -41,9 +41,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
     }
 
-    public class MerchandiseManager
+    public class MerchandiseManager : Merchandise
     {
-    
+
+        //public Suppliers Suppliers;
+        
         public List<Merchandise> merchlist { get; set; }
 
         public MerchandiseManager()
@@ -62,6 +64,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     merchList.Add(new Merchandise { Name = "Rånarluva", Supplier = "NotShadyInc", Stock = 10, MerchandiseId = 4, CoverImage = "Assets/SkimaskDog.jfif" });
                     merchList.Add(new Merchandise { Name = "SuperStrumpor", Supplier = "WeLoveSocksEnterprise", Stock = 10, MerchandiseId = 5, CoverImage = "Assets/SuperStrumpor.jpg" });
                     merchList.Add(new Merchandise { Name = "LabbJacka", Supplier = "KemisternaAB", Stock = 10, MerchandiseId = 6, CoverImage = "Assets/LabcoatDog.jpg" });
+
                     return merchList;
 
                 }

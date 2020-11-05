@@ -41,7 +41,19 @@
                 ToolTipService.ToolTip="Show merchandies"
                 Icon="Favorite" FontSize="20"/>
 
-            <NavigationViewItem x:Name="RestockOption" Content="Restock" ToolTipService.ToolTip="Restock Products" Icon="Refresh" FontSize="20"/>
+            <NavigationViewItem 
+                x:Name="RestockOption" 
+                Content="Restock" 
+                ToolTipService.ToolTip="Restock Products" 
+                Icon="Refresh" 
+                FontSize="20"/>
+
+            <NavigationViewItem 
+                x:Name="SupplierView" 
+                Content="Suppliers" 
+                ToolTipService.ToolTip="Current Supplier" 
+                Icon="PhoneBook" 
+                FontSize="20"/>
 
 
 

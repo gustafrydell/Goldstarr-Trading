@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,6 +26,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public static RestockOption Restock;
         public static MerchandiseManager _merchandiseManager;
         public static MerchandiseView Merchandise;
+        public SupplierViewList SupplierList;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -40,7 +43,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             Restock = new RestockOption();
             //Merchandise = new MerchandiseView();
 
-            
+            SupplierList = new SupplierViewList();
         }
 
         /// <summary>
