@@ -96,6 +96,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     orderedCustomerName_Textblock.Text = customerOrder.Customer.Name;
                     orderedDateTime_Textblock.Text = customerOrder.DateTime.ToString();
 
+                    customerDeliveryAddress_Textblock.Text = customerOrder.Customer.DeliveryAddress;
+                    customerEmail_Textblock.Text = customerOrder.Customer.CustomerEmail;
+                    customerCreditCardNumber_Textblock.Text = customerOrder.Customer.CreditCardNumber;
+
                     enabledOrderVisibility();
                     Confirmation_label.Foreground = new SolidColorBrush(Colors.Black);
                     Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Bold;
@@ -113,12 +117,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 var t = dialog.ShowAsync().GetAwaiter();
             }
 
-            //for (int i = 0; i < customerOrder.ProductsBought.Count; i++)
-            //{
-            //    Debug.WriteLine(customerOrder.ProductsBought[i].Name);
-            //}
-
-            //Debug.WriteLine(customerOrder.Quantity);
+            
         }
 
         private void disableAllList()
@@ -145,6 +144,13 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             orderedDate_Textblock.Visibility = Visibility.Collapsed;
             orderedProduct_Textblock.Visibility = Visibility.Collapsed;
 
+            deliveryAddress_Textblock.Visibility = Visibility.Collapsed;
+            customerDeliveryAddress_Textblock.Visibility = Visibility.Collapsed;
+            Email_Textblock.Visibility = Visibility.Collapsed;
+            customerEmail_Textblock.Visibility = Visibility.Collapsed;
+            creditCardNumber_Textblock.Visibility = Visibility.Collapsed;
+            customerCreditCardNumber_Textblock.Visibility = Visibility.Collapsed;
+
             Confirmation_label.Foreground = new SolidColorBrush(Colors.Gray);
             Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Normal;
         }
@@ -159,6 +165,12 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             orderedSTTextblock.Visibility = Visibility.Visible;
             orderedDate_Textblock.Visibility = Visibility.Visible;
             orderedProduct_Textblock.Visibility = Visibility.Visible;
+            deliveryAddress_Textblock.Visibility = Visibility.Visible;
+            customerDeliveryAddress_Textblock.Visibility = Visibility.Visible;
+            Email_Textblock.Visibility = Visibility.Visible;
+            customerEmail_Textblock.Visibility = Visibility.Visible;
+            creditCardNumber_Textblock.Visibility = Visibility.Visible;
+            customerCreditCardNumber_Textblock.Visibility = Visibility.Visible;
         }
     }
 

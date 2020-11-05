@@ -30,12 +30,13 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             if (StoreCustomerRadioButton.IsChecked == true)
             {
-            CustomerViewList.AddNewStoreUser(NameText.Text, AddressText.Text, PhonenumberText.Text);
+
+                CustomerViewList.AddNewStoreUser(NameText.Text, AddressText.Text, PhonenumberText.Text,CustomerType.Butikskund);
 
             }
             else if (OnlineCustomerRadioButton.IsChecked == true)
             {
-                CustomerViewList.AddNewOnlineUser(NameText.Text, AddressText.Text, PhonenumberText.Text);
+                CustomerViewList.AddNewOnlineUser(NameText.Text, AddressText.Text, PhonenumberText.Text,CustomerType.Onlinekund, DeliveryAddressText.Text,CreditCardText.Text,CustomerEmailText.Text);
             }
             else
             {
@@ -52,7 +53,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             DeliveryAddressText.Visibility = Visibility.Visible;
             CreditCardText.Visibility = Visibility.Visible;
-            //customer.isOnline = CustomerType.Onlinekund;
+            CustomerEmailText.Visibility = Visibility.Visible;
+            
             
 
         }
@@ -61,6 +63,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             DeliveryAddressText.Visibility = Visibility.Collapsed;
             CreditCardText.Visibility = Visibility.Collapsed;
+            CustomerEmailText.Visibility = Visibility.Collapsed;
         }
     }
 }

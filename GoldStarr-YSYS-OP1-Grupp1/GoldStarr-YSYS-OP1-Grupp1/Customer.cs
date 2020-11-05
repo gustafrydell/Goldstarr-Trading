@@ -16,5 +16,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public CustomerType IsOnline { get; set; }
+        public string DeliveryAddress { get; set; }
+        public string CreditCardNumber { get; set; }
+        public string CustomerEmail { get; set; }
     }
 }
