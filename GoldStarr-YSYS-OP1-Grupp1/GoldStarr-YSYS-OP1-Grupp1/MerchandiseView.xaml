@@ -23,7 +23,7 @@
         <TextBlock Text="Merch" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"/>
 
 
-        <GridView ItemsSource="{x:Bind merchListView}" Grid.Column="1" IsItemClickEnabled="True" ItemClick="MerchClick">
+        <GridView x:Name="ProductView" ItemsSource="{x:Bind merchListView}" Grid.Column="1" IsItemClickEnabled="True" ItemClick="MerchClick">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:Merchandise">
                     <StackPanel>
@@ -36,6 +36,19 @@
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
+        <ComboBox PlaceholderText="Sortera"
+                  x:Name="SortingBox"
+                  FontSize="20" 
+                  Margin="10,184,0,0" 
+                  Width="154" Height="40" 
+                  IsEnabled="True" 
+                  SelectionChanged="ColorComboBox_SelectionChanged">
+
+            <x:String>Alphabetical Ascending</x:String>
+            <x:String>Alphabetical Descending</x:String>
+            <x:String>Supplier Ascending</x:String>
+            <x:String>Supplier Descending</x:String>
+        </ComboBox>
     </Grid>
 
     

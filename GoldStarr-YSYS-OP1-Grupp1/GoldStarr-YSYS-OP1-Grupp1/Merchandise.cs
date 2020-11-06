@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +20,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
     public class MerchandiseManager
     {
+        
 
-        public static List<Merchandise> GetMerchList()
+        public static ObservableCollection<Merchandise> GetMerchList()
         {
-            var merchList = new List<Merchandise>();
+            var merchList = new ObservableCollection<Merchandise>();
             {
                 merchList.Add(new Merchandise { Name = "PropellerKeps", Supplier = "PropGangInc", Stock = 10, MerchandiseId = 1, CoverImage = "Assets/proppellerkeps.jfif"});
                 merchList.Add(new Merchandise { Name = "Guldbyxor", Supplier = "PojkenEnterprise", Stock = 10, MerchandiseId = 2, CoverImage = "Assets/Goldenpants.jpg"});
@@ -33,6 +36,15 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
             }
         }
+
+
+        //public void SortListByName()
+        //{
+
+        //    GetMerchList().Sort((IComparer<Merchandise>)GetMerchList());
+
+
+        //}
     }
 
 
