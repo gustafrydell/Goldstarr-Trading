@@ -43,12 +43,12 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
                 if(CompanyNameText.Text == string.Empty)
                 {
-                    var dialogtext = new MessageDialog("Företaget måste ha ett namn");
+                    var dialogtext = new MessageDialog("Need input for Company name");
                     var t = dialogtext.ShowAsync().GetAwaiter();
                 }
                 else if(EmailNameText.Text == string.Empty)
                 {
-                    var dialogtext = new MessageDialog("Du måste skriva en mail");
+                    var dialogtext = new MessageDialog("Need input for Email");
                     var t = dialogtext.ShowAsync().GetAwaiter();
 
                 }
@@ -60,7 +60,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
            
             else
             {
-                var dialogtext = new MessageDialog("Endast siffror i telefonnummret tack.");
+                var dialogtext = new MessageDialog("Only input numbers in phonenumber please.");
                 var t = dialogtext.ShowAsync().GetAwaiter();
             }
         }

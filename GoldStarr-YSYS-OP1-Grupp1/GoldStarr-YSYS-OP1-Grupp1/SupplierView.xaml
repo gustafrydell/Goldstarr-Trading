@@ -51,9 +51,9 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock HorizontalAlignment="Left" Margin="0,-50,0,0" Text="Namn" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="176" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="0,-50,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="176" FontSize="36"/>
         <TextBlock HorizontalAlignment="Left" Margin="410,-50,0,0" Text="Email" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="176" FontSize="36"/>
-        <TextBlock HorizontalAlignment="Left" Margin="810,-50,0,0" Text="Telefon nummer" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="260" FontSize="36"/>
+        <TextBlock HorizontalAlignment="Left" Margin="810,-50,0,0" Text="PhoneNumber" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="260" FontSize="36"/>
 
     </Grid>
 </Page>
