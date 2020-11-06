@@ -38,7 +38,7 @@
         </GridView>
         <ComboBox PlaceholderText="Sortera"
                   x:Name="SortingBox"
-                  FontSize="20" 
+                  FontSize="18" 
                   Margin="10,184,0,0" 
                   Width="154" Height="40" 
                   IsEnabled="True" 
