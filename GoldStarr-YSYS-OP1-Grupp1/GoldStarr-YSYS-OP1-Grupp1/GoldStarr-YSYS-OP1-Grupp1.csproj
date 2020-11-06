@@ -138,6 +138,7 @@
     <Compile Include="MerchandiseView.xaml.cs">
       <DependentUpon>MerchandiseView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProductsBought.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestockOption.xaml.cs">
       <DependentUpon>RestockOption.xaml</DependentUpon>

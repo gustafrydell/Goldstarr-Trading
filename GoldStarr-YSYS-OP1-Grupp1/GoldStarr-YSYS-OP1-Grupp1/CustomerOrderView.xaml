@@ -80,45 +80,20 @@
         <!--Orderlist-->
         <TextBlock x:Name="orderTitle" Text="FÖLJANDE ORDER ÄR NU LAGD:" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" FontSize="24" FontWeight="Bold" Visibility="Collapsed" Margin="50,20,0,20"/>
 
-        <StackPanel Grid.Row="2" Grid.Column="2" Margin="20,0,0,0">
-            <!--order date-->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="orderedDate_Textblock" Text="Orderdatum:" Margin="30,0,20,0" Width="200" FontSize="20" Visibility="Collapsed" FontWeight="Bold"/>
-                <TextBlock  x:Name="orderedDateTime_Textblock" Visibility="Collapsed" Width="250" FontSize="20" HorizontalAlignment="Right"/>
-            </StackPanel>
+        <ListView ItemsSource="{x:Bind customerOrder.ProductsBoughtList}" x:Name ="orderList_Listview"  Grid.Column="2" Grid.Row="2" IsItemClickEnabled="True" ItemClick="SelectCustomer_ItemClick" Visibility="Visible" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
 
-            <!--order customer name-->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="orderedCustomer_Textblock" Text="Kundnamn:" Margin="30,0,20,0" Width="200" FontSize="20" Visibility="Collapsed" FontWeight="Bold"/>
-                <TextBlock  x:Name="orderedCustomerName_Textblock" Visibility="Collapsed" FontSize="20" Width="200" HorizontalAlignment="Right"/>
-            </StackPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:ProductBought">
+                    <StackPanel>
+                        <TextBlock Name="orderCustomerName" Text="{x:Bind QuantityBought }" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20"/>
+                        <TextBlock Name="orderCustomerAddress" Text="{x:Bind ProductChosen.Name}" HorizontalAlignment="Left" FontSize="16"/>
+                        <TextBlock Name="OrderCustomerPhoneNumber" Text="{x:Bind ProductChosen.Stock}" HorizontalAlignment="Left" FontSize="16"/>
+                        <TextBlock Name="OrdercustomerIsOnline" Text="{x:Bind ProductChosen.Supplier}" HorizontalAlignment="Left" FontSize="16"/>
+                        <TextBlock/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
 
-            <!--orderered delivery address-->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock  x:Name="deliveryAddress_Textblock" Text="Leveransadress:" Margin="30,0,20,0" Width="200" Visibility="Collapsed" FontSize="20" FontWeight="Bold"/>
-                <TextBlock  x:Name="customerDeliveryAddress_Textblock" Visibility="Collapsed" FontSize="20" Width="150"/>
-            </StackPanel>
-
-            <!--ordererd email address-->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock  x:Name="Email_Textblock" Text="E-postadress:" Visibility="Collapsed" Margin="30,0,20,0" Width="200" FontSize="20" FontWeight="Bold"/>
-                <TextBlock  x:Name="customerEmail_Textblock" Visibility="Collapsed" FontSize="20" Width="150"/>
-            </StackPanel>
-
-            <!--orderered credit card-->
-            <StackPanel Orientation="Horizontal">
-                <TextBlock  x:Name="creditCardNumber_Textblock" Text="Kreditkortsnummer:" Margin="30,0,20,0" Width="200" Visibility="Collapsed" FontSize="20" FontWeight="Bold"/>
-                <TextBlock  x:Name="customerCreditCardNumber_Textblock" Visibility="Collapsed" FontSize="20" Width="150"/>
-            </StackPanel>
-
-            <!--orderered products-->
-            <TextBlock x:Name="orderedProduct_Textblock" Text="Beställda produkter:" Margin="30,30,0,0" FontSize="20" Visibility="Collapsed" FontWeight="Bold"/>
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock  x:Name="orderedQuantityPurchased_Textblock" Visibility="Collapsed" FontSize="20" Margin="30,0,10,0"/>
-                <TextBlock x:Name="orderedSTTextblock" Text="st"  FontSize="20" Visibility="Collapsed"/>
-                <TextBlock  x:Name="orderedProductName_Textblock" Visibility="Collapsed" FontSize="20" Margin="10,0,0,0"/>
-            </StackPanel>
-        </StackPanel>
+        </ListView>
     </Grid>
 </Page>

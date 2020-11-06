@@ -4,26 +4,17 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
 {
-    public class ProductsBought : Merchandise
-    {
-        
-        public int QuantityBought { get; set; }
-        public Merchandise ProductChosen { get; set; }
-
-       
-        
-        
-    }
     class CustomerOrder : Customer, INotifyPropertyChanged
     {
         //private int _quantity;
 
         public DateTime DateTime { get; set; }
         public Customer Customer { get; set; }
-        public List <ProductsBought> ProductsBought { get; set; }
+        public ObservableCollection <ProductBought> ProductsBoughtList { get; set; }
 
 
         /*public int Quantity
@@ -41,7 +32,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         public CustomerOrder()
         {
-            ProductsBought = new List<ProductsBought>();
+            ProductsBoughtList = new ObservableCollection<ProductBought>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
