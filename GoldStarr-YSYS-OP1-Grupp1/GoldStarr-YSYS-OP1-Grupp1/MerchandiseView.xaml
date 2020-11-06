@@ -39,10 +39,10 @@
         <ComboBox PlaceholderText="Sortera"
                   x:Name="SortingBox"
                   FontSize="18" 
-                  Margin="10,184,0,0" 
-                  Width="154" Height="40" 
+                  Margin="10,80,0,0" 
+                  Width="Auto" Height="40" 
                   IsEnabled="True" 
-                  SelectionChanged="ColorComboBox_SelectionChanged">
+                  SelectionChanged="ColorComboBox_SelectionChanged" Background="LightGray">
 
             <x:String>Alphabetical Ascending</x:String>
             <x:String>Alphabetical Descending</x:String>
