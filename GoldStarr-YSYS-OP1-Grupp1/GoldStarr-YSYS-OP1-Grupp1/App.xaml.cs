@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -38,6 +39,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             CustomerViewList cust = new CustomerViewList();
 
             Restock = new RestockOption();
+            //FileManager.ReadFromFile(CustomerViewList.Customers, "Customers.xml");
+            FileManager.ReadFromFile();
             //Merchandise = new MerchandiseView();
 
             
@@ -104,6 +107,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
+            //FileManager.SaveToFile(CustomerViewList.Customers, "Customers.xml");
+            FileManager.SaveToFile();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
