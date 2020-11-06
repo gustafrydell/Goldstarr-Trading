@@ -44,16 +44,16 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     public class MerchandiseManager
     {
     
-        public List<Merchandise> merchlist { get; set; }
+        public ObservableCollection<Merchandise> merchlist { get; set; }
 
         public MerchandiseManager()
         {
             merchlist = GetMerchList();
 
         }
-            public static List<Merchandise> GetMerchList()
+            public static ObservableCollection<Merchandise> GetMerchList()
             {
-                var merchList = new List<Merchandise>();
+                var merchList = new ObservableCollection<Merchandise>();
                 {
 
                     merchList.Add(new Merchandise { Name = "PropellerKeps", Supplier = "PropGangInc", Stock = 10, MerchandiseId = 1, CoverImage = "Assets/proppellerkeps.jfif" });
