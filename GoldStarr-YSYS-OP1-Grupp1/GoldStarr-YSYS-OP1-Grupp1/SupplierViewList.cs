@@ -35,9 +35,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             Suppliers = supplierList;
         }
 
-        public void AddNewSupplier(string _name, string _address, string _phonenumber)
+        public void AddNewSupplier(string _name, string _email, string _phonenumber)
         {
-            Suppliers.Add(new Suppliers { Name = _name, Email = _address, PhoneNr = _phonenumber});
+            Suppliers.Add(new Suppliers { Name = _name, Email = _email, PhoneNr = _phonenumber});
         }
     }
 }
