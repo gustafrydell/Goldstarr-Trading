@@ -28,15 +28,18 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     {
         private ObservableCollection<Customer> customersList;
         private CustomerOrder customerOrder;
-        private Merchandise clickedProduct;
+        private ProductsBought clickedProduct;
         public MerchandiseManager merchandiseManager;
         private int _quantity;
+        private Merchandise _merch;
 
         public CustomerOrderView()
         {
             this.InitializeComponent();
             customersList = CustomerViewList.Customers;
             merchandiseManager = App._merchandiseManager;
+            clickedProduct = new ProductsBought();
+            _merch = new Merchandise();
         }
 
         private void AddNewOrderButton_Click(object sender, RoutedEventArgs e)
@@ -71,7 +74,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             {
                 if (item.Name == findSelectedProductTextblock.Text)
                 {
-                    clickedProduct = item;
+                    clickedProduct.Stock = item.Stock;
+                    clickedProduct.ProductChosen = item;
+                    
+                    
                 }
             }
 
@@ -81,17 +87,19 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
             if (int.TryParse(findQuantityTextbox.Text, out _quantity))
             {
-                customerOrder.Quantity = _quantity;
+                clickedProduct.QuantityBought = _quantity;
+                Debug.WriteLine(clickedProduct.QuantityBought);
                 
-                if (customerOrder.Quantity <= clickedProduct.Stock)
+                if (clickedProduct.QuantityBought <= clickedProduct.ProductChosen.Stock)
                 {
                     customerOrder.ProductsBought.Add(clickedProduct);
-                    clickedProduct.Stock -= customerOrder.Quantity;
+                    clickedProduct.Stock -= clickedProduct.QuantityBought;
+
 
                     TextBlock findStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
                     findStockTextBlock.Text = clickedProduct.Stock.ToString();
                     
-                    orderedProductName_Textblock.Text = clickedProduct.Name;
+                    orderedProductName_Textblock.Text = clickedProduct.ProductChosen.Name;
                     orderedQuantityPurchased_Textblock.Text = findQuantityTextbox.Text;
                     orderedCustomerName_Textblock.Text = customerOrder.Customer.Name;
                     orderedDateTime_Textblock.Text = customerOrder.DateTime.ToString();

@@ -7,14 +7,26 @@ using System.Threading.Tasks;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
 {
+    public class ProductsBought : Merchandise
+    {
+        
+        public int QuantityBought { get; set; }
+        public Merchandise ProductChosen { get; set; }
+
+       
+        
+        
+    }
     class CustomerOrder : Customer, INotifyPropertyChanged
     {
-        private int _quantity;
+        //private int _quantity;
 
         public DateTime DateTime { get; set; }
         public Customer Customer { get; set; }
-        public List <Merchandise> ProductsBought { get; set; }
-        public int Quantity
+        public List <ProductsBought> ProductsBought { get; set; }
+
+
+        /*public int Quantity
         {
             get
             {
@@ -25,11 +37,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 _quantity = value;
                 OnPropertyChanged("Quantity");
             }
-        }
+        }*/
 
         public CustomerOrder()
         {
-            ProductsBought = new List<Merchandise>();
+            ProductsBought = new List<ProductsBought>();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
