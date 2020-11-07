@@ -32,6 +32,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public MerchandiseManager merchandiseManager;
         private int _quantity;
         private Merchandise _merch;
+        //private int _stock;
 
         public CustomerOrderView()
         {
@@ -41,6 +42,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             _merch = new Merchandise();
         }
 
+        // after pressing the add order button
         private void AddNewOrderButton_Click(object sender, RoutedEventArgs e)
         {
             disableAllList();
@@ -52,15 +54,18 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             ChooseCustomer_label.FontWeight = Windows.UI.Text.FontWeights.Bold;
         }
 
+        // after selecting a customer
         private void SelectCustomer_ItemClick(object sender, ItemClickEventArgs e)
         {
             customerOrder.Customer = (Customer)e.ClickedItem;
             this.merchandiseList_Listview.Visibility = Visibility.Visible;
             chooseProductTextblock.Visibility = Visibility.Visible;
+            FinishOrderButton.Visibility = Visibility.Visible;
             ChooseProduct_label.Foreground = new SolidColorBrush(Colors.Black);
             ChooseProduct_label.FontWeight = Windows.UI.Text.FontWeights.Bold;
         }
-
+        
+        // after pressing add product
         private void AddProductToOrderButton_Click(object sender, RoutedEventArgs e)
         {
             clickedProduct = new ProductBought();
@@ -76,8 +81,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 if (item.Name == findSelectedProductTextblock.Text)
                 {
                     clickedProduct.ProductChosen = item;
-                    clickedProduct.ProductChosen.Stock = item.Stock;
                     _merch = item;
+                    clickedProduct.ProductChosen.Stock = item.Stock;
                     
                 }
             }
@@ -93,14 +98,25 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 
                 if (clickedProduct.QuantityBought <= clickedProduct.ProductChosen.Stock)
                 {
-                    customerOrder.ProductsBoughtList.Add(clickedProduct);
-                    clickedProduct.ProductChosen.Stock -= clickedProduct.QuantityBought;
-                    _merch.Stock = clickedProduct.ProductChosen.Stock;
-
-                    foreach (var item in customerOrder.ProductsBoughtList)
+                    orderList_Listview.ItemsSource = customerOrder.ProductsBoughtList;
+                    // måste fixa det
+                    if ( customerOrder.ProductsBoughtList.Contains(clickedProduct) == true)
                     {
-                        Debug.WriteLine(item.ProductChosen.Name);
+                        int index = customerOrder.ProductsBoughtList.IndexOf(clickedProduct);
+                        clickedProduct.QuantityBought += customerOrder.ProductsBoughtList[index].QuantityBought;
+                        customerOrder.ProductsBoughtList.RemoveAt(index);
+                        customerOrder.ProductsBoughtList.Remove(clickedProduct);
                     }
+                    else
+                    {
+                        customerOrder.ProductsBoughtList.Add(clickedProduct);
+                        clickedProduct.ProductChosen.Stock -= clickedProduct.QuantityBought;
+                        _merch.Stock = clickedProduct.ProductChosen.Stock;
+                        
+                        orderList_Listview.Visibility = Visibility.Visible;
+                    }
+
+                    
 
                     TextBlock findStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
                     findStockTextBlock.Text = clickedProduct.ProductChosen.Stock.ToString();
@@ -132,6 +148,22 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             }
 
             
+        }
+
+        // ska visa en listview med ordern
+        private void FinishOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+           
+            
+
+            
+
+        }
+
+        // ska återställa allt när man avbryter ordern
+        private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void disableAllList()
@@ -186,6 +218,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             //creditCardNumber_Textblock.Visibility = Visibility.Visible;
             //customerCreditCardNumber_Textblock.Visibility = Visibility.Visible;
         }
+
+       
     }
 
     public static class Extensions

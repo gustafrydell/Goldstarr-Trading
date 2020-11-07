@@ -4,8 +4,11 @@
     {
         
         public int QuantityBought { get; set; }
+        public int ProductBoughtStock { get; set; }
         public Merchandise ProductChosen { get; set; }
 
+
+        
        
         
         
