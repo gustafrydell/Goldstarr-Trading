@@ -39,7 +39,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             CustomerViewList cust = new CustomerViewList();
 
             Restock = new RestockOption();
-            //FileManager.ReadFromFile(CustomerViewList.Customers, "Customers.xml");
             FileManager.ReadFromFile();
             //Merchandise = new MerchandiseView();
 
