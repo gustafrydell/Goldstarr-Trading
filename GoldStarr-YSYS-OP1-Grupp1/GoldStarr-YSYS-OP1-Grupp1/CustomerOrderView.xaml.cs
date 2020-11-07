@@ -94,27 +94,34 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             if (int.TryParse(findQuantityTextbox.Text, out _quantity))
             {
                 clickedProduct.QuantityBought = _quantity;
-                //Debug.WriteLine(clickedProduct.QuantityBought);
-                
+                orderList_Listview.ItemsSource = customerOrder.ProductsBoughtList;
+
                 if (clickedProduct.QuantityBought <= clickedProduct.ProductChosen.Stock)
                 {
-                    orderList_Listview.ItemsSource = customerOrder.ProductsBoughtList;
-                    // måste fixa det
-                    if ( customerOrder.ProductsBoughtList.Contains(clickedProduct) == true)
+                    for (int i = 0; i < customerOrder.ProductsBoughtList.Count; i++)
                     {
-                        int index = customerOrder.ProductsBoughtList.IndexOf(clickedProduct);
-                        clickedProduct.QuantityBought += customerOrder.ProductsBoughtList[index].QuantityBought;
-                        customerOrder.ProductsBoughtList.RemoveAt(index);
-                        customerOrder.ProductsBoughtList.Remove(clickedProduct);
-                    }
-                    else
-                    {
-                        customerOrder.ProductsBoughtList.Add(clickedProduct);
-                        clickedProduct.ProductChosen.Stock -= clickedProduct.QuantityBought;
-                        _merch.Stock = clickedProduct.ProductChosen.Stock;
+                        if (clickedProduct.ProductChosen.MerchandiseId == customerOrder.ProductsBoughtList[i].ProductChosen.MerchandiseId)
+                        {
+                            
+                            clickedProduct.ProductChosen.Stock += customerOrder.ProductsBoughtList[i].QuantityBought; ;//***
+                            clickedProduct.QuantityBought += customerOrder.ProductsBoughtList[i].QuantityBought;
+                            //clickedProduct.ProductChosen.Stock -= clickedProduct.QuantityBought;
+                            //_merch.Stock = clickedProduct.ProductChosen.Stock;
+                            customerOrder.ProductsBoughtList.RemoveAt(i);
+
+                        }
                         
-                        orderList_Listview.Visibility = Visibility.Visible;
                     }
+
+                    // måste fixa det
+
+
+                    customerOrder.ProductsBoughtList.Add(clickedProduct);
+                    clickedProduct.ProductChosen.Stock -= clickedProduct.QuantityBought;//***
+                    _merch.Stock = clickedProduct.ProductChosen.Stock;
+
+                        orderList_Listview.Visibility = Visibility.Visible;
+                    
 
                     
 
@@ -123,12 +130,12 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     
                     //orderedProductName_Textblock.Text = clickedProduct.ProductChosen.Name;
                     //orderedQuantityPurchased_Textblock.Text = findQuantityTextbox.Text;
-                    //orderedCustomerName_Textblock.Text = customerOrder.Customer.Name;
-                    //orderedDateTime_Textblock.Text = customerOrder.DateTime.ToString();
+                    orderedCustomerName_Textblock.Text = customerOrder.Customer.Name;
+                    orderedDateTime_Textblock.Text = customerOrder.DateTime.ToString();
 
-                    //customerDeliveryAddress_Textblock.Text = customerOrder.Customer.DeliveryAddress;
-                    //customerEmail_Textblock.Text = customerOrder.Customer.CustomerEmail;
-                    //customerCreditCardNumber_Textblock.Text = customerOrder.Customer.CreditCardNumber;
+                    customerDeliveryAddress_Textblock.Text = customerOrder.Customer.DeliveryAddress;
+                    customerEmail_Textblock.Text = customerOrder.Customer.CustomerEmail;
+                    customerCreditCardNumber_Textblock.Text = customerOrder.Customer.CreditCardNumber;
 
                     enabledOrderVisibility();
                     Confirmation_label.Foreground = new SolidColorBrush(Colors.Black);
@@ -203,20 +210,20 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private void enabledOrderVisibility()
         {
             orderTitle.Visibility = Visibility.Visible;
-            //orderedCustomerName_Textblock.Visibility = Visibility.Visible;
-            //orderedDateTime_Textblock.Visibility = Visibility.Visible;
+            orderedCustomerName_Textblock.Visibility = Visibility.Visible;
+            orderedDateTime_Textblock.Visibility = Visibility.Visible;
             //orderedProductName_Textblock.Visibility = Visibility.Visible;
             //orderedQuantityPurchased_Textblock.Visibility = Visibility.Visible;
-            //orderedCustomer_Textblock.Visibility = Visibility.Visible;
+            orderedCustomer_Textblock.Visibility = Visibility.Visible;
             //orderedSTTextblock.Visibility = Visibility.Visible;
-            //orderedDate_Textblock.Visibility = Visibility.Visible;
+            orderedDate_Textblock.Visibility = Visibility.Visible;
             //orderedProduct_Textblock.Visibility = Visibility.Visible;
-            //deliveryAddress_Textblock.Visibility = Visibility.Visible;
-            //customerDeliveryAddress_Textblock.Visibility = Visibility.Visible;
-            //Email_Textblock.Visibility = Visibility.Visible;
-            //customerEmail_Textblock.Visibility = Visibility.Visible;
-            //creditCardNumber_Textblock.Visibility = Visibility.Visible;
-            //customerCreditCardNumber_Textblock.Visibility = Visibility.Visible;
+            deliveryAddress_Textblock.Visibility = Visibility.Visible;
+            customerDeliveryAddress_Textblock.Visibility = Visibility.Visible;
+            Email_Textblock.Visibility = Visibility.Visible;
+            customerEmail_Textblock.Visibility = Visibility.Visible;
+            creditCardNumber_Textblock.Visibility = Visibility.Visible;
+            customerCreditCardNumber_Textblock.Visibility = Visibility.Visible;
         }
 
        
