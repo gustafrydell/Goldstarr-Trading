@@ -9,8 +9,8 @@
     Title="Lägg till användare"
     PrimaryButtonText="OK"
     SecondaryButtonText="Cancel"
-    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+    PrimaryButtonClick="ContentDialog_OKButtonClick"
+    SecondaryButtonClick="ContentDialog_CancelButtonClick">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -22,14 +22,14 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="NameText" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Namn"/>
-        <TextBox x:Name="AddressText" Grid.Row="1" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Adress"/>
-        <TextBox x:Name="PhonenumberText" Grid.Row="2" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Telefon nummer"/>
+        <TextBox x:Name="NameText" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Namn (obligatoriskt)"/>
+        <TextBox x:Name="AddressText" Grid.Row="1" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Adress (obligatoriskt)"/>
+        <TextBox x:Name="PhonenumberText" Grid.Row="2" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Telefon nummer (obligatoriskt)"/>
         <RadioButton x:Name="StoreCustomerRadioButton" Content="Butikskund" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="StoreCustomer_IsChecked"/>
         <RadioButton x:Name="OnlineCustomerRadioButton" Content="Onlinekund" Grid.Row="3"  HorizontalAlignment="Right" VerticalAlignment="Top" Checked="OnlineCustomer_IsChecked"/>
      
-        <TextBox x:Name="DeliveryAddressText" Grid.Row="4" Visibility="Collapsed" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Leveransaddress"/>
+        <TextBox x:Name="DeliveryAddressText" Grid.Row="4" Visibility="Collapsed" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Leveransaddress (obligatoriskt)"/>
         <TextBox x:Name="CustomerEmailText" Grid.Row="5" Visibility="Collapsed" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Emailadress"/>
-        <TextBox x:Name="CreditCardText" Grid.Row="6" Visibility="Collapsed" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Kreditkortnummer"/>
+        <TextBox x:Name="CreditCardText" Grid.Row="6" Visibility="Collapsed" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Kreditkortnummer (obligatoriskt)"/>
     </Grid>
 </ContentDialog>

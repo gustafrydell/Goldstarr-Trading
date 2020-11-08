@@ -26,26 +26,44 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             
         }
 
-        private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private void ContentDialog_OKButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            if (StoreCustomerRadioButton.IsChecked == true)
+            if (string.IsNullOrEmpty(NameText.Text) || string.IsNullOrEmpty(AddressText.Text) || string.IsNullOrEmpty(PhonenumberText.Text))
             {
-
-                CustomerViewList.AddNewStoreUser(NameText.Text, AddressText.Text, PhonenumberText.Text,CustomerType.Butikskund);
-
-            }
-            else if (OnlineCustomerRadioButton.IsChecked == true)
-            {
-                CustomerViewList.AddNewOnlineUser(NameText.Text, AddressText.Text, PhonenumberText.Text,CustomerType.Onlinekund, DeliveryAddressText.Text,CreditCardText.Text,CustomerEmailText.Text);
+                var dialog = new MessageDialog("Du har inte fyllt i alla rutor");
+                var t = dialog.ShowAsync().GetAwaiter();
             }
             else
             {
-                var anotherDialog = new MessageDialog("Du har inte valt kundtyp");
-                var y = anotherDialog.ShowAsync().GetAwaiter();
+                if (StoreCustomerRadioButton.IsChecked == true)
+                {
+
+                    CustomerViewList.AddNewStoreUser(NameText.Text, AddressText.Text, PhonenumberText.Text,CustomerType.Butikskund);
+
+                }
+                else if (OnlineCustomerRadioButton.IsChecked == true)
+                {
+                    if (string.IsNullOrEmpty(CreditCardText.Text) || string.IsNullOrEmpty(DeliveryAddressText.Text))
+                    {
+                        var dialog = new MessageDialog("Du har inte fyllt i alla obligatoriska rutor");
+                        var t = dialog.ShowAsync().GetAwaiter();
+                    }
+                    else
+                    {
+                    CustomerViewList.AddNewOnlineUser(NameText.Text, AddressText.Text, PhonenumberText.Text,CustomerType.Onlinekund, DeliveryAddressText.Text,CreditCardText.Text,CustomerEmailText.Text);
+                    }
+                }
+                else
+                {
+                    var anotherDialog = new MessageDialog("Du har inte valt kundtyp");
+                    var y = anotherDialog.ShowAsync().GetAwaiter();
+                }
+                    
             }
+            
         }
 
-        private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+        private void ContentDialog_CancelButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
         }
 
@@ -61,9 +79,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         private void StoreCustomer_IsChecked(object sender, RoutedEventArgs e)
         {
-            DeliveryAddressText.Visibility = Visibility.Collapsed;
-            CreditCardText.Visibility = Visibility.Collapsed;
-            CustomerEmailText.Visibility = Visibility.Collapsed;
+            //DeliveryAddressText.Visibility = Visibility.Collapsed;
+            //CreditCardText.Visibility = Visibility.Collapsed;
+            //CustomerEmailText.Visibility = Visibility.Collapsed;
         }
     }
 }
