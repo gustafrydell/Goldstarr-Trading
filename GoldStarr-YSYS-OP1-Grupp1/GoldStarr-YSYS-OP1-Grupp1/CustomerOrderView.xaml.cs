@@ -134,43 +134,45 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             chooseCustomerTextblock.Visibility = Visibility.Collapsed;
             this.merchandiseList_Listview.Visibility = Visibility.Collapsed;
 
+            orderList_stackpanel.Visibility = Visibility.Collapsed;
             orderTitle.Visibility = Visibility.Collapsed;
-            orderedCustomerName_Textblock.Visibility = Visibility.Collapsed;
-            orderedDateTime_Textblock.Visibility = Visibility.Collapsed;
-            orderedProductName_Textblock.Visibility = Visibility.Collapsed;
-            orderedQuantityPurchased_Textblock.Visibility = Visibility.Collapsed;
-            orderedCustomer_Textblock.Visibility = Visibility.Collapsed;
-            orderedSTTextblock.Visibility = Visibility.Collapsed;
-            orderedDate_Textblock.Visibility = Visibility.Collapsed;
-            orderedProduct_Textblock.Visibility = Visibility.Collapsed;
+            //orderedCustomerName_Textblock.Visibility = Visibility.Collapsed;
+            //orderedDateTime_Textblock.Visibility = Visibility.Collapsed;
+            //orderedProductName_Textblock.Visibility = Visibility.Collapsed;
+            //orderedQuantityPurchased_Textblock.Visibility = Visibility.Collapsed;
+            //orderedCustomer_Textblock.Visibility = Visibility.Collapsed;
+            //orderedSTTextblock.Visibility = Visibility.Collapsed;
+            //orderedDate_Textblock.Visibility = Visibility.Collapsed;
+            //orderedProduct_Textblock.Visibility = Visibility.Collapsed;
 
-            deliveryAddress_Textblock.Visibility = Visibility.Collapsed;
-            customerDeliveryAddress_Textblock.Visibility = Visibility.Collapsed;
-            Email_Textblock.Visibility = Visibility.Collapsed;
-            customerEmail_Textblock.Visibility = Visibility.Collapsed;
-            creditCardNumber_Textblock.Visibility = Visibility.Collapsed;
-            customerCreditCardNumber_Textblock.Visibility = Visibility.Collapsed;
+            //deliveryAddress_Textblock.Visibility = Visibility.Collapsed;
+            //customerDeliveryAddress_Textblock.Visibility = Visibility.Collapsed;
+            //Email_Textblock.Visibility = Visibility.Collapsed;
+            //customerEmail_Textblock.Visibility = Visibility.Collapsed;
+            //creditCardNumber_Textblock.Visibility = Visibility.Collapsed;
+            //customerCreditCardNumber_Textblock.Visibility = Visibility.Collapsed;
 
             Confirmation_label.Foreground = new SolidColorBrush(Colors.Gray);
             Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Normal;
         }
         private void enabledOrderVisibility()
         {
+            orderList_stackpanel.Visibility = Visibility.Visible;
             orderTitle.Visibility = Visibility.Visible;
-            orderedCustomerName_Textblock.Visibility = Visibility.Visible;
-            orderedDateTime_Textblock.Visibility = Visibility.Visible;
-            orderedProductName_Textblock.Visibility = Visibility.Visible;
-            orderedQuantityPurchased_Textblock.Visibility = Visibility.Visible;
-            orderedCustomer_Textblock.Visibility = Visibility.Visible;
-            orderedSTTextblock.Visibility = Visibility.Visible;
-            orderedDate_Textblock.Visibility = Visibility.Visible;
-            orderedProduct_Textblock.Visibility = Visibility.Visible;
-            deliveryAddress_Textblock.Visibility = Visibility.Visible;
-            customerDeliveryAddress_Textblock.Visibility = Visibility.Visible;
-            Email_Textblock.Visibility = Visibility.Visible;
-            customerEmail_Textblock.Visibility = Visibility.Visible;
-            creditCardNumber_Textblock.Visibility = Visibility.Visible;
-            customerCreditCardNumber_Textblock.Visibility = Visibility.Visible;
+            //orderedCustomerName_Textblock.Visibility = Visibility.Visible;
+            //orderedDateTime_Textblock.Visibility = Visibility.Visible;
+            //orderedProductName_Textblock.Visibility = Visibility.Visible;
+            //orderedQuantityPurchased_Textblock.Visibility = Visibility.Visible;
+            //orderedCustomer_Textblock.Visibility = Visibility.Visible;
+            //orderedSTTextblock.Visibility = Visibility.Visible;
+            //orderedDate_Textblock.Visibility = Visibility.Visible;
+            //orderedProduct_Textblock.Visibility = Visibility.Visible;
+            //deliveryAddress_Textblock.Visibility = Visibility.Visible;
+            //customerDeliveryAddress_Textblock.Visibility = Visibility.Visible;
+            //Email_Textblock.Visibility = Visibility.Visible;
+            //customerEmail_Textblock.Visibility = Visibility.Visible;
+            //creditCardNumber_Textblock.Visibility = Visibility.Visible;
+            //customerCreditCardNumber_Textblock.Visibility = Visibility.Visible;
         }
     }
 
