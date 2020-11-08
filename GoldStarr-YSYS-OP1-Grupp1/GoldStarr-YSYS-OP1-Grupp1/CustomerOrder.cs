@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
 {
-    class CustomerOrder : Customer, INotifyPropertyChanged
+    public class CustomerOrder : Customer, INotifyPropertyChanged
     {
         //private int _quantity;
 

@@ -116,14 +116,16 @@
             </StackPanel>
         </StackPanel>
 
-        <ListView ItemsSource="{x:Bind customerOrder.ProductsBoughtList}" x:Name ="orderList_Listview"  Grid.Column="2" Grid.Row="3" IsItemClickEnabled="True" ItemClick="SelectCustomer_ItemClick" Visibility="Collapsed" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
+        <ListView ItemsSource="{x:Bind customerOrder.ProductsBoughtList}" x:Name ="orderList_Listview"  Grid.Column="2" Grid.Row="3"  Visibility="Collapsed" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
 
             <ListView.ItemTemplate >
                 <DataTemplate x:DataType="local:ProductBought">
                     <StackPanel Orientation="Horizontal">
+
                         <TextBlock Name="orderProductName" Text="{x:Bind ProductChosen.Name}" HorizontalAlignment="Left" FontWeight="Bold" FontSize="18"/>
-                        <TextBlock Name="orderProductQuantity" Text="{x:Bind QuantityBought }" HorizontalAlignment="Left"  FontSize="14" Margin="20,0,0,0"/>
-                        <TextBlock Text="st" Margin="5,0,0,0" FontSize="14"/>
+                        <TextBlock Name="orderProductQuantity" Text="{x:Bind QuantityBought }" HorizontalAlignment="Left"  FontSize="18" Margin="20,0,0,0"/>
+                        <TextBlock Text="st" Margin="5,0,0,0" FontSize="18"/>
+                        <Button  Content="X" FontSize="16" FontWeight="Bold"  Margin="20,0,0,0" Click="RemoveProductButton_Click" BorderBrush="Black" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -132,7 +134,7 @@
         
         
         <!--Finish and cancel buttons-->
-        <Button x:Name="CancelOrderButton" Click="CancelOrderButton_Click" Content="Cancel" Grid.Row="3" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" Margin="0,170,20,40" Visibility="Visible" Background="#337C0202" BorderBrush="Black" FocusVisualPrimaryBrush="#FF720000" FocusVisualSecondaryBrush="#998D0000" ></Button>
+        <Button x:Name="CancelOrderButton" Click="CancelOrderButton_Click" Content="Cancel" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" Margin="0,120,20,0" Visibility="Visible" Background="#337C0202" BorderBrush="Black" FocusVisualPrimaryBrush="#FF720000" FocusVisualSecondaryBrush="#998D0000" ></Button>
         <Button x:Name="FinishOrderButton" Click="FinishOrderButton_Click" Content="Avsluta Order" Grid.Row="3" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" Margin="0,0,20,40" Visibility="Visible"></Button>
 
         

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,5 +20,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public string DeliveryAddress { get; set; }
         public string CreditCardNumber { get; set; }
         public string CustomerEmail { get; set; }
+        public ObservableCollection<CustomerOrder> CustomerOrders { get; set; }
+
+        public Customer()
+        {
+            CustomerOrders = new ObservableCollection<CustomerOrder>();
+        }
     }
 }

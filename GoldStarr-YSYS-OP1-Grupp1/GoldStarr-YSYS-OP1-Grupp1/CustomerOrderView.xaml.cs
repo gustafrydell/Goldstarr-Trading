@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Email.DataProvider;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -32,6 +33,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public MerchandiseManager merchandiseManager;
         private int _quantity;
         private Merchandise _merch;
+        private ProductBought removedProduct;
+      
         //private int _stock;
 
         public CustomerOrderView()
@@ -157,20 +160,43 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             
         }
 
-        // ska visa en listview med ordern
+        private void RemoveProductButton_Click(object sender, RoutedEventArgs e)
+        {
+            var removeButton = (Button)sender;
+            removedProduct = (ProductBought)removeButton.DataContext;
+
+            customerOrder.ProductsBoughtList.Remove(removedProduct);
+            _merch.Stock += removedProduct.QuantityBought;
+
+
+        }
+
+        
         private void FinishOrderButton_Click(object sender, RoutedEventArgs e)
         {
-           
-            
-
-            
+            customerOrder.Customer.CustomerOrders.Add(customerOrder);
 
         }
 
         // ska återställa allt när man avbryter ordern
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
         {
+            //for (int i = 0; i < customerOrder.ProductsBoughtList.Count; i++)
+            //{
+            //    customerOrder.ProductsBoughtList[i].ProductChosen.Stock += customerOrder.ProductsBoughtList[i].QuantityBought
 
+            //}
+
+            foreach (var item in customerOrder.ProductsBoughtList)
+            {
+                if (item.ProductChosen.Name == _merch.Name) // _merch är fel måste hitta nåt annat
+                {
+                    _merch.Stock += item.QuantityBought;
+                }
+               
+            }
+
+            customerOrder.ProductsBoughtList.Clear();
         }
 
         private void disableAllList()
@@ -226,7 +252,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             customerCreditCardNumber_Textblock.Visibility = Visibility.Visible;
         }
 
-       
+        private void productCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
     public static class Extensions
