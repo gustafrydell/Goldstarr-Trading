@@ -18,6 +18,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
@@ -50,14 +51,14 @@
         </StackPanel>
         
         <!--product list-->
-        <TextBlock Grid.Row="5" Text="Produkter:"/>
-        <ListView ItemsSource="{x:Bind currentOrder.ProductsBoughtList}" x:Name ="orderList_Listview"  Grid.Column="2" Grid.Row="3"  Visibility="Collapsed" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
+        <TextBlock Grid.Row="5" Text="Produkter:" FontSize="20" Margin="30,0,20,0"/>
+        <ListView ItemsSource="{x:Bind currentOrder.ProductsBoughtList}" x:Name ="orderList_Listview"  Grid.Row="6"  BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1" Margin="30,0,20,0">
             <ListView.ItemTemplate >
                 <DataTemplate x:DataType="local:ProductBought">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Name="orderProductName" Text="{x:Bind ProductChosen.Name}" HorizontalAlignment="Left" FontWeight="Bold" FontSize="18" Width="150"/>
-                        <TextBlock Name="orderProductQuantity" Text="{x:Bind QuantityBought }" HorizontalAlignment="Left"  FontSize="18" Margin="20,0,0,0" />
-                        <TextBlock Text="st" Margin="5,0,0,0" FontSize="18"/>
+                        <TextBlock Name="orderProductName" Text="{x:Bind ProductChosen.Name}" HorizontalAlignment="Left" FontSize="20" Width="150"/>
+                        <TextBlock Name="orderProductQuantity" Text="{x:Bind QuantityBought }" HorizontalAlignment="Left"  FontSize="20" Margin="20,0,0,0" />
+                        <TextBlock Text="st" Margin="5,0,0,0" FontSize="20"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
