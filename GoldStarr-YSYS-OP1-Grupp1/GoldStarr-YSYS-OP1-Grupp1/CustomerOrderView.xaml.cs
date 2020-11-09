@@ -46,8 +46,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             this.InitializeComponent();
             customersList = CustomerViewList.Customers;
             merchandiseManager = App._merchandiseManager;
-            _merch = new Merchandise();
-            //ObservableCollection<CustomerOrder> orderlist 
+            _merch = new Merchandise(); 
         }
 
         // after pressing the add order button
@@ -91,13 +90,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     clickedProduct.ProductChosen = item;
                     _merch = item;
                     clickedProduct.ProductChosen.Stock = item.Stock;
-                    
                 }
             }
 
             //find selected quantity textbox
             TextBox findQuantityTextbox = parent.GetChildrenOfType<TextBox>().First( x => x.Name == "quantityInput");
-
 
             if (int.TryParse(findQuantityTextbox.Text, out _quantity))
             {
@@ -109,14 +106,12 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     for (int i = 0; i < customerOrder.ProductsBoughtList.Count; i++)
                     {
                         if (clickedProduct.ProductChosen.MerchandiseId == customerOrder.ProductsBoughtList[i].ProductChosen.MerchandiseId)
-                        {
-                            
+                        {                            
                             clickedProduct.ProductChosen.Stock += customerOrder.ProductsBoughtList[i].QuantityBought; ;//***
                             clickedProduct.QuantityBought += customerOrder.ProductsBoughtList[i].QuantityBought;
                             //clickedProduct.ProductChosen.Stock -= clickedProduct.QuantityBought;
                             //_merch.Stock = clickedProduct.ProductChosen.Stock;
                             customerOrder.ProductsBoughtList.RemoveAt(i);
-
                         }
                         
                     }
@@ -139,9 +134,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     customerEmail_Textblock.Text = customerOrder.Customer.CustomerEmail;
                     customerCreditCardNumber_Textblock.Text = customerOrder.Customer.CreditCardNumber;
 
-                    
-                    Confirmation_label.Foreground = new SolidColorBrush(Colors.Black);
-                    Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Bold;
                     findQuantityTextbox.Text = "";
                 }
                 else
@@ -154,9 +146,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             {
                 var dialog = new MessageDialog ("Gör om, gör rätt");
                 var t = dialog.ShowAsync().GetAwaiter();
-            }
-
-            
+            } 
         }
 
         private void RemoveProductButton_Click(object sender, RoutedEventArgs e)
@@ -166,36 +156,37 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
             customerOrder.ProductsBoughtList.Remove(removedProduct);
             _merch.Stock += removedProduct.QuantityBought;
-
-
         }
 
-        
-        private void FinishOrderButton_Click(object sender, RoutedEventArgs e)
+        private async void FinishOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            enabledOrderVisibility();
+            //enabledOrderVisibility();
             customerOrder.Customer.CustomerOrders.Add(customerOrder); // allt annat ska va collapsed
             App.customerOrders.Add(customerOrder);
+
+            Confirmation_label.Foreground = new SolidColorBrush(Colors.Black);
+            Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Bold;
+
+            App.currentOrder = customerOrder;
+            OrderConfirmation confirmation = new OrderConfirmation();
+            await confirmation.ShowAsync();
         }
 
         // ska återställa allt när man avbryter ordern
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            
-
             foreach (var item in customerOrder.ProductsBoughtList)
             {
                 item.ProductChosen.Stock += item.QuantityBought; // uppdatering saknas
 
             }
-
             customerOrder.ProductsBoughtList.Clear();
         }
 
         private void disableAllList()
         {
             chooseCustomerTextblock.Visibility = Visibility.Collapsed;
-            this.customerList_Listview.Visibility = Visibility.Collapsed;
+            customerList_Listview.Visibility = Visibility.Collapsed;
             ChooseCustomer_label.Foreground = new SolidColorBrush(Colors.Gray);
             ChooseCustomer_label.FontWeight = Windows.UI.Text.FontWeights.Normal;
 
@@ -204,25 +195,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             ChooseProduct_label.FontWeight = Windows.UI.Text.FontWeights.Normal;
 
             chooseCustomerTextblock.Visibility = Visibility.Collapsed;
-            this.merchandiseList_Listview.Visibility = Visibility.Collapsed;
+            merchandiseList_Listview.Visibility = Visibility.Collapsed;
 
             orderTitle.Visibility = Visibility.Collapsed;
             orderlist_stackpanel.Visibility = Visibility.Collapsed;
-            //orderedCustomerName_Textblock.Visibility = Visibility.Collapsed;
-            //orderedDateTime_Textblock.Visibility = Visibility.Collapsed;
-            //orderedProductName_Textblock.Visibility = Visibility.Collapsed;
-            //orderedQuantityPurchased_Textblock.Visibility = Visibility.Collapsed;
-            //orderedCustomer_Textblock.Visibility = Visibility.Collapsed;
-            //orderedSTTextblock.Visibility = Visibility.Collapsed;
-            //orderedDate_Textblock.Visibility = Visibility.Collapsed;
-            //orderedProduct_Textblock.Visibility = Visibility.Collapsed;
-
-            //deliveryAddress_Textblock.Visibility = Visibility.Collapsed;
-            //customerDeliveryAddress_Textblock.Visibility = Visibility.Collapsed;
-            //Email_Textblock.Visibility = Visibility.Collapsed;
-            //customerEmail_Textblock.Visibility = Visibility.Collapsed;
-            //creditCardNumber_Textblock.Visibility = Visibility.Collapsed;
-            //customerCreditCardNumber_Textblock.Visibility = Visibility.Collapsed;
 
             Confirmation_label.Foreground = new SolidColorBrush(Colors.Gray);
             Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Normal;
@@ -231,20 +207,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             orderTitle.Visibility = Visibility.Visible;
             orderlist_stackpanel.Visibility = Visibility.Visible;
-            //orderedCustomerName_Textblock.Visibility = Visibility.Visible;
-            //orderedDateTime_Textblock.Visibility = Visibility.Visible;
-            ////orderedProductName_Textblock.Visibility = Visibility.Visible;
-            ////orderedQuantityPurchased_Textblock.Visibility = Visibility.Visible;
-            //orderedCustomer_Textblock.Visibility = Visibility.Visible;
-            ////orderedSTTextblock.Visibility = Visibility.Visible;
-            //orderedDate_Textblock.Visibility = Visibility.Visible;
-            ////orderedProduct_Textblock.Visibility = Visibility.Visible;
-            //deliveryAddress_Textblock.Visibility = Visibility.Visible;
-            //customerDeliveryAddress_Textblock.Visibility = Visibility.Visible;
-            //Email_Textblock.Visibility = Visibility.Visible;
-            //customerEmail_Textblock.Visibility = Visibility.Visible;
-            //creditCardNumber_Textblock.Visibility = Visibility.Visible;
-            //customerCreditCardNumber_Textblock.Visibility = Visibility.Visible;
         }
 
         private void productCheckBox_Click(object sender, RoutedEventArgs e)
