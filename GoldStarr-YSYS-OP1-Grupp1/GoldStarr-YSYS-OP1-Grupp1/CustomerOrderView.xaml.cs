@@ -27,6 +27,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     public sealed partial class CustomerOrderView : Page
     {
         private ObservableCollection<Customer> customersList;
+        private ObservableCollection<CustomerOrder> customerOrders;
         private CustomerOrder customerOrder;
         private Merchandise clickedProduct;
         public MerchandiseManager merchandiseManager;
@@ -37,6 +38,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             this.InitializeComponent();
             customersList = CustomerViewList.Customers;
             merchandiseManager = App._merchandiseManager;
+            customerOrders = App.customerOrders;
         }
 
         private void AddNewOrderButton_Click(object sender, RoutedEventArgs e)
@@ -86,6 +88,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 if (customerOrder.Quantity <= clickedProduct.Stock)
                 {
                     customerOrder.ProductsBought.Add(clickedProduct);
+                    customerOrders.Add(customerOrder);
                     clickedProduct.Stock -= customerOrder.Quantity;
 
                     TextBlock findStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
