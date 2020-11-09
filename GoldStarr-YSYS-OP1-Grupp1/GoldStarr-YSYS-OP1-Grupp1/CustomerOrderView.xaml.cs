@@ -99,7 +99,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             if (int.TryParse(findQuantityTextbox.Text, out _quantity))
             {
                 clickedProduct.QuantityBought = _quantity;
-                orderList_Listview.ItemsSource = customerOrder.ProductsBoughtList;
+                AddToCart_listview.ItemsSource = customerOrder.ProductsBoughtList;
 
                 if (clickedProduct.QuantityBought <= clickedProduct.ProductChosen.Stock)
                 {
@@ -120,7 +120,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     clickedProduct.ProductChosen.Stock -= clickedProduct.QuantityBought;//***
                     _merch.Stock = clickedProduct.ProductChosen.Stock;
 
-                    orderList_Listview.Visibility = Visibility.Visible;
+                    AddToCart_listview.Visibility = Visibility.Visible;
                     
                     TextBlock findStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
                     findStockTextBlock.Text = clickedProduct.ProductChosen.Stock.ToString();
@@ -170,6 +170,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             App.currentOrder = customerOrder;
             OrderConfirmation confirmation = new OrderConfirmation();
             await confirmation.ShowAsync();
+            disableAllList();
         }
 
         // ska återställa allt när man avbryter ordern
@@ -197,8 +198,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             chooseCustomerTextblock.Visibility = Visibility.Collapsed;
             merchandiseList_Listview.Visibility = Visibility.Collapsed;
 
-            orderTitle.Visibility = Visibility.Collapsed;
-            orderlist_stackpanel.Visibility = Visibility.Collapsed;
+            //orderTitle.Visibility = Visibility.Collapsed;
+            //orderlist_stackpanel.Visibility = Visibility.Collapsed;
+            AddToCart_listview.Visibility = Visibility.Collapsed;
 
             Confirmation_label.Foreground = new SolidColorBrush(Colors.Gray);
             Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Normal;

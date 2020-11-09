@@ -52,7 +52,7 @@
         
         <!--product list-->
         <TextBlock Grid.Row="5" Text="Produkter:" FontSize="20" Margin="30,0,20,0"/>
-        <ListView ItemsSource="{x:Bind currentOrder.ProductsBoughtList}" x:Name ="orderList_Listview"  Grid.Row="6"  BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1" Margin="30,0,20,0">
+        <ListView ItemsSource="{x:Bind currentOrder.ProductsBoughtList}" x:Name ="AddToCart_listview"  Grid.Row="6"  BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1" Margin="30,0,20,0">
             <ListView.ItemTemplate >
                 <DataTemplate x:DataType="local:ProductBought">
                     <StackPanel Orientation="Horizontal">

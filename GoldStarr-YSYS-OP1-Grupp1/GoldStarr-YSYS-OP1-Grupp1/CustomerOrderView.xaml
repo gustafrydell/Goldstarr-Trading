@@ -117,7 +117,7 @@
         </StackPanel>
 
         <!--varukorg-->
-        <ListView ItemsSource="{x:Bind customerOrder.ProductsBoughtList}" x:Name ="orderList_Listview"  Grid.Column="2" Grid.Row="3"  Visibility="Collapsed" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
+        <ListView ItemsSource="{x:Bind customerOrder.ProductsBoughtList}" x:Name ="AddToCart_listview"  Grid.Column="2" Grid.Row="3"  Visibility="Collapsed" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
             <ListView.ItemTemplate >
                 <DataTemplate x:DataType="local:ProductBought">
                     <StackPanel Orientation="Horizontal">

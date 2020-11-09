@@ -25,7 +25,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             this.InitializeComponent();
             currentOrder = App.currentOrder;
-            //how to bind to current customer ordeR?
         }
 
         private void ContentDialog_OKButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
