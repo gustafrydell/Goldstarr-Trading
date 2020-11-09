@@ -83,53 +83,51 @@
         <TextBlock x:Name="orderTitle" Text="FÖLJANDE ORDER ÄR NU LAGD:" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" FontSize="24" FontWeight="Bold" Visibility="Collapsed" Margin="50,20,0,20"/>
         
         
-        <StackPanel Grid.Row="2" Grid.Column="2" Margin="20,0,0,0">
+        <StackPanel x:Name="orderlist_stackpanel" Visibility="Collapsed" Grid.Row="2" Grid.Column="2" Margin="20,0,0,0">
             
             <!--order date-->
             <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="orderedDate_Textblock" Text="Orderdatum:" Margin="30,0,20,0" Width="200" FontSize="20" Visibility="Collapsed" FontWeight="Bold"/>
-                <TextBlock  x:Name="orderedDateTime_Textblock" Visibility="Collapsed" Width="250" FontSize="20" HorizontalAlignment="Right"/>
+                <TextBlock x:Name="orderedDate_Textblock" Text="Orderdatum:" Margin="30,0,20,0" Width="200" FontSize="20" FontWeight="Bold"/>
+                <TextBlock  x:Name="orderedDateTime_Textblock" Width="250" FontSize="20" HorizontalAlignment="Right"/>
             </StackPanel>
 
             <!--order customer name-->
             <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="orderedCustomer_Textblock" Text="Kundnamn:" Margin="30,0,20,0" Width="200" FontSize="20" Visibility="Collapsed" FontWeight="Bold"/>
-                <TextBlock  x:Name="orderedCustomerName_Textblock" Visibility="Collapsed" FontSize="20" Width="200" HorizontalAlignment="Right"/>
+                <TextBlock x:Name="orderedCustomer_Textblock" Text="Kundnamn:" Margin="30,0,20,0" Width="200" FontSize="20" FontWeight="Bold"/>
+                <TextBlock  x:Name="orderedCustomerName_Textblock" FontSize="20" Width="200" HorizontalAlignment="Right"/>
             </StackPanel>
 
             <!--orderered delivery address-->
             <StackPanel Orientation="Horizontal">
-                <TextBlock  x:Name="deliveryAddress_Textblock" Text="Leveransadress:" Margin="30,0,20,0" Width="200" Visibility="Collapsed" FontSize="20" FontWeight="Bold"/>
-                <TextBlock  x:Name="customerDeliveryAddress_Textblock" Visibility="Collapsed" FontSize="20" Width="150"/>
+                <TextBlock  x:Name="deliveryAddress_Textblock" Text="Leveransadress:" Margin="30,0,20,0" Width="200" FontSize="20" FontWeight="Bold"/>
+                <TextBlock  x:Name="customerDeliveryAddress_Textblock" FontSize="20" Width="150"/>
             </StackPanel>
 
             <!--ordererd email address-->
             <StackPanel Orientation="Horizontal">
-                <TextBlock  x:Name="Email_Textblock" Text="E-postadress:" Visibility="Collapsed" Margin="30,0,20,0" Width="200" FontSize="20" FontWeight="Bold"/>
-                <TextBlock  x:Name="customerEmail_Textblock" Visibility="Collapsed" FontSize="20" Width="150"/>
+                <TextBlock  x:Name="Email_Textblock" Text="E-postadress:" Margin="30,0,20,0" Width="200" FontSize="20" FontWeight="Bold"/>
+                <TextBlock  x:Name="customerEmail_Textblock" FontSize="20" Width="150"/>
             </StackPanel>
 
             <!--orderered credit card-->
             <StackPanel Orientation="Horizontal">
-                <TextBlock  x:Name="creditCardNumber_Textblock" Text="Kreditkortsnummer:" Margin="30,0,20,0" Width="200" Visibility="Collapsed" FontSize="20" FontWeight="Bold"/>
-                <TextBlock  x:Name="customerCreditCardNumber_Textblock" Visibility="Collapsed" FontSize="20" Width="150"/>
+                <TextBlock  x:Name="creditCardNumber_Textblock" Text="Kreditkortsnummer:" Margin="30,0,20,0" Width="200" FontSize="20" FontWeight="Bold"/>
+                <TextBlock  x:Name="customerCreditCardNumber_Textblock" FontSize="20" Width="150"/>
             </StackPanel>
         </StackPanel>
 
+        <!--varukorg-->
         <ListView ItemsSource="{x:Bind customerOrder.ProductsBoughtList}" x:Name ="orderList_Listview"  Grid.Column="2" Grid.Row="3"  Visibility="Collapsed" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
-
             <ListView.ItemTemplate >
                 <DataTemplate x:DataType="local:ProductBought">
                     <StackPanel Orientation="Horizontal">
-
-                        <TextBlock Name="orderProductName" Text="{x:Bind ProductChosen.Name}" HorizontalAlignment="Left" FontWeight="Bold" FontSize="18"/>
-                        <TextBlock Name="orderProductQuantity" Text="{x:Bind QuantityBought }" HorizontalAlignment="Left"  FontSize="18" Margin="20,0,0,0"/>
+                        <TextBlock Name="orderProductName" Text="{x:Bind ProductChosen.Name}" HorizontalAlignment="Left" FontWeight="Bold" FontSize="18" Width="150"/>
+                        <TextBlock Name="orderProductQuantity" Text="{x:Bind QuantityBought }" HorizontalAlignment="Left"  FontSize="18" Margin="20,0,0,0" />
                         <TextBlock Text="st" Margin="5,0,0,0" FontSize="18"/>
                         <Button  Content="X" FontSize="16" FontWeight="Bold"  Margin="20,0,0,0" Click="RemoveProductButton_Click" BorderBrush="Black" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-
         </ListView>
         
         

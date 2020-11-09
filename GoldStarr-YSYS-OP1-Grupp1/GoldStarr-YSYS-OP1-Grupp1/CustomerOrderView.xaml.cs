@@ -139,7 +139,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     customerEmail_Textblock.Text = customerOrder.Customer.CustomerEmail;
                     customerCreditCardNumber_Textblock.Text = customerOrder.Customer.CreditCardNumber;
 
-                    enabledOrderVisibility();
+                    
                     Confirmation_label.Foreground = new SolidColorBrush(Colors.Black);
                     Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Bold;
                     findQuantityTextbox.Text = "";
@@ -173,6 +173,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         
         private void FinishOrderButton_Click(object sender, RoutedEventArgs e)
         {
+            enabledOrderVisibility();
             customerOrder.Customer.CustomerOrders.Add(customerOrder); // allt annat ska va collapsed
             App.customerOrders.Add(customerOrder);
         }
@@ -206,6 +207,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             this.merchandiseList_Listview.Visibility = Visibility.Collapsed;
 
             orderTitle.Visibility = Visibility.Collapsed;
+            orderlist_stackpanel.Visibility = Visibility.Collapsed;
             //orderedCustomerName_Textblock.Visibility = Visibility.Collapsed;
             //orderedDateTime_Textblock.Visibility = Visibility.Collapsed;
             //orderedProductName_Textblock.Visibility = Visibility.Collapsed;
@@ -228,20 +230,21 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private void enabledOrderVisibility()
         {
             orderTitle.Visibility = Visibility.Visible;
-            orderedCustomerName_Textblock.Visibility = Visibility.Visible;
-            orderedDateTime_Textblock.Visibility = Visibility.Visible;
-            //orderedProductName_Textblock.Visibility = Visibility.Visible;
-            //orderedQuantityPurchased_Textblock.Visibility = Visibility.Visible;
-            orderedCustomer_Textblock.Visibility = Visibility.Visible;
-            //orderedSTTextblock.Visibility = Visibility.Visible;
-            orderedDate_Textblock.Visibility = Visibility.Visible;
-            //orderedProduct_Textblock.Visibility = Visibility.Visible;
-            deliveryAddress_Textblock.Visibility = Visibility.Visible;
-            customerDeliveryAddress_Textblock.Visibility = Visibility.Visible;
-            Email_Textblock.Visibility = Visibility.Visible;
-            customerEmail_Textblock.Visibility = Visibility.Visible;
-            creditCardNumber_Textblock.Visibility = Visibility.Visible;
-            customerCreditCardNumber_Textblock.Visibility = Visibility.Visible;
+            orderlist_stackpanel.Visibility = Visibility.Visible;
+            //orderedCustomerName_Textblock.Visibility = Visibility.Visible;
+            //orderedDateTime_Textblock.Visibility = Visibility.Visible;
+            ////orderedProductName_Textblock.Visibility = Visibility.Visible;
+            ////orderedQuantityPurchased_Textblock.Visibility = Visibility.Visible;
+            //orderedCustomer_Textblock.Visibility = Visibility.Visible;
+            ////orderedSTTextblock.Visibility = Visibility.Visible;
+            //orderedDate_Textblock.Visibility = Visibility.Visible;
+            ////orderedProduct_Textblock.Visibility = Visibility.Visible;
+            //deliveryAddress_Textblock.Visibility = Visibility.Visible;
+            //customerDeliveryAddress_Textblock.Visibility = Visibility.Visible;
+            //Email_Textblock.Visibility = Visibility.Visible;
+            //customerEmail_Textblock.Visibility = Visibility.Visible;
+            //creditCardNumber_Textblock.Visibility = Visibility.Visible;
+            //customerCreditCardNumber_Textblock.Visibility = Visibility.Visible;
         }
 
         private void productCheckBox_Click(object sender, RoutedEventArgs e)

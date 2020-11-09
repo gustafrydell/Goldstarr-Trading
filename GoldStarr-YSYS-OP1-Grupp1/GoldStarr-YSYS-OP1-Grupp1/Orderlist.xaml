@@ -18,7 +18,13 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Order list" FontSize="50" FontWeight="Bold"/>
+        <TextBlock Text="Orderlista" FontSize="50" FontWeight="Bold"/>
+
+        <!--rubrik-->
+        <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Bottom" >
+            <TextBlock Text="Kund" FontSize="24" Width="220" Margin="20,0,0,0"/>
+            <TextBlock Text="Orderdatum" FontSize="24" Width="220"/>
+        </StackPanel>
 
         <!--<ScrollViewer Grid.Row="1">
             <ListView ItemsSource="{x:Bind customersList}" x:Name ="customerList_Listview"  Grid.Column="0" Grid.Row="2" IsItemClickEnabled="True" Visibility="Visible">
