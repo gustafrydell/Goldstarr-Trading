@@ -36,10 +36,17 @@
                 Icon="Shop" FontSize="20"/>
 
             <NavigationViewItem
+                x:Name="OrderListMeny"
+                Content="Orderlist"
+                ToolTipService.ToolTip="Show order list"
+                Icon="Account" FontSize="20"/>
+            
+            <NavigationViewItem
                 x:Name="MerchandiseListMeny"
                 Content="Merchandise"
                 ToolTipService.ToolTip="Show merchandies"
                 Icon="Favorite" FontSize="20"/>
+            
 
             <NavigationViewItem x:Name="RestockOption" Content="Restock" ToolTipService.ToolTip="Restock Products" Icon="Refresh" FontSize="20"/>
 
