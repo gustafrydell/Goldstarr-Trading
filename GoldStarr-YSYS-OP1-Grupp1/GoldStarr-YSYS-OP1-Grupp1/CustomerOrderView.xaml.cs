@@ -47,6 +47,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             customersList = CustomerViewList.Customers;
             merchandiseManager = App._merchandiseManager;
             _merch = new Merchandise();
+            //ObservableCollection<CustomerOrder> orderlist 
         }
 
         // after pressing the add order button
@@ -120,18 +121,12 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                         
                     }
 
-                    
-
-
                     customerOrder.ProductsBoughtList.Add(clickedProduct);
                     clickedProduct.ProductChosen.Stock -= clickedProduct.QuantityBought;//***
                     _merch.Stock = clickedProduct.ProductChosen.Stock;
 
-                        orderList_Listview.Visibility = Visibility.Visible;
+                    orderList_Listview.Visibility = Visibility.Visible;
                     
-
-                    
-
                     TextBlock findStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
                     findStockTextBlock.Text = clickedProduct.ProductChosen.Stock.ToString();
                     
@@ -179,7 +174,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private void FinishOrderButton_Click(object sender, RoutedEventArgs e)
         {
             customerOrder.Customer.CustomerOrders.Add(customerOrder); // allt annat ska va collapsed
-
+            App.customerOrders.Add(customerOrder);
         }
 
         // ska återställa allt när man avbryter ordern

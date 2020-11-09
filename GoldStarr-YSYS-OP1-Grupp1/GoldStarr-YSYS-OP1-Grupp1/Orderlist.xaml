@@ -34,7 +34,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollViewer>-->
-        
+
         <ScrollViewer Grid.Column="1" Grid.Row="1">
             <ListView ItemsSource="{x:Bind customerOrders}">
                 <ListView.ItemTemplate>

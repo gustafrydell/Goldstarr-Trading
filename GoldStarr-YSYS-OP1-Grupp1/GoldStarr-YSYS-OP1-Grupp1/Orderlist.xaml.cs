@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,7 +23,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     /// </summary>
     public sealed partial class Orderlist : Page
     {
-        private ObservableCollection<Customer> customersList;
+        //private ObservableCollection<Customer> customersList;
         public MerchandiseManager merchandiseManager;
         public ObservableCollection<CustomerOrder> customerOrders;
         private CustomerOrder selectedCustomerOrder;
@@ -32,7 +31,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public Orderlist()
         {
             this.InitializeComponent();
-            customersList = CustomerViewList.Customers;
+            //customersList = CustomerViewList.Customers;
             merchandiseManager = App._merchandiseManager;
             customerOrders = App.customerOrders;
         }
@@ -43,6 +42,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             selectedCustomerOrder = (CustomerOrder)orderdetail.DataContext;
             //Debug.WriteLine(selectedCustomerOrder.Customer.Name);
         }
-       
+
     }
+
 }
