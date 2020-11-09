@@ -27,7 +27,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     public sealed partial class CustomerOrderView : Page
     {
         private ObservableCollection<Customer> customersList;
-        private List<CustomerOrder> customerOrders;
+        private ObservableCollection<CustomerOrder> customerOrders;
         private CustomerOrder customerOrder;
         private Merchandise clickedProduct;
         public MerchandiseManager merchandiseManager;

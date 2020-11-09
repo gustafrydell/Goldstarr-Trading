@@ -20,7 +20,7 @@
 
         <TextBlock Text="Order list" FontSize="50" FontWeight="Bold"/>
 
-        <ScrollViewer Grid.Row="1">
+        <!--<ScrollViewer Grid.Row="1">
             <ListView ItemsSource="{x:Bind customersList}" x:Name ="customerList_Listview"  Grid.Column="0" Grid.Row="2" IsItemClickEnabled="True" Visibility="Visible">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:Customer">
@@ -33,14 +33,19 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </ScrollViewer>
-        <ScrollViewer>
+        </ScrollViewer>-->
+        
+        <ScrollViewer Grid.Column="1" Grid.Row="1">
             <ListView ItemsSource="{x:Bind customerOrders}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:CustomerOrder">
-                        <StackPanel>
-                            <TextBlock x:Name="customerName" Text="{x:Bind Customer.Name}"/>
-                            <!--<TextBlock x:Name="ProductName" Text="{x:Bind ProductsBought.Name}"/>-->
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="customerName" Text="{x:Bind Customer.Name}" Margin="10,10,10,10" Width="200"/>
+                            <!--<TextBlock x:Name="customertype" Text="{x:Bind}"/>-->
+
+                            <TextBlock x:Name="orderdate" Text="{x:Bind DateTime}" Margin="10,10,10,10" Width="200"/>
+                            <Button x:Name="orderDetailButton" Content="Orderdetalj" Margin="10,10,10,10" Width="200" Click="orderDetailButton_Click"/>
+                            <!--hoppa till en listview med detaljerad orderview-->
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
