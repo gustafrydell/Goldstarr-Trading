@@ -47,7 +47,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             var pageType =
                 label == CustomerListLabel ? typeof(CustomerView) :
                 label == CustomerOrderListLabel ? typeof(CustomerOrderView) :
-                label == OrderListLabel ? typeof(Orderlist) :
+                //label == OrderListLabel ? typeof(Orderlist) :
                 label == MerchandiseListLabel ? typeof(MerchandiseView) :
                 label == ReStockOptionLabel ? typeof(RestockOption) : null;
             if (pageType != null && pageType != AppFrame.CurrentSourcePageType)
@@ -74,10 +74,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 {
                     NavView.SelectedItem = CustomerOrdersListMeny;
                 }
-                else if (e.SourcePageType == typeof(Orderlist))
-                {
-                    NavView.SelectedItem = OrderListMeny;
-                }
+                //else if (e.SourcePageType == typeof(Orderlist))
+                //{
+                //    NavView.SelectedItem = OrderListMeny;
+                //}
                 else if (e.SourcePageType == typeof(MerchandiseView))
                 {
                     NavView.SelectedItem = MerchandiseListMeny;
