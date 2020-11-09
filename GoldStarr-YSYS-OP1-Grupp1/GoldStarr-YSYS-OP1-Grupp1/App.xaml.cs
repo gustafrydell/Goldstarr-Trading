@@ -25,6 +25,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public static RestockOption Restock;
         public static MerchandiseManager _merchandiseManager;
         public static MerchandiseView Merchandise;
+       
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+    /// 
+    
     public sealed partial class CustomerOrderView : Page
     {
         private ObservableCollection<Customer> customersList;
@@ -34,7 +37,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private int _quantity;
         private Merchandise _merch;
         private ProductBought removedProduct;
-      
+       // public event PropertyChangedEventHandler PropertyChanged;
+
         //private int _stock;
 
         public CustomerOrderView()
@@ -116,7 +120,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                         
                     }
 
-                    // måste fixa det
+                    
 
 
                     customerOrder.ProductsBoughtList.Add(clickedProduct);
@@ -174,26 +178,19 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         
         private void FinishOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            customerOrder.Customer.CustomerOrders.Add(customerOrder);
+            customerOrder.Customer.CustomerOrders.Add(customerOrder); // allt annat ska va collapsed
 
         }
 
         // ska återställa allt när man avbryter ordern
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            //for (int i = 0; i < customerOrder.ProductsBoughtList.Count; i++)
-            //{
-            //    customerOrder.ProductsBoughtList[i].ProductChosen.Stock += customerOrder.ProductsBoughtList[i].QuantityBought
-
-            //}
+            
 
             foreach (var item in customerOrder.ProductsBoughtList)
             {
-                if (item.ProductChosen.Name == _merch.Name) // _merch är fel måste hitta nåt annat
-                {
-                    _merch.Stock += item.QuantityBought;
-                }
-               
+                item.ProductChosen.Stock += item.QuantityBought; // uppdatering saknas
+
             }
 
             customerOrder.ProductsBoughtList.Clear();
