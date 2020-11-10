@@ -47,7 +47,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             customersList = CustomerViewList.Customers;
             merchandiseManager = App._merchandiseManager;
             _merch = new Merchandise();
-           
+            
+
         }
 
         // after pressing the add order button
@@ -79,6 +80,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private void AddProductToOrderButton_Click(object sender, RoutedEventArgs e)
         {
             clickedProduct = new ProductBought();
+            AddToCart_listview.ItemsSource = customerOrder.ProductsBoughtList;
             cartTitle.Visibility = Visibility.Visible;
 
             var parent = (sender as Button).Parent; // listviewItem
@@ -91,9 +93,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             {
                 if (item.Name == findSelectedProductTextblock.Text)
                 {
-                    clickedProduct.ProductChosen = item;
-                    _merch = item;
-                    clickedProduct.ProductChosen.Stock = item.Stock;
+                    clickedProduct.Product = item; //vald merchandise till clickedProduct
+                    _merch = item; //kopia av vald merchandise
+                    clickedProduct.Product.Stock = item.Stock; //kopierar befintliga stock till clickedProduct
+                    clickedProduct.ProductCurrentStock = item.Stock; //kopierar stock till en kopia av lagerstatus
                 }
             }
 
@@ -102,36 +105,41 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
             if (int.TryParse(findQuantityTextbox.Text, out _quantity))
             {
-                clickedProduct.QuantityBought = _quantity;
-                AddToCart_listview.ItemsSource = customerOrder.ProductsBoughtList;
-
-                if (clickedProduct.QuantityBought <= clickedProduct.ProductBoughtStock)
+                clickedProduct.QuantityBought = _quantity; //köpt antal lägg till i clickedProduct köpantal
+                
+                //quantityBought = antal köpta
+                //productBought = klassen
+                //clickedProduct = typ av productBought
+                //clickedproduct.productBought.stock = lagerstatus
+                //clickedProduct.ProductCurrentStock = kopierad lagerstatus
+                if (clickedProduct.QuantityBought <= clickedProduct.ProductCurrentStock)
                 {
+                    
                     for (int i = 0; i < customerOrder.ProductsBoughtList.Count; i++)
                     {
-                        if (clickedProduct.ProductChosen.MerchandiseId == customerOrder.ProductsBoughtList[i].ProductChosen.MerchandiseId )
+                        if (clickedProduct.Product.MerchandiseId == customerOrder.ProductsBoughtList[i].Product.MerchandiseId )
                         {                            
-                            clickedProduct.ProductBoughtStock += customerOrder.ProductsBoughtList[i].QuantityBought; ;
-                            clickedProduct.QuantityBought += customerOrder.ProductsBoughtList[i].QuantityBought;
-                            //clickedProduct.ProductChosen.Stock -= clickedProduct.QuantityBought;
-                            //_merch.Stock = clickedProduct.ProductChosen.Stock;
+                            //**clickedProduct.ProductCurrentStock += customerOrder.ProductsBoughtList[i].QuantityBought;
+                            //**clickedProduct.QuantityBought += customerOrder.ProductsBoughtList[i].QuantityBought;
                             customerOrder.ProductsBoughtList.RemoveAt(i);
+                            //clickedProduct.Product.Stock -= clickedProduct.QuantityBought;
+                            //_merch.Stock = clickedProduct.Product.Stock;
                         }
                         
                     }
 
                     customerOrder.ProductsBoughtList.Add(clickedProduct);
-                    clickedProduct.ProductBoughtStock -= clickedProduct.QuantityBought;
-                    Debug.WriteLine(clickedProduct.ProductBoughtStock);
+                    clickedProduct.ProductCurrentStock -= clickedProduct.QuantityBought;
+                    //Debug.WriteLine(clickedProduct.ProductCurrentStock);
 
-                    //_merch.Stock = clickedProduct.ProductChosen.Stock;  ********
+                    //_merch.Stock = clickedProduct.Product.Stock;  ********
 
                     AddToCart_listview.Visibility = Visibility.Visible;
                     
                     TextBlock findStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
-                    findStockTextBlock.Text = clickedProduct.ProductChosen.Stock.ToString();
+                    findStockTextBlock.Text = clickedProduct.Product.Stock.ToString();
                     
-                    //orderedProductName_Textblock.Text = clickedProduct.ProductChosen.Name;
+                    //orderedProductName_Textblock.Text = clickedProduct.Product.Name;
                     //orderedQuantityPurchased_Textblock.Text = findQuantityTextbox.Text;
                    
 
@@ -156,17 +164,17 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             removedProduct = (ProductBought)removeButton.DataContext;
 
             customerOrder.ProductsBoughtList.Remove(removedProduct);
-           //removedProduct.ProductChosen.Stock += removedProduct.QuantityBought; // uppdatera
+           //removedProduct.Product.Stock += removedProduct.QuantityBought; // uppdatera
 
             //var parent = (Frame)Parent;
             //TextBlock findStockTextBlock = removedProduct.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
-            //findStockTextBlock.Text = removedProduct.ProductChosen.Stock.ToString();
+            //findStockTextBlock.Text = removedProduct.Product.Stock.ToString();
 
             foreach (var item in merchandiseManager.merchlist)
             {
-                if (item.Name == removedProduct.ProductChosen.Name)
+                if (item.Name == removedProduct.Product.Name)
                 {
-                    removedProduct.ProductBoughtStock += removedProduct.QuantityBought;
+                    removedProduct.ProductCurrentStock += removedProduct.QuantityBought;
                     //item.Stock += removedProduct.QuantityBought;
                 }
             }
@@ -181,7 +189,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             
             foreach (var item in customerOrder.ProductsBoughtList)
             {
-               item.ProductChosen.Stock = item.ProductBoughtStock;
+               item.Product.Stock = item.ProductCurrentStock;
             }
 
             App.customerOrders.Add(customerOrder);
@@ -201,11 +209,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             foreach (var item in customerOrder.ProductsBoughtList)
             {
-                item.ProductChosen.Stock += item.QuantityBought; // uppdatering saknas
+                item.Product.Stock += item.QuantityBought; // uppdatering saknas
 
                 var parent = (sender as Button).Parent;
                 TextBlock findStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
-                findStockTextBlock.Text = item.ProductChosen.Stock.ToString();
+                findStockTextBlock.Text = item.Product.Stock.ToString();
             }
             customerOrder.ProductsBoughtList.Clear();
 
