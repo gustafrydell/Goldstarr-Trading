@@ -24,40 +24,40 @@
         <NavigationView.MenuItems>
             <NavigationViewItem
                 x:Name="CustomerListMenyItem"
-                Content="Customers"
+                Content="Kunder"
                 ToolTipService.ToolTip="Show customers"
                 Icon="Contact" FontSize="20"
                 IsSelected="True"/>
 
             <NavigationViewItem
                 x:Name="CustomerOrdersListMeny"
-                Content="Customer Orders"
+                Content="Kund Ordrar"
                 ToolTipService.ToolTip="Show customer orders"
                 Icon="Shop" FontSize="20"/>
 
             <NavigationViewItem
                 x:Name="OrderListMeny"
-                Content="Orderlist"
+                Content="OrderLista"
                 ToolTipService.ToolTip="Show order list"
                 Icon="Account" FontSize="20"/>
             
             <NavigationViewItem
                 x:Name="MerchandiseListMeny"
-                Content="Merchandise"
+                Content="Produkter"
                 ToolTipService.ToolTip="Show merchandies"
                 Icon="Favorite" FontSize="20"/>
             
 
             <NavigationViewItem 
                 x:Name="RestockOption" 
-                Content="Restock" 
+                Content="Lager" 
                 ToolTipService.ToolTip="Restock Products" 
                 Icon="Refresh" 
                 FontSize="20"/>
 
             <NavigationViewItem 
                 x:Name="SupplierView" 
-                Content="Suppliers" 
+                Content="Leverantörer" 
                 ToolTipService.ToolTip="Current Supplier" 
                 Icon="PhoneBook" 
                 FontSize="20"/>
