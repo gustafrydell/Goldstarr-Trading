@@ -34,6 +34,15 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             //customersList = CustomerViewList.Customers;
             merchandiseManager = App._merchandiseManager;
             customerOrders = App.customerOrders;
+
+            if (customerOrders.Count == 0)
+            {
+                SortOrderListButton.IsEnabled = false;
+            }
+            else
+            {
+                SortOrderListButton.IsEnabled = true;
+            }
         }
 
         private void orderDetailButton_Click(object sender, RoutedEventArgs e)
@@ -45,6 +54,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         private void SortingOrderList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+
+            
             string clickChoice = e.AddedItems[0].ToString();
 
             switch (clickChoice)

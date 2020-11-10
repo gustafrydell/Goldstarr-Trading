@@ -65,7 +65,7 @@
             Width="Auto" 
             Height="40"
             FontSize="18"
-            IsEnabled="True"
+            
             SelectionChanged="SortingOrderList_SelectionChanged" Background="LightGray">
 
             <x:String>Namn Alfabetiskt Stigande</x:String>
