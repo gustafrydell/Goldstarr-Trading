@@ -43,6 +43,55 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             //Debug.WriteLine(selectedCustomerOrder.Customer.Name);
         }
 
+        private void SortingOrderList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string clickChoice = e.AddedItems[0].ToString();
+
+            switch (clickChoice)
+            {
+
+                case "Namn Alfabetiskt Stigande":
+                    SortListByName();
+                    break;
+                case "Namn Alfabetiskt Fallande":
+                    SortListByNameDescending();
+                    break;
+                case "Datum Stigande":
+                    SortListByDate();
+                    break;
+                case "Datum Fallande":
+                    SortListByDateDescending();
+                    break;
+
+
+            }
+        }
+
+        private void SortListByName()
+        {
+            var sortingResult = customerOrders.OrderBy(b => b.Customer.Name);
+            OrderListHistoryView.ItemsSource = sortingResult;
+
+        }
+
+        private void SortListByNameDescending()
+        {
+            var sortingResult = customerOrders.OrderByDescending(b => b.Customer.Name);
+            OrderListHistoryView.ItemsSource = sortingResult;
+        }
+
+        private void SortListByDate()
+        {
+            var sortingResult = customerOrders.OrderBy(b => b.DateTime);
+            OrderListHistoryView.ItemsSource = sortingResult;
+        }
+
+        private void SortListByDateDescending()
+        {
+            var sortingResult = customerOrders.OrderByDescending(b => b.DateTime);
+            OrderListHistoryView.ItemsSource = sortingResult;
+        }
+
     }
 
 }
