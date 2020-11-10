@@ -132,8 +132,8 @@
         
         
         <!--Finish and cancel buttons-->
-        <Button x:Name="CancelOrderButton" Click="CancelOrderButton_Click" Content="Cancel" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" Margin="0,120,20,0" Visibility="Visible" Background="#337C0202" BorderBrush="Black" FocusVisualPrimaryBrush="#FF720000" FocusVisualSecondaryBrush="#998D0000" ></Button>
-        <Button x:Name="FinishOrderButton" Click="FinishOrderButton_Click" Content="Avsluta Order" Grid.Row="3" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" Margin="0,0,20,40" Visibility="Visible"></Button>
+        <Button x:Name="CancelOrderButton" Click="CancelOrderButton_Click" Content="Avbryt ordern" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" Margin="0,120,20,0" Visibility="Visible" Background="#337C0202" BorderBrush="Black" FocusVisualPrimaryBrush="#FF720000" FocusVisualSecondaryBrush="#998D0000" ></Button>
+        <Button x:Name="FinishOrderButton" Click="FinishOrderButton_Click" Content="Slutför ordern" Grid.Row="3" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" Margin="0,0,20,40" Visibility="Visible"></Button>
 
         
     </Grid>
