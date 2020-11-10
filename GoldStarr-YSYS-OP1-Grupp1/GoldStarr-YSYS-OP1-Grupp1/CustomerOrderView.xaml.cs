@@ -46,7 +46,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             this.InitializeComponent();
             customersList = CustomerViewList.Customers;
             merchandiseManager = App._merchandiseManager;
-            _merch = new Merchandise(); 
+            _merch = new Merchandise();
+           
         }
 
         // after pressing the add order button
@@ -73,9 +74,12 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         }
         
         // after pressing add product
+        
+
         private void AddProductToOrderButton_Click(object sender, RoutedEventArgs e)
         {
             clickedProduct = new ProductBought();
+            cartTitle.Visibility = Visibility.Visible;
 
             var parent = (sender as Button).Parent; // listviewItem
 
@@ -101,13 +105,13 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 clickedProduct.QuantityBought = _quantity;
                 AddToCart_listview.ItemsSource = customerOrder.ProductsBoughtList;
 
-                if (clickedProduct.QuantityBought <= clickedProduct.ProductChosen.Stock)
+                if (clickedProduct.QuantityBought <= clickedProduct.ProductBoughtStock)
                 {
                     for (int i = 0; i < customerOrder.ProductsBoughtList.Count; i++)
                     {
-                        if (clickedProduct.ProductChosen.MerchandiseId == customerOrder.ProductsBoughtList[i].ProductChosen.MerchandiseId)
+                        if (clickedProduct.ProductChosen.MerchandiseId == customerOrder.ProductsBoughtList[i].ProductChosen.MerchandiseId )
                         {                            
-                            clickedProduct.ProductChosen.Stock += customerOrder.ProductsBoughtList[i].QuantityBought; ;//***
+                            clickedProduct.ProductBoughtStock += customerOrder.ProductsBoughtList[i].QuantityBought; ;
                             clickedProduct.QuantityBought += customerOrder.ProductsBoughtList[i].QuantityBought;
                             //clickedProduct.ProductChosen.Stock -= clickedProduct.QuantityBought;
                             //_merch.Stock = clickedProduct.ProductChosen.Stock;
@@ -117,8 +121,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     }
 
                     customerOrder.ProductsBoughtList.Add(clickedProduct);
-                    clickedProduct.ProductChosen.Stock -= clickedProduct.QuantityBought;//***
-                    _merch.Stock = clickedProduct.ProductChosen.Stock;
+                    clickedProduct.ProductBoughtStock -= clickedProduct.QuantityBought;
+                    Debug.WriteLine(clickedProduct.ProductBoughtStock);
+
+                    //_merch.Stock = clickedProduct.ProductChosen.Stock;  ********
 
                     AddToCart_listview.Visibility = Visibility.Visible;
                     
@@ -127,12 +133,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     
                     //orderedProductName_Textblock.Text = clickedProduct.ProductChosen.Name;
                     //orderedQuantityPurchased_Textblock.Text = findQuantityTextbox.Text;
-                    orderedCustomerName_Textblock.Text = customerOrder.Customer.Name;
-                    orderedDateTime_Textblock.Text = customerOrder.DateTime.ToString();
-
-                    customerDeliveryAddress_Textblock.Text = customerOrder.Customer.DeliveryAddress;
-                    customerEmail_Textblock.Text = customerOrder.Customer.CustomerEmail;
-                    customerCreditCardNumber_Textblock.Text = customerOrder.Customer.CreditCardNumber;
+                   
 
                     findQuantityTextbox.Text = "";
                 }
@@ -155,14 +156,36 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             removedProduct = (ProductBought)removeButton.DataContext;
 
             customerOrder.ProductsBoughtList.Remove(removedProduct);
-            _merch.Stock += removedProduct.QuantityBought;
+           //removedProduct.ProductChosen.Stock += removedProduct.QuantityBought; // uppdatera
+
+            //var parent = (Frame)Parent;
+            //TextBlock findStockTextBlock = removedProduct.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
+            //findStockTextBlock.Text = removedProduct.ProductChosen.Stock.ToString();
+
+            foreach (var item in merchandiseManager.merchlist)
+            {
+                if (item.Name == removedProduct.ProductChosen.Name)
+                {
+                    removedProduct.ProductBoughtStock += removedProduct.QuantityBought;
+                    //item.Stock += removedProduct.QuantityBought;
+                }
+            }
+
+            
+
         }
 
         private async void FinishOrderButton_Click(object sender, RoutedEventArgs e)
         {
             //enabledOrderVisibility();
-            customerOrder.Customer.CustomerOrders.Add(customerOrder); // allt annat ska va collapsed
+            
+            foreach (var item in customerOrder.ProductsBoughtList)
+            {
+               item.ProductChosen.Stock = item.ProductBoughtStock;
+            }
+
             App.customerOrders.Add(customerOrder);
+
 
             Confirmation_label.Foreground = new SolidColorBrush(Colors.Black);
             Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Bold;
@@ -180,8 +203,15 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             {
                 item.ProductChosen.Stock += item.QuantityBought; // uppdatering saknas
 
+                var parent = (sender as Button).Parent;
+                TextBlock findStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
+                findStockTextBlock.Text = item.ProductChosen.Stock.ToString();
             }
             customerOrder.ProductsBoughtList.Clear();
+
+            
+            disableAllList();
+
         }
 
         private void disableAllList()
@@ -198,18 +228,13 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             chooseCustomerTextblock.Visibility = Visibility.Collapsed;
             merchandiseList_Listview.Visibility = Visibility.Collapsed;
 
-            //orderTitle.Visibility = Visibility.Collapsed;
-            //orderlist_stackpanel.Visibility = Visibility.Collapsed;
+            
             AddToCart_listview.Visibility = Visibility.Collapsed;
-
+            cartTitle.Visibility = Visibility.Collapsed;
             Confirmation_label.Foreground = new SolidColorBrush(Colors.Gray);
             Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Normal;
         }
-        private void enabledOrderVisibility()
-        {
-            orderTitle.Visibility = Visibility.Visible;
-            orderlist_stackpanel.Visibility = Visibility.Visible;
-        }
+        
 
         private void productCheckBox_Click(object sender, RoutedEventArgs e)
         {
