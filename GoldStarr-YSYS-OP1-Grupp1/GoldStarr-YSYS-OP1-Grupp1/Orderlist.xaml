@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="GoldStarr_YSYS_OP1_Grupp1.Orderlist"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GoldStarr_YSYS_OP1_Grupp1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Orderlista" FontSize="50" FontWeight="Bold"/>
+
+        <!--rubrik-->
+        <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Bottom" >
+            <TextBlock Text="Kund" FontSize="24" Width="220" Margin="20,0,0,0"/>
+            <TextBlock Text="Orderdatum" FontSize="24" Width="220"/>
+        </StackPanel>
+
+        <!--<ScrollViewer Grid.Row="1">
+            <ListView ItemsSource="{x:Bind customersList}" x:Name ="customerList_Listview"  Grid.Column="0" Grid.Row="2" IsItemClickEnabled="True" Visibility="Visible">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Customer">
+                        <StackPanel>
+                            <TextBlock Name="customerName" Text="{x:Bind Name}" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20"/>
+                            <TextBlock Name="customerAddress" Text="{x:Bind Address}" HorizontalAlignment="Left" FontSize="16"/>
+                            <TextBlock Name="customerPhoneNumber" Text="{x:Bind PhoneNumber}" HorizontalAlignment="Left" FontSize="16"/>
+                            <TextBlock/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>-->
+
+        <ScrollViewer Grid.Column="1" Grid.Row="1">
+            <ListView x:Name="OrderListHistoryView" ItemsSource="{x:Bind customerOrders}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:CustomerOrder">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="customerName" Text="{x:Bind Customer.Name}" Margin="10,10,10,10" Width="200"/>
+                            <!--<TextBlock x:Name="customertype" Text="{x:Bind}"/>-->
+
+                            <TextBlock x:Name="orderdate" Text="{x:Bind DateTime}" Margin="10,10,10,10" Width="200"/>
+                            <Button x:Name="orderDetailButton" Content="Orderdetalj" Margin="10,10,10,10" Width="200" Click="orderDetailButton_Click"/>
+                            <!--hoppa till en listview med detaljerad orderview-->
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+        <ComboBox 
+            PlaceholderText="Sortera"
+            x:Name="SortOrderListButton"
+            Margin="56,46,0,0" 
+            Grid.Row="1" 
+            Width="Auto" 
+            Height="40"
+            FontSize="18"
+            IsEnabled="True"
+            SelectionChanged="SortingOrderList_SelectionChanged" Background="LightGray">
+
+            <x:String>Namn Alfabetiskt Stigande</x:String>
+            <x:String>Namn Alfabetiskt Fallande</x:String>
+            <x:String>Datum Stigande</x:String>
+            <x:String>Datum Fallande</x:String>
+        </ComboBox>
+    </Grid>
+</Page>

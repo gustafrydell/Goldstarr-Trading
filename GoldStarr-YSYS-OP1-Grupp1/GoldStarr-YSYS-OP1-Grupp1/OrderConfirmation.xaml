@@ -1,0 +1,67 @@
+﻿<ContentDialog
+    x:Class="GoldStarr_YSYS_OP1_Grupp1.OrderConfirmation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GoldStarr_YSYS_OP1_Grupp1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Orderbekräftelse"
+    PrimaryButtonText="OK"
+    PrimaryButtonClick="ContentDialog_OKButtonClick">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock x:Name="orderedDate_Textblock" Text="Orderdatum:" Margin="30,0,20,0" Width="200" FontSize="20" FontWeight="Bold"/>
+            <TextBlock  x:Name="orderedDateTime_Textblock" Text="{x:Bind currentOrder.DateTime}"  Width="250" FontSize="20" HorizontalAlignment="Right"/>
+        </StackPanel>
+
+        <!--order customer name-->
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <TextBlock x:Name="orderedCustomer_Textblock" Text="Kundnamn:" Margin="30,0,20,0" Width="200" FontSize="20" FontWeight="Bold"/>
+            <TextBlock  x:Name="orderedCustomerName_Textblock" Text="{x:Bind currentOrder.Customer.Name}" FontSize="20" Width="200" HorizontalAlignment="Right"/>
+        </StackPanel>
+
+        <!--orderered delivery address-->
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <TextBlock  x:Name="deliveryAddress_Textblock" Text="Leveransadress:" Margin="30,0,20,0" Width="200" FontSize="20" FontWeight="Bold"/>
+            <TextBlock  x:Name="customerDeliveryAddress_Textblock" Text="{x:Bind currentOrder.Customer.DeliveryAddress}"  FontSize="20" Width="150"/>
+        </StackPanel>
+
+        <!--ordererd email address-->
+        <StackPanel Orientation="Horizontal" Grid.Row="3">
+            <TextBlock  x:Name="Email_Textblock" Text="E-postadress:" Margin="30,0,20,0" Width="200" FontSize="20" FontWeight="Bold"/>
+            <TextBlock  x:Name="customerEmail_Textblock" Text="{x:Bind currentOrder.Customer.CustomerEmail}"  FontSize="20" Width="150"/>
+        </StackPanel>
+
+        <!--orderered credit card-->
+        <StackPanel Orientation="Horizontal" Grid.Row="4">
+            <TextBlock  x:Name="creditCardNumber_Textblock" Text="Kreditkortsnummer:" Margin="30,0,20,0" Width="200" FontSize="20" FontWeight="Bold"/>
+            <TextBlock  x:Name="customerCreditCardNumber_Textblock" Text="{x:Bind currentOrder.Customer.CreditCardNumber}" FontSize="20" Width="150"/>
+        </StackPanel>
+        
+        <!--product list-->
+        <TextBlock Grid.Row="5" Text="Produkter:" FontSize="20" Margin="30,0,20,0"/>
+        <ListView ItemsSource="{x:Bind currentOrder.ProductsBoughtList}" x:Name ="AddToCart_listview"  Grid.Row="6"  BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1" Margin="30,0,20,0">
+            <ListView.ItemTemplate >
+                <DataTemplate x:DataType="local:ProductBought">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Name="orderProductName" Text="{x:Bind ProductChosen.Name}" HorizontalAlignment="Left" FontSize="20" Width="150"/>
+                        <TextBlock Name="orderProductQuantity" Text="{x:Bind QuantityBought }" HorizontalAlignment="Left"  FontSize="20" Margin="20,0,0,0" />
+                        <TextBlock Text="st" Margin="5,0,0,0" FontSize="20"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentDialog>

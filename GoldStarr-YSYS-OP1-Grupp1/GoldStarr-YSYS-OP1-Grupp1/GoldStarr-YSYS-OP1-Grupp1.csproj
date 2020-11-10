@@ -141,6 +141,13 @@
     <Compile Include="MerchandiseView.xaml.cs">
       <DependentUpon>MerchandiseView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OrderConfirmation.xaml.cs">
+      <DependentUpon>OrderConfirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Orderlist.xaml.cs">
+      <DependentUpon>Orderlist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsBought.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestockOption.xaml.cs">
       <DependentUpon>RestockOption.xaml</DependentUpon>
@@ -199,6 +206,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MerchandiseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrderConfirmation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Orderlist.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

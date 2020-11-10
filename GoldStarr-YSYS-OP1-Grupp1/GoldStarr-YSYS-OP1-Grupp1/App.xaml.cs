@@ -26,8 +26,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public static RestockOption Restock;
         public static MerchandiseManager _merchandiseManager;
         public static MerchandiseView Merchandise;
-        public SupplierViewList SupplierList;
-
+        public static CustomerOrder currentOrder;
+        public static ObservableCollection<CustomerOrder> customerOrders { get; set; } = new ObservableCollection<CustomerOrder>();
+       
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -39,11 +40,12 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
             _merchandiseManager = new MerchandiseManager();
             CustomerViewList cust = new CustomerViewList();
-
+            customerOrders = new ObservableCollection<CustomerOrder>();
+           
             Restock = new RestockOption();
             //Merchandise = new MerchandiseView();
 
-            SupplierList = new SupplierViewList();
+            
         }
 
         /// <summary>

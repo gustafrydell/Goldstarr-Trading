@@ -30,6 +30,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         public readonly string CustomerListLabel = "Customers";
         public readonly string CustomerOrderListLabel = "Customer Orders";
+        public readonly string OrderListLabel = "Orderlist";
         public readonly string MerchandiseListLabel = "Merchandise";
         public readonly string ReStockOptionLabel = "Restock";
         public readonly string OurSupplierLabel = "Suppliers";
@@ -47,6 +48,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             var pageType =
                 label == CustomerListLabel ? typeof(CustomerView) :
                 label == CustomerOrderListLabel ? typeof(CustomerOrderView) :
+                label == OrderListLabel ? typeof(Orderlist) :
                 label == MerchandiseListLabel ? typeof(MerchandiseView) :
                 label == ReStockOptionLabel ? typeof(RestockOption) :
                 label == OurSupplierLabel ? typeof(SupplierView) : null;
@@ -75,11 +77,15 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 {
                     NavView.SelectedItem = CustomerOrdersListMeny;
                 }
+                else if (e.SourcePageType == typeof(Orderlist))
+                {
+                    NavView.SelectedItem = OrderListMeny;
+                }
                 else if (e.SourcePageType == typeof(MerchandiseView))
                 {
                     NavView.SelectedItem = MerchandiseListMeny;
                 }
-                else if(e.SourcePageType == typeof(RestockOption))
+                else if (e.SourcePageType == typeof(RestockOption))
                 {
                     NavView.SelectedItem = RestockOption;
                 }

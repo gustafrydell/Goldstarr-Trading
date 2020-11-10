@@ -24,7 +24,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     public sealed partial class MerchandiseView : Page
     {
 
-        public List<Merchandise> merchandiseManager { get; set; }
+        public ObservableCollection<Merchandise> merchandiseManager { get; set; }
         
         
 
