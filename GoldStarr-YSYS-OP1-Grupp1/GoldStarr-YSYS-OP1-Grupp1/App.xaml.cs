@@ -27,6 +27,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public static MerchandiseManager _merchandiseManager;
         public static MerchandiseView Merchandise;
         public static CustomerOrder currentOrder;
+        public static CustomerOrder selectedCustomerOrder;
         public static ObservableCollection<CustomerOrder> customerOrders { get; set; } = new ObservableCollection<CustomerOrder>();
        
         /// <summary>

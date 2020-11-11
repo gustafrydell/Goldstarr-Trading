@@ -20,6 +20,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public string DeliveryAddress { get; set; }
         public string CreditCardNumber { get; set; }
         public string CustomerEmail { get; set; }
+
+        
         
     }
 }
