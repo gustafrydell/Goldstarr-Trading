@@ -44,10 +44,10 @@
                   IsEnabled="True" 
                   SelectionChanged="ColorComboBox_SelectionChanged" Background="LightGray">
 
-            <x:String>Alphabetical Ascending</x:String>
-            <x:String>Alphabetical Descending</x:String>
-            <x:String>Supplier Ascending</x:String>
-            <x:String>Supplier Descending</x:String>
+            <x:String>Alfabetiskt Stigande</x:String>
+            <x:String>Alfabetiskt Fallande</x:String>
+            <x:String>Leverantör Stigande</x:String>
+            <x:String>Leverantör Fallande</x:String>
         </ComboBox>
     </Grid>
 

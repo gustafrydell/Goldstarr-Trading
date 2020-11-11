@@ -49,19 +49,19 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
             switch (clickChoice)
             {
-                case "Alphabetical Ascending":
+                case "Alfabetiskt Stigande":
                      SortListByName();
                     break;
 
-                case "Alphabetical Descending":
+                case "Alfabetiskt Fallande":
                     SortListNameDescending();
                     break;
 
-                case "Supplier Ascending":
+                case "Leverantör Stigande":
                     SortListBySupplier();
                     break;
 
-                case "Supplier Descending":
+                case "Leverantör Fallande":
                     SortListBySupplierDescending();
                     break;
 
