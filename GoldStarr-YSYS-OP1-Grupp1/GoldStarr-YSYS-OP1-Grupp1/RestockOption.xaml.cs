@@ -95,6 +95,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             }
             //ctrl + k + c för kommentar
             //ctrl + k + u för avkommentar
+
+            textBox.Text = "";
         }
     }
 }
