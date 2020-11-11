@@ -112,7 +112,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 //clickedProduct = typ av productBought
                 //clickedproduct.productBought.stock = lagerstatus
                 //clickedProduct.ProductCurrentStock = kopierad lagerstatus
-                if (clickedProduct.QuantityBought <= clickedProduct.ProductCurrentStock)
+                if (clickedProduct.QuantityBought <= clickedProduct.ProductCurrentStock && clickedProduct.QuantityBought >0)
                 {
                     
                     for (int i = 0; i < customerOrder.ProductsBoughtList.Count; i++)
@@ -143,11 +143,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     //orderedQuantityPurchased_Textblock.Text = findQuantityTextbox.Text;
                    
 
-                    findQuantityTextbox.Text = "";
                 }
                 else
                 {
-                    var anotherDialog = new MessageDialog("du är för fattig, du har inte så många på lager");
+                    var anotherDialog = new MessageDialog("Du har angett fel antal");
                     var y = anotherDialog.ShowAsync().GetAwaiter();
                 }
             }
@@ -156,6 +155,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 var dialog = new MessageDialog ("Gör om, gör rätt");
                 var t = dialog.ShowAsync().GetAwaiter();
             } 
+            findQuantityTextbox.Text = "";
         }
 
         private void RemoveProductButton_Click(object sender, RoutedEventArgs e)
