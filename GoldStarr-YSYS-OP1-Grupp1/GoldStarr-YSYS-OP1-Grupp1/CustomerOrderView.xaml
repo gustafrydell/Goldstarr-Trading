@@ -91,7 +91,7 @@
                 <DataTemplate x:DataType="local:ProductBought">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Name="orderProductName" Text="{x:Bind Product.Name}" HorizontalAlignment="Left" FontWeight="Bold" FontSize="18" Width="150"/>
-                        <TextBlock Name="orderProductQuantity" Text="{x:Bind QuantityBought }" HorizontalAlignment="Left"  FontSize="18" Margin="20,0,0,0" />
+                        <TextBlock Name="orderProductQuantity" Text="{x:Bind QuantityBought, Mode=OneWay}" HorizontalAlignment="Left"  FontSize="18" Margin="20,0,0,0" />
                         <TextBlock Text="st" Margin="5,0,0,0" FontSize="18"/>
                         <Button  Content="X" FontSize="16" FontWeight="Bold"  Margin="20,0,0,0" Click="RemoveProductButton_Click" BorderBrush="Black" HorizontalAlignment="Right"/>
                     </StackPanel>
