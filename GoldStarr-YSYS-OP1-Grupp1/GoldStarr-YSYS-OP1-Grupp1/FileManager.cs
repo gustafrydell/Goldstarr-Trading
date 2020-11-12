@@ -7,66 +7,63 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Windows.Storage;
+using Newtonsoft.Json;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
 {
     public class FileManager
     {
-        public class ObjectToSave
-        {
-            public ObservableCollection<Customer> CustomerCollection { get; set; }
-        }
+        private string _fileName { get; set; }
 
-        public static async void SaveToFile()
+        public FileManager(string fileName)
         {
-            ObjectToSave objectToSave = new ObjectToSave() { CustomerCollection = CustomerViewList.Customers };
-            StorageFile file = await Windows.Storage.ApplicationData.Current.LocalFolder.GetFileAsync("Customers.xml");
-
-            XmlSerializer serializer = new XmlSerializer(typeof(ObjectToSave));
-            if (file != null)
-            {
-                using (var mstream = new MemoryStream())
-                {
-                    var sw = new StreamWriter(mstream, new UTF8Encoding(false));
-                    using (sw)
-                    {
-                        serializer.Serialize(sw, objectToSave);
-                        mstream.Position = 0;
-                        using (var sr = new StreamReader(mstream))
-                        {
-                            var t = sr.ReadToEnd();
-                            await Windows.Storage.FileIO.WriteTextAsync(file, t, Windows.Storage.Streams.UnicodeEncoding.Utf8);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                CreateFile();
-            }
+            _fileName = fileName;
         }
-        public static async void ReadFromFile()
+        public async void SaveFile<T>(T collection)
         {
-            ObjectToSave fileToRead;
+            string jsonCollection;
+
+            jsonCollection = JsonConvert.SerializeObject(collection, Newtonsoft.Json.Formatting.None);
+
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+
+            Windows.Storage.StorageFile jsonfile;
             try
             {
-                StorageFile file = await Windows.Storage.ApplicationData.Current.LocalFolder.GetFileAsync("Customers.xml");
-                XmlSerializer serializer = new XmlSerializer(typeof(ObjectToSave));
-
-                using (Stream stream = await file.OpenStreamForReadAsync())
-                {
-                    fileToRead = (ObjectToSave)serializer.Deserialize(stream);
-                }
-                CustomerViewList.Customers = fileToRead.CustomerCollection;
+                jsonfile = await storageFolder.GetFileAsync(_fileName);
             }
             catch (FileNotFoundException)
             {
-                CreateFile();
+                jsonfile = await storageFolder.CreateFileAsync(_fileName);
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            await Windows.Storage.FileIO.WriteTextAsync(jsonfile, jsonCollection, Windows.Storage.Streams.UnicodeEncoding.Utf8);
         }
-        public static async void CreateFile()
+
+        public async Task<T> ReadFromFile<T>()
         {
-            StorageFile file = await Windows.Storage.ApplicationData.Current.LocalFolder.CreateFileAsync("Customers.xml", CreationCollisionOption.ReplaceExisting);
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile file;
+            try
+            {
+                file = await storageFolder.GetFileAsync(_fileName);
+            }
+            catch (FileNotFoundException)
+            {
+                file = await storageFolder.CreateFileAsync(_fileName);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            var text = await Windows.Storage.FileIO.ReadTextAsync(file);
+            T obj = JsonConvert.DeserializeObject<T>(text);
+
+            return obj;
         }
     }
 }

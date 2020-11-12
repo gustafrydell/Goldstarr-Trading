@@ -23,7 +23,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     /// </summary>
     public sealed partial class CustomerView : Page
     {
-        ObservableCollection<Customer> Customers = new ObservableCollection<Customer>();
+        ObservableCollection<Customer> Customers;
         public CustomerView()
         {
             this.InitializeComponent();

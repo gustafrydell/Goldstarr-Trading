@@ -46,6 +46,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             this.InitializeComponent();
             customersList = CustomerViewList.Customers;
             merchandiseManager = App._merchandiseManager;
+            customerOrder = new CustomerOrder();
             _merch = new Merchandise(); 
         }
 
@@ -113,7 +114,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                             //_merch.Stock = clickedProduct.ProductChosen.Stock;
                             customerOrder.ProductsBoughtList.RemoveAt(i);
                         }
-                        
                     }
 
                     customerOrder.ProductsBoughtList.Add(clickedProduct);
@@ -161,7 +161,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private async void FinishOrderButton_Click(object sender, RoutedEventArgs e)
         {
             //enabledOrderVisibility();
-            customerOrder.Customer.CustomerOrders.Add(customerOrder); // allt annat ska va collapsed
             App.customerOrders.Add(customerOrder);
 
             Confirmation_label.Foreground = new SolidColorBrush(Colors.Black);
