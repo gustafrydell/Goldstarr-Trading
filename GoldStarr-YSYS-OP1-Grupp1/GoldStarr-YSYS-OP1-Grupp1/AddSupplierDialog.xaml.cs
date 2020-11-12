@@ -41,14 +41,14 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
                 //_app.SupplierList.AddNewSupplier(CompanyNameText.Text, EmailNameText.Text, phoneNr);
 
-                if(CompanyNameText.Text == string.Empty)
+                if(CompanyNameText.Text == string.Empty || OnlyNumbers(CompanyNameText.Text))
                 {
-                    var dialogtext = new MessageDialog("Need input for Company name");
+                    var dialogtext = new MessageDialog("Ej giltigt företagsnamn, inte endast siffror");
                     var t = dialogtext.ShowAsync().GetAwaiter();
                 }
                 else if(EmailNameText.Text == string.Empty)
                 {
-                    var dialogtext = new MessageDialog("Need input for Email");
+                    var dialogtext = new MessageDialog("Behöver inmatning för Email");
                     var t = dialogtext.ShowAsync().GetAwaiter();
 
                 }
@@ -60,13 +60,28 @@ namespace GoldStarr_YSYS_OP1_Grupp1
            
             else
             {
-                var dialogtext = new MessageDialog("Only input numbers in phonenumber please.");
+                var dialogtext = new MessageDialog("Endast siffror till telefonnummret tack.");
                 var t = dialogtext.ShowAsync().GetAwaiter();
             }
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
+        }
+
+        private bool OnlyNumbers(string text)
+        {
+            bool isNumber = false;
+            int noNumbers;
+            if (int.TryParse(text, out noNumbers))
+            {
+                isNumber = true;
+                return isNumber;
+            }
+            else
+            {
+                return isNumber;
+            }
         }
     }
 }
