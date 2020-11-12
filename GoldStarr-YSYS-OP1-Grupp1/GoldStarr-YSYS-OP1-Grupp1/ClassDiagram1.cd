@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.Customer">
+    <Position X="0.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAABAAAAAAAACAAQAQAAACAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.CustomerOrder">
+    <Position X="0.5" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAIAAAAEAAgAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>CustomerOrder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.CustomerViewList">
+    <Position X="3.75" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAQAAAAAAgABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CustomerViewList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.Merchandise">
+    <Position X="9.75" Y="0.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAIAAIAAAAAQAgIAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Merchandise.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.MerchandiseManager">
+    <Position X="14.5" Y="0.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Merchandise.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.ProductBought">
+    <Position X="9.75" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAgAAAAAAAA=</HashCode>
+      <FileName>ProductsBought.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.Suppliers">
+    <Position X="14.5" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAQAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Suppliers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.SupplierViewList">
+    <Position X="17" Y="2.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>SupplierViewList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="GoldStarr_YSYS_OP1_Grupp1.CustomerType">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

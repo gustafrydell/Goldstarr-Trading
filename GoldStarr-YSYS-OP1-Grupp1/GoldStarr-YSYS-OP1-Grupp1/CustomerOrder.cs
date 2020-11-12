@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
 {
-    public class CustomerOrder : Customer, INotifyPropertyChanged
+    public class CustomerOrder : INotifyPropertyChanged
     {
         public DateTime DateTime { get; set; }
         public Customer Customer { get; set; }

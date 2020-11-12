@@ -183,7 +183,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             foreach (var item in customerOrder.ProductsBoughtList)
             {
-                item.Product.Stock += item.QuantityBought; 
+                
 
                 var parent = (sender as Button).Parent;
                 TextBlock findStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
