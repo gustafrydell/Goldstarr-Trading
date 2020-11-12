@@ -29,9 +29,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private void ContentDialog_OKButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
 
-            if (string.IsNullOrEmpty(NameText.Text) || string.IsNullOrEmpty(AddressText.Text) || string.IsNullOrEmpty(PhonenumberText.Text))
+            if (string.IsNullOrEmpty(NameText.Text) || OnlyNumbers(NameText.Text) || string.IsNullOrEmpty(AddressText.Text) || string.IsNullOrEmpty(PhonenumberText.Text))
             {
-                var dialog = new MessageDialog("Du har inte fyllt i alla rutor");
+                var dialog = new MessageDialog("Ej giltig inmatning");
                 var t = dialog.ShowAsync().GetAwaiter();
             }
             else
@@ -110,6 +110,22 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         private void StoreCustomer_IsChecked(object sender, RoutedEventArgs e)
         {
+        }
+
+
+        private bool OnlyNumbers(string text)
+        {
+            bool isNumber = false;
+            int noNumbers;
+            if (int.TryParse(text, out noNumbers))
+            {
+                isNumber = true;
+                return isNumber;
+            }
+            else
+            {
+                return isNumber;
+            }
         }
     }
 }
