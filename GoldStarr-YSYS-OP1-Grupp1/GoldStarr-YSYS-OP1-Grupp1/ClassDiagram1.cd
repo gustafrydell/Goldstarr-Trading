@@ -8,17 +8,16 @@
     </TypeIdentifier>
   </Class>
   <Class Name="GoldStarr_YSYS_OP1_Grupp1.CustomerOrder">
-    <Position X="0.5" Y="3.25" Width="2.5" />
+    <Position X="0.75" Y="3.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAIAAAAEAAgAAAAAQAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAEAAgAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>CustomerOrder.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="GoldStarr_YSYS_OP1_Grupp1.CustomerViewList">
-    <Position X="3.75" Y="3.5" Width="1.75" />
+    <Position X="3.75" Y="3.5" Width="4.75" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAQAAAAAAgABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAQAAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CustomerViewList.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -52,7 +51,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="GoldStarr_YSYS_OP1_Grupp1.SupplierViewList">
-    <Position X="17" Y="2.5" Width="3" />
+    <Position X="17" Y="2.5" Width="5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>SupplierViewList.cs</FileName>
