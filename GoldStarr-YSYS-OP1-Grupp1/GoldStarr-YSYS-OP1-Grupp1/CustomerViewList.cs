@@ -7,11 +7,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     public class CustomerViewList
     {
         const string notAvailable = "Ej tillgänglig";
-        public static ObservableCollection<Customer> Customers { get; set; } = new ObservableCollection<Customer>();
+        public static ObservableCollection<Customer> Customers { get; set; }
 
         public CustomerViewList()
         {
-            Customers = CreateCustomers();
+            //Customers = CreateCustomers();
         }
 
 
@@ -31,12 +31,12 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         }
 
 
-        public static void AddNewStoreUser(string name, string address, string phonenumber,CustomerType customerType)
+        public static void AddNewStoreUser(string name, string address, string phonenumber, CustomerType customerType)
         {
-            Customers.Add(new Customer { Name = name, Address = address, PhoneNumber = phonenumber , IsOnline = customerType, DeliveryAddress = notAvailable, CreditCardNumber = notAvailable, CustomerEmail = notAvailable });
+            Customers.Add(new Customer { Name = name, Address = address, PhoneNumber = phonenumber, IsOnline = customerType, DeliveryAddress = notAvailable, CreditCardNumber = notAvailable, CustomerEmail = notAvailable });
         }
-        
-        public static void AddNewOnlineUser(string name, string address, string phonenumber, CustomerType customerType, string deliveryAdress, string creditCardNumber,string customerEmail)
+
+        public static void AddNewOnlineUser(string name, string address, string phonenumber, CustomerType customerType, string deliveryAdress, string creditCardNumber, string customerEmail)
         {
             Customers.Add(new Customer { Name = name, Address = address, PhoneNumber = phonenumber, IsOnline = customerType, DeliveryAddress = deliveryAdress, CreditCardNumber = creditCardNumber, CustomerEmail = customerEmail });
         }

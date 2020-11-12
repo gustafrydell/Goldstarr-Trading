@@ -27,51 +27,49 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public static MerchandiseManager _merchandiseManager;
         public static MerchandiseView Merchandise;
         public static CustomerOrder currentOrder;
-        public static CustomerOrder selectedCustomerOrder;
-        public SupplierViewList SupplierList;
-        public static ObservableCollection<CustomerOrder> customerOrders { get; set; } = new ObservableCollection<CustomerOrder>();
-       
-        /// <summary>
-        /// Initializes the singleton application object.  This is the first line of authored code
-        /// executed, and as such is the logical equivalent of main() or WinMain().
-        /// </summary>
+        public static ObservableCollection<CustomerOrder> customerOrders;
+
         public App()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-
             _merchandiseManager = new MerchandiseManager();
-            CustomerViewList cust = new CustomerViewList();
-            customerOrders = new ObservableCollection<CustomerOrder>();
-           
             Restock = new RestockOption();
-            //Merchandise = new MerchandiseView();
-            SupplierList = new SupplierViewList();
-
-
         }
 
-        /// <summary>
-        /// Invoked when the application is launched normally by the end user.  Other entry points
-        /// will be used such as when the application is launched to open a specific file.
-        /// </summary>
-        /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
+
+            FileManager readCustomerFile = new FileManager("Customers.json");
+            CustomerViewList.Customers = await readCustomerFile.ReadFromFile<ObservableCollection<Customer>>();
+            if (CustomerViewList.Customers == null)
+            {
+                CustomerViewList.Customers = CustomerViewList.CreateCustomers();
+            }
+            FileManager readMerchFile = new FileManager("Merchandise.json");
+            _merchandiseManager.merchlist = await readMerchFile.ReadFromFile<ObservableCollection<Merchandise>>();
+            if (_merchandiseManager.merchlist == null)
+            {
+                _merchandiseManager.merchlist = MerchandiseManager.GetMerchList();
+            }
+
+            FileManager readOrders = new FileManager("Orders.json");
+            customerOrders = await readOrders.ReadFromFile<ObservableCollection<CustomerOrder>>();
+            if (customerOrders == null)
+            {
+                customerOrders = new ObservableCollection<CustomerOrder>();
+            }
+
             if (rootFrame == null)
             {
-                // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    //TODO: Load state from previously suspended application
                 }
 
                 // Place the frame in the current Window
@@ -90,6 +88,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
+
         }
 
         /// <summary>
@@ -113,6 +112,15 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
+            FileManager customerFile = new FileManager("Customers.json");
+            customerFile.SaveFile(CustomerViewList.Customers);
+
+            FileManager merchFile = new FileManager("Merchandise.json");
+            merchFile.SaveFile(_merchandiseManager.merchlist);
+
+            FileManager orderFile = new FileManager("Orders.json");
+            orderFile.SaveFile(customerOrders);
+
             deferral.Complete();
         }
     }

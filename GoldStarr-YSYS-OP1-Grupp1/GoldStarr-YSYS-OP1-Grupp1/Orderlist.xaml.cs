@@ -25,7 +25,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     {
         //private ObservableCollection<Customer> customersList;
         public MerchandiseManager merchandiseManager;
-        public ObservableCollection<CustomerOrder> customerOrders;
+        public ObservableCollection<CustomerOrder> customerOrders { get; set; }
         private CustomerOrder selectedCustomerOrder;
 
         public Orderlist()

@@ -69,6 +69,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
             if (e.NavigationMode == NavigationMode.Back)
             {
+                
                 if (e.SourcePageType == typeof(CustomerView))
                 {
                     NavView.SelectedItem = CustomerListMenyItem;
