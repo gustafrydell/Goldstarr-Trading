@@ -37,9 +37,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private int _quantity;
         private Merchandise _merch;
         private ProductBought removedProduct;
-        // public event PropertyChangedEventHandler PropertyChanged;
-
-        //private int _stock;
+        
 
         public CustomerOrderView()
         {
@@ -48,25 +46,24 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             merchandiseManager = App._merchandiseManager;
             _merch = new Merchandise();
 
-
         }
-
-        // after pressing the add order button
+       
         private void AddNewOrderButton_Click(object sender, RoutedEventArgs e)
         {
             disableAllList();
             customerOrder = new CustomerOrder();
             customerOrder.DateTime = DateTime.Now;
+
             chooseCustomerTextblock.Visibility = Visibility.Visible;
             this.customerList_Listview.Visibility = Visibility.Visible;
             ChooseCustomer_label.Foreground = new SolidColorBrush(Colors.Black);
             ChooseCustomer_label.FontWeight = Windows.UI.Text.FontWeights.Bold;
         }
 
-        // after selecting a customer
         private void SelectCustomer_ItemClick(object sender, ItemClickEventArgs e)
         {
             customerOrder.Customer = (Customer)e.ClickedItem;
+
             this.merchandiseList_Listview.Visibility = Visibility.Visible;
             chooseProductTextblock.Visibility = Visibility.Visible;
             FinishOrderButton.Visibility = Visibility.Visible;
@@ -74,45 +71,32 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             ChooseProduct_label.FontWeight = Windows.UI.Text.FontWeights.Bold;
         }
 
-        // after pressing add product
-
-
         private void AddProductToOrderButton_Click(object sender, RoutedEventArgs e)
         {
             clickedProduct = new ProductBought();
+
             AddToCart_listview.ItemsSource = customerOrder.ProductsBoughtList;
             cartTitle.Visibility = Visibility.Visible;
 
-            var parent = (sender as Button).Parent; // listviewItem
-
-            //Find selected product item
+            var parent = (sender as Button).Parent; 
             TextBlock findSelectedProductTextblock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "productName");
 
-            //search through merchandise list to find and add that reference to clickedProduct
+            
             foreach (var item in merchandiseManager.merchlist)
             {
                 if (item.Name == findSelectedProductTextblock.Text)
                 {
-                    clickedProduct.Product = item; //vald merchandise till clickedProduct
-                    _merch = item; //kopia av vald merchandise
-                    clickedProduct.Product.Stock = item.Stock; //kopierar befintliga stock till clickedProduct
-                    clickedProduct.ProductCurrentStock = item.Stock; //kopierar stock till en kopia av lagerstatus
+                    clickedProduct.Product = item;
+                    _merch = item;
+                    clickedProduct.Product.Stock = item.Stock;
+                    clickedProduct.ProductCurrentStock = item.Stock;
                 }
             }
 
-            //find selected quantity textbox
             TextBox findQuantityTextbox = parent.GetChildrenOfType<TextBox>().First(x => x.Name == "quantityInput");
 
             if (int.TryParse(findQuantityTextbox.Text, out _quantity))
             {
-                // todo: ROMA SÄGER BACK OFF
-                // clickedProduct.QuantityBought = _quantity; //köpt antal lägg till i clickedProduct köpantal
-
-                //quantityBought = antal köpta
-                //productBought = klassen
-                //clickedProduct = typ av productBought
-                //clickedproduct.productBought.stock = lagerstatus
-                //clickedProduct.ProductCurrentStock = kopierad lagerstatus
 
                 int foundIndex = 0;
                 bool found = false;
@@ -121,16 +105,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     if (clickedProduct.Product.MerchandiseId == customerOrder.ProductsBoughtList[i].Product.MerchandiseId)
                     {
                         found = true;
-                        //customerOrder.ProductsBoughtList[i].QuantityBought += _quantity;
-                        //**clickedProduct.ProductCurrentStock += customerOrder.ProductsBoughtList[i].QuantityBought;
-                        //**clickedProduct.QuantityBought += customerOrder.ProductsBoughtList[i].QuantityBought;
                         clickedProduct.QuantityBought += customerOrder.ProductsBoughtList[i].QuantityBought + _quantity;
-
                         foundIndex = i;
-                        //clickedProduct.Product.Stock -= clickedProduct.QuantityBought;
-                        //_merch.Stock = clickedProduct.Product.Stock;
                     }
-
                 }
 
                 if (!found)
@@ -139,22 +116,18 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 if (clickedProduct.QuantityBought <= clickedProduct.ProductCurrentStock && clickedProduct.QuantityBought > 0)
                 {
                     if (found)
+                    {
                         customerOrder.ProductsBoughtList.RemoveAt(foundIndex);
+                    }
 
                     customerOrder.ProductsBoughtList.Add(clickedProduct);
                     clickedProduct.ProductCurrentStock -= clickedProduct.QuantityBought;
 
-                    //Debug.WriteLine(clickedProduct.ProductCurrentStock);
-
-                    //_merch.Stock = clickedProduct.Product.Stock;  ********
-
+                    
                     AddToCart_listview.Visibility = Visibility.Visible;
 
                     TextBlock findStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
                     findStockTextBlock.Text = clickedProduct.Product.Stock.ToString();
-
-                    //orderedProductName_Textblock.Text = clickedProduct.Product.Name;
-                    //orderedQuantityPurchased_Textblock.Text = findQuantityTextbox.Text;
                 }
                 else
                 {
@@ -176,28 +149,19 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             removedProduct = (ProductBought)removeButton.DataContext;
 
             customerOrder.ProductsBoughtList.Remove(removedProduct);
-            //removedProduct.Product.Stock += removedProduct.QuantityBought; // uppdatera
-
-            //var parent = (Frame)Parent;
-            //TextBlock findStockTextBlock = removedProduct.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
-            //findStockTextBlock.Text = removedProduct.Product.Stock.ToString();
+            
 
             foreach (var item in merchandiseManager.merchlist)
             {
                 if (item.Name == removedProduct.Product.Name)
                 {
                     removedProduct.ProductCurrentStock += removedProduct.QuantityBought;
-                    //item.Stock += removedProduct.QuantityBought;
                 }
             }
-
-
-
         }
 
         private async void FinishOrderButton_Click(object sender, RoutedEventArgs e)
         {
-            //enabledOrderVisibility();
 
             foreach (var item in customerOrder.ProductsBoughtList)
             {
@@ -205,7 +169,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             }
 
             App.customerOrders.Add(customerOrder);
-
 
             Confirmation_label.Foreground = new SolidColorBrush(Colors.Black);
             Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Bold;
@@ -216,12 +179,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             disableAllList();
         }
 
-        // ska återställa allt när man avbryter ordern
         private void CancelOrderButton_Click(object sender, RoutedEventArgs e)
         {
             foreach (var item in customerOrder.ProductsBoughtList)
             {
-                item.Product.Stock += item.QuantityBought; // uppdatering saknas
+                item.Product.Stock += item.QuantityBought; 
 
                 var parent = (sender as Button).Parent;
                 TextBlock findStockTextBlock = parent.GetChildrenOfType<TextBlock>().First(x => x.Name == "inStock_TextBlock");
@@ -255,16 +217,11 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             Confirmation_label.FontWeight = Windows.UI.Text.FontWeights.Normal;
         }
 
-
-        private void productCheckBox_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 
     public static class Extensions
     {
-        public static IEnumerable<T> GetChildrenOfType<T>(this DependencyObject start) where T : class // går alla grejjer som finns i listviewn
+        public static IEnumerable<T> GetChildrenOfType<T>(this DependencyObject start) where T : class 
         {
             var queue = new Queue<DependencyObject>();
             queue.Enqueue(start);
