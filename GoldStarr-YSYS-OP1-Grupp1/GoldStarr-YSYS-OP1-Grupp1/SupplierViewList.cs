@@ -13,7 +13,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         public SupplierViewList()
         {
-            CreateSupplierInfo();
+           // CreateSupplierInfo();
         }
 
         public ObservableCollection<Suppliers> GetList()
@@ -21,7 +21,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             return Suppliers;
         }
 
-        void CreateSupplierInfo()
+        public void CreateSupplierInfo()
         {
             var supplierList = new ObservableCollection<Suppliers>();
 

@@ -65,6 +65,14 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 customerOrders = new ObservableCollection<CustomerOrder>();
             }
 
+            FileManager readSuppliers = new FileManager("Suppliers.json");
+            SupplierList.Suppliers = await readSuppliers.ReadFromFile<ObservableCollection<Suppliers>>();
+            if(SupplierList.Suppliers == null)
+            {
+                SupplierList.CreateSupplierInfo();
+            }
+
+
             if (rootFrame == null)
             {
                 rootFrame = new Frame();
@@ -123,6 +131,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
             FileManager orderFile = new FileManager("Orders.json");
             orderFile.SaveFile(customerOrders);
+
+            FileManager suppliersFile = new FileManager("Suppliers.json");
+            suppliersFile.SaveFile(SupplierList.Suppliers);
 
             deferral.Complete();
         }
