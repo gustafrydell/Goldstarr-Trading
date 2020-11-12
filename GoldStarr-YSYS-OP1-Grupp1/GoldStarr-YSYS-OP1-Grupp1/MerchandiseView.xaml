@@ -17,26 +17,37 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="Merch" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"/>
 
 
-        <GridView ItemsSource="{x:Bind merchandiseManager}" Grid.Column="1" IsItemClickEnabled="True" ItemClick="MerchClick" Margin="20,20,20,20">
+        <GridView x:Name="ProductView" ItemsSource="{x:Bind merchListView}" Grid.Column="1" IsItemClickEnabled="True" ItemClick="MerchClick">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:Merchandise">
                     <StackPanel>
                         <Image Width="200" Source="{x:Bind CoverImage}" />
-                        <TextBlock FontSize="25"  Text="{x:Bind Name}" HorizontalAlignment="Left"/>
-                        <TextBlock FontSize="18" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Lagerstatus: " FontSize="15"/>
-                            <TextBlock FontSize="15" Text="{x:Bind Stock, Mode=TwoWay}" HorizontalAlignment="Left"/>
-                        </StackPanel>
+                        <TextBlock FontSize="20"  Text="{x:Bind Name}" HorizontalAlignment="Left"/>
+                        <TextBlock FontSize="14" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
+                        <TextBlock FontSize="10" Text="{x:Bind Stock}" HorizontalAlignment="Left"/>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
+        <ComboBox PlaceholderText="Sortera"
+                  x:Name="SortingBox"
+                  FontSize="18" 
+                  Margin="10,80,0,0" 
+                  Width="Auto" Height="40" 
+                  IsEnabled="True" 
+                  SelectionChanged="ColorComboBox_SelectionChanged" Background="LightGray">
+
+            <x:String>Alfabetiskt Stigande</x:String>
+            <x:String>Alfabetiskt Fallande</x:String>
+            <x:String>Leverantör Stigande</x:String>
+            <x:String>Leverantör Fallande</x:String>
+        </ComboBox>
     </Grid>
 
     

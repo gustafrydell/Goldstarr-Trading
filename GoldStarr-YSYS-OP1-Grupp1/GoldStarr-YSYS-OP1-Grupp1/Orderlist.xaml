@@ -42,7 +42,7 @@
         </ScrollViewer>-->
 
         <ScrollViewer Grid.Column="1" Grid.Row="1">
-            <ListView ItemsSource="{x:Bind customerOrders}">
+            <ListView x:Name="OrderListHistoryView" ItemsSource="{x:Bind customerOrders}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:CustomerOrder">
                         <StackPanel Orientation="Horizontal">
@@ -57,5 +57,21 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollViewer>
+        <ComboBox 
+            PlaceholderText="Sortera"
+            x:Name="SortOrderListButton"
+            Margin="56,46,0,0" 
+            Grid.Row="1" 
+            Width="Auto" 
+            Height="40"
+            FontSize="18"
+            IsEnabled="True"
+            SelectionChanged="SortingOrderList_SelectionChanged" Background="LightGray">
+
+            <x:String>Namn Alfabetiskt Stigande</x:String>
+            <x:String>Namn Alfabetiskt Fallande</x:String>
+            <x:String>Datum Stigande</x:String>
+            <x:String>Datum Fallande</x:String>
+        </ComboBox>
     </Grid>
 </Page>

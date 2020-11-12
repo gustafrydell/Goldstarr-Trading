@@ -27,6 +27,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public static MerchandiseManager _merchandiseManager;
         public static MerchandiseView Merchandise;
         public static CustomerOrder currentOrder;
+        public static CustomerOrder selectedCustomerOrder;
+        public SupplierViewList SupplierList;
         public static ObservableCollection<CustomerOrder> customerOrders { get; set; } = new ObservableCollection<CustomerOrder>();
        
         /// <summary>
@@ -44,8 +46,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
            
             Restock = new RestockOption();
             //Merchandise = new MerchandiseView();
+            SupplierList = new SupplierViewList();
 
-            
+
         }
 
         /// <summary>
