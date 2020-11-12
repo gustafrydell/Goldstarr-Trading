@@ -35,6 +35,11 @@
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
+        <TextBlock HorizontalAlignment="Left" Text="Lager" TextWrapping="Wrap" VerticalAlignment="Top" Height="111" Width="337" RenderTransformOrigin="0.5,0.5" FontWeight="Bold" FontSize="50">
+            <TextBlock.RenderTransform>
+                <CompositeTransform Rotation="0"/>
+            </TextBlock.RenderTransform>
+        </TextBlock>
 
     </Grid>
 </Page>
