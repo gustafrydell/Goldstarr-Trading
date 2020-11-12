@@ -61,14 +61,12 @@
                 ToolTipService.ToolTip="Current Supplier" 
                 Icon="PhoneBook" 
                 FontSize="20"/>
-
-
-
         </NavigationView.MenuItems>
         
         <NavigationView.ContentTransitions>
             <TransitionCollection/>
         </NavigationView.ContentTransitions>
+           
         <Frame
             x:Name="frame"
             Navigating="frame_Navigating">
@@ -82,5 +80,6 @@
                 </TransitionCollection>
             </Frame.ContentTransitions>
         </Frame>
+           
     </NavigationView>
 </Page>

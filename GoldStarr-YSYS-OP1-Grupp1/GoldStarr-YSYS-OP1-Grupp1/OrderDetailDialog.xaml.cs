@@ -33,9 +33,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 {
                     selectedProductBoughtList = item.ProductsBoughtList;
                 }
-
             }
-
         }
 
         private void ContentDialog_CloseButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

@@ -26,37 +26,20 @@
             <TextBlock Text="Orderdatum" FontSize="24" Width="220"/>
         </StackPanel>
 
-        <!--<ScrollViewer Grid.Row="1">
-            <ListView ItemsSource="{x:Bind customersList}" x:Name ="customerList_Listview"  Grid.Column="0" Grid.Row="2" IsItemClickEnabled="True" Visibility="Visible">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="local:Customer">
-                        <StackPanel>
-                            <TextBlock Name="customerName" Text="{x:Bind Name}" HorizontalAlignment="Left" FontWeight="Bold" FontSize="20"/>
-                            <TextBlock Name="customerAddress" Text="{x:Bind Address}" HorizontalAlignment="Left" FontSize="16"/>
-                            <TextBlock Name="customerPhoneNumber" Text="{x:Bind PhoneNumber}" HorizontalAlignment="Left" FontSize="16"/>
-                            <TextBlock/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollViewer>-->
-
         <ScrollViewer Grid.Column="1" Grid.Row="1">
             <ListView x:Name="OrderListHistoryView" ItemsSource="{x:Bind customerOrders}">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="local:CustomerOrder">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock x:Name="customerName" Text="{x:Bind Customer.Name}" Margin="10,10,10,10" Width="200"/>
-                            <!--<TextBlock x:Name="customertype" Text="{x:Bind}"/>-->
-
                             <TextBlock x:Name="orderdate" Text="{x:Bind DateTime}" Margin="10,10,10,10" Width="200"/>
                             <Button x:Name="orderDetailButton" Content="Orderdetalj" Margin="10,10,10,10" Width="200" Click="orderDetailButton_Click"/>
-                            <!--hoppa till en listview med detaljerad orderview-->
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollViewer>
+        
         <ComboBox 
             PlaceholderText="Sortera"
             x:Name="SortOrderListButton"

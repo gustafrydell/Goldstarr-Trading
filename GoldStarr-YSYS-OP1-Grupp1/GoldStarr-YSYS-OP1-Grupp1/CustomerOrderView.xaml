@@ -33,9 +33,6 @@
             <TextBlock Name="Confirmation_label" Text="4. Orderbekräftelse" FontSize="18" Foreground="gray"  Margin="30,0,0,0"/>
         </StackPanel>
 
-        
-       
-
         <TextBlock x:Name="chooseCustomerTextblock" Text="VÄLJ KUND" Grid.Row="1" FontSize="24" Margin="30,20,0,20" FontWeight="Bold" Visibility="Collapsed"/>
 
         <!--Customer list-->
@@ -53,8 +50,7 @@
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-
-            </ListView>
+           </ListView>
         </ScrollViewer>
 
         <TextBlock x:Name="chooseProductTextblock" Text="VÄLJ PRODUKT" Grid.Row="1" Grid.Column="1" FontSize="24" Margin="20,20,0,20" FontWeight="Bold" Visibility="Collapsed" />
@@ -81,10 +77,7 @@
 
         <!--Orderlist-->
         <TextBlock x:Name="cartTitle" Text="VARUKORGEN" Grid.Row="1" Grid.Column="2" FontSize="24" FontWeight="Bold" Visibility="Collapsed" Margin="50,20,0,20"/>
-        
-        
-        
-
+ 
         <!--varukorg-->
         <ListView ItemsSource="{x:Bind customerOrder.ProductsBoughtList}" x:Name ="AddToCart_listview"  Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Visibility="Collapsed" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
             <ListView.ItemTemplate >
@@ -99,11 +92,9 @@
             </ListView.ItemTemplate>
         </ListView>
         
-        
         <!--Finish and cancel buttons-->
         <Button x:Name="CancelOrderButton" Click="CancelOrderButton_Click" Content="Avbryt ordern" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" Margin="0,120,20,0" Visibility="Visible" Background="#337C0202" FocusVisualPrimaryBrush="#FF720000" FocusVisualSecondaryBrush="#998D0000" ></Button>
         <Button x:Name="FinishOrderButton" Click="FinishOrderButton_Click" Content="Slutför ordern" Grid.Row="3" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" Margin="0,0,20,40" Visibility="Visible"></Button>
 
-        
     </Grid>
 </Page>

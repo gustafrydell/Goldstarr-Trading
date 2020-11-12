@@ -15,8 +15,6 @@
             <AppBarButton x:Name="Remove_User_Button" Icon="Remove" Label="Ta bort Leverantör" Click="RemoveSupplier"/>
         </CommandBar>
 
-
-
         <ListView x:Name="SupplierListView" ItemsSource="{x:Bind Suppliers, Mode=TwoWay}" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -33,7 +31,6 @@
                             <ColumnDefinition Width="400"/>
                             <ColumnDefinition Width="400"/>
                         </Grid.ColumnDefinitions>
-
 
                         <TextBlock Grid.Column="0" FontSize="24">
                         <Run Text="{x:Bind Name}"/>

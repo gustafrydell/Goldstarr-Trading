@@ -2,15 +2,8 @@
 {
     public class ProductBought
     {
-        
         public int QuantityBought { get; set; }
         public int ProductCurrentStock { get; set; }
-        public Merchandise Product { get; set; }
-
-
-        
-       
-        
-        
+        public Merchandise Product { get; set; }       
     }
 }

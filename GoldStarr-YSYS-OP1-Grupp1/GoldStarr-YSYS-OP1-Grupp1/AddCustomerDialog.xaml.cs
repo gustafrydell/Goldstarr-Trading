@@ -106,16 +106,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             DeliveryAddressText.Visibility = Visibility.Visible;
             CreditCardText.Visibility = Visibility.Visible;
             CustomerEmailText.Visibility = Visibility.Visible;
-            
-            
-
         }
 
         private void StoreCustomer_IsChecked(object sender, RoutedEventArgs e)
         {
-            //DeliveryAddressText.Visibility = Visibility.Collapsed;
-            //CreditCardText.Visibility = Visibility.Collapsed;
-            //CustomerEmailText.Visibility = Visibility.Collapsed;
         }
     }
 }

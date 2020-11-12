@@ -26,17 +26,12 @@ namespace GoldStarr_YSYS_OP1_Grupp1
     {
 
         private ObservableCollection<Merchandise> merchListView;
-        //private ObservableCollection<Merchandise> bajsMerchView;
         public MerchandiseView()
         {
             this.InitializeComponent();
             merchListView = App._merchandiseManager.merchlist;
-
-
-
-
-
         }
+
         //Gör produktrutan clickable
         private void MerchClick(object sender, ItemClickEventArgs e)
         {
@@ -45,7 +40,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         private void ColorComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
             string clickChoice = e.AddedItems[0].ToString();
 
             switch (clickChoice)
@@ -65,17 +59,13 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 case "Leverantör Fallande":
                     SortListBySupplierDescending();
                     break;
-
             }
-
         }
 
         private void SortListByName()
         {
-           
             var sortResult = merchListView.OrderBy(a => a.Name);
             ProductView.ItemsSource = sortResult;
-            
         }
          
         private void SortListNameDescending()
@@ -96,7 +86,5 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             var sortResult = merchListView.OrderByDescending(b => b.Supplier);
             ProductView.ItemsSource = sortResult;
         }
-
-
     }
 }

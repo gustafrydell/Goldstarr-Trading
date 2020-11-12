@@ -12,7 +12,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2*"/>
-
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -21,7 +20,6 @@
         </Grid.RowDefinitions>
 
         <TextBlock Text="Merch" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"/>
-
 
         <GridView x:Name="ProductView" ItemsSource="{x:Bind merchListView}" Grid.Column="1" IsItemClickEnabled="True" ItemClick="MerchClick">
             <GridView.ItemTemplate>
@@ -38,6 +36,7 @@
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
+
         <ComboBox PlaceholderText="Sortera"
                   x:Name="SortingBox"
                   FontSize="18" 
@@ -52,6 +51,4 @@
             <x:String>Leverantör Fallande</x:String>
         </ComboBox>
     </Grid>
-
-    
 </Page>

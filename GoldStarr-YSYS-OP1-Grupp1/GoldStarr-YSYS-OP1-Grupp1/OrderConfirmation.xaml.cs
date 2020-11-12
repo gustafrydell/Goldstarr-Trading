@@ -29,7 +29,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         private void ContentDialog_OKButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-
         }
     }
 }
