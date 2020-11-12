@@ -45,10 +45,14 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             }
         }
 
-        private void orderDetailButton_Click(object sender, RoutedEventArgs e)
+        private async void orderDetailButton_Click(object sender, RoutedEventArgs e)
         {
             var orderdetail = (Button)sender;
             selectedCustomerOrder = (CustomerOrder)orderdetail.DataContext;
+            App.selectedCustomerOrder = selectedCustomerOrder;
+            OrderDetailDialog orderDetailDialog = new OrderDetailDialog();
+            await orderDetailDialog.ShowAsync();
+
             //Debug.WriteLine(selectedCustomerOrder.Customer.Name);
         }
 

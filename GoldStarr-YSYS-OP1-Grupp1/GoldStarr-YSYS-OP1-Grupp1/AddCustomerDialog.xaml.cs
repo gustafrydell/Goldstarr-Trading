@@ -28,6 +28,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         private void ContentDialog_OKButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
+
             if (string.IsNullOrEmpty(NameText.Text) || string.IsNullOrEmpty(AddressText.Text) || string.IsNullOrEmpty(PhonenumberText.Text))
             {
                 var dialog = new MessageDialog("Du har inte fyllt i alla rutor");
@@ -37,20 +38,38 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             {
                 if (StoreCustomerRadioButton.IsChecked == true)
                 {
-
+                    if (StringToLong(PhonenumberText.Text))
+                    {
                     CustomerViewList.AddNewStoreUser(NameText.Text, AddressText.Text, PhonenumberText.Text,CustomerType.Butikskund);
+
+                    }
+                    else
+                    {
+                        var dialog = new MessageDialog("Du har fyllt rutorna med fel format");
+                        var t = dialog.ShowAsync().GetAwaiter();
+                    }
 
                 }
                 else if (OnlineCustomerRadioButton.IsChecked == true)
                 {
-                    if (string.IsNullOrEmpty(CreditCardText.Text) || string.IsNullOrEmpty(DeliveryAddressText.Text))
+                    if (StringToLong(CreditCardText.Text) && StringToLong(PhonenumberText.Text ))
                     {
-                        var dialog = new MessageDialog("Du har inte fyllt i alla obligatoriska rutor");
-                        var t = dialog.ShowAsync().GetAwaiter();
+
+                        if (string.IsNullOrEmpty(CreditCardText.Text) || string.IsNullOrEmpty(DeliveryAddressText.Text))
+                        {
+                            var dialog = new MessageDialog("Du har inte fyllt i alla obligatoriska rutor");
+                            var t = dialog.ShowAsync().GetAwaiter();
+                        }
+                        else
+                        {
+                            CustomerViewList.AddNewOnlineUser(NameText.Text, AddressText.Text, PhonenumberText.Text, CustomerType.Onlinekund, DeliveryAddressText.Text, CreditCardText.Text, CustomerEmailText.Text);
+                        }
                     }
                     else
                     {
-                    CustomerViewList.AddNewOnlineUser(NameText.Text, AddressText.Text, PhonenumberText.Text,CustomerType.Onlinekund, DeliveryAddressText.Text,CreditCardText.Text,CustomerEmailText.Text);
+                        //throw exception
+                        var dialog = new MessageDialog("Du har fyllt rutorna med fel format");
+                        var t = dialog.ShowAsync().GetAwaiter();
                     }
                 }
                 else
@@ -61,6 +80,21 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     
             }
             
+        }
+
+        private bool StringToLong(string text)
+        {
+            bool isNumber = false;
+            long number;
+            if (long.TryParse(text, out number))
+            {
+                isNumber = true;
+                return isNumber;
+            }
+            else
+            {
+            return isNumber;
+            }
         }
 
         private void ContentDialog_CancelButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
