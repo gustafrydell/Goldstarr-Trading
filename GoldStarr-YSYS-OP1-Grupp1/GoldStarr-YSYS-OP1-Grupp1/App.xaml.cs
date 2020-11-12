@@ -28,6 +28,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public static MerchandiseView Merchandise;
         public static CustomerOrder currentOrder;
         public static ObservableCollection<CustomerOrder> customerOrders;
+        public static CustomerOrder selectedCustomerOrder;
+        public SupplierViewList SupplierList;
 
         public App()
         {
@@ -35,6 +37,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             this.Suspending += OnSuspending;
             _merchandiseManager = new MerchandiseManager();
             Restock = new RestockOption();
+            SupplierList = new SupplierViewList();
         }
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
