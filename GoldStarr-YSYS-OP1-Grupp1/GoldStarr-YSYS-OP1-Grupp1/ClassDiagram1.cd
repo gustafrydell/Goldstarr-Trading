@@ -10,11 +10,11 @@
   <Class Name="GoldStarr_YSYS_OP1_Grupp1.CustomerOrder">
     <Position X="0.75" Y="3.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAAAAAAEAAgAAAAAQAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>CustomerOrder.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GoldStarr_YSYS_OP1_Grupp1.CustomerViewList">
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.CustomerManager">
     <Position X="3.75" Y="3.5" Width="4.75" />
     <TypeIdentifier>
       <HashCode>AAEAAAAQAAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -50,11 +50,18 @@
       <FileName>Suppliers.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="GoldStarr_YSYS_OP1_Grupp1.SupplierViewList">
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.SupplierManager">
     <Position X="17" Y="2.5" Width="5" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>SupplierViewList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GoldStarr_YSYS_OP1_Grupp1.FileManager">
+    <Position X="6.25" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQQAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>FileManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="GoldStarr_YSYS_OP1_Grupp1.CustomerType">

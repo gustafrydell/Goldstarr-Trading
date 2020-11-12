@@ -41,7 +41,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 {
                     if (StringToLong(PhonenumberText.Text))
                     {
-                    CustomerViewList.AddNewUser(NameText.Text, AddressText.Text, PhonenumberText.Text,CustomerType.Butikskund);
+                    CustomerManager.AddNewUser(NameText.Text, AddressText.Text, PhonenumberText.Text,CustomerType.Butikskund);
 
                     }
                     else
@@ -63,7 +63,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                         }
                         else
                         {
-                            CustomerViewList.AddNewUser(NameText.Text, AddressText.Text, PhonenumberText.Text, CustomerType.Onlinekund, DeliveryAddressText.Text, CreditCardText.Text, CustomerEmailText.Text);
+                            CustomerManager.AddNewUser(NameText.Text, AddressText.Text, PhonenumberText.Text, CustomerType.Onlinekund, DeliveryAddressText.Text, CreditCardText.Text, CustomerEmailText.Text);
                         }
                     }
                     else

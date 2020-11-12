@@ -4,12 +4,12 @@ using Windows.ApplicationModel;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
 {
-    public class CustomerViewList
+    public class CustomerManager
     {
         const string notAvailable = "Ej tillgänglig";
         public static ObservableCollection<Customer> Customers { get; set; }
 
-        public CustomerViewList()
+        public CustomerManager()
         {
             //Customers = CreateCustomers();
         }

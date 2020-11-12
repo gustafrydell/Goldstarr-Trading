@@ -31,7 +31,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public Orderlist()
         {
             this.InitializeComponent();
-            //customersList = CustomerViewList.Customers;
+            //customersList = CustomerManager.Customers;
             merchandiseManager = App._merchandiseManager;
             customerOrders = App.customerOrders;
 
