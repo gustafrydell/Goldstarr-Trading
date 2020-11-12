@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Title="Produkter"
     PrimaryButtonText="Stäng"
-    PrimaryButtonClick="ContentDialog_PrimaryButtonClick">
+    PrimaryButtonClick="ContentDialog_CloseButtonClick">
 
 
     <Grid>

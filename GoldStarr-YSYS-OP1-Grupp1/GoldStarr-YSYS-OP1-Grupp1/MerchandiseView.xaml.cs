@@ -30,11 +30,12 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public MerchandiseView()
         {
             this.InitializeComponent();
-            merchListView = MerchandiseManager.GetMerchList();
+            merchListView = App._merchandiseManager.merchlist;
 
-          
 
-            
+
+
+
         }
         //Gör produktrutan clickable
         private void MerchClick(object sender, ItemClickEventArgs e)

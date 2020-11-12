@@ -144,6 +144,9 @@
     <Compile Include="OrderConfirmation.xaml.cs">
       <DependentUpon>OrderConfirmation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OrderDetailDialog.xaml.cs">
+      <DependentUpon>OrderDetailDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Orderlist.xaml.cs">
       <DependentUpon>Orderlist.xaml</DependentUpon>
     </Compile>
@@ -210,6 +213,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OrderConfirmation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrderDetailDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
