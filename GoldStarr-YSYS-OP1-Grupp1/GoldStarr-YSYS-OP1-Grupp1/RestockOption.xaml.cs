@@ -83,8 +83,20 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 // addToStock är uppdaterad
                 var nameOfMerch = ((TextBlock)parent.FindName("NameTextBlock")).Text;
                 var merch = _merchandiseManager.merchlist.FirstOrDefault(m => m.Name == nameOfMerch);
-                merch.Stock += addToStock;
-                stockTextBlock.Text = merch.Stock.ToString();
+
+                if (addToStock < 0)
+                {
+
+
+                    var dialogTwo = new MessageDialog("Kan inte lägga till minus antal.");
+                    var t = dialogTwo.ShowAsync().GetAwaiter();
+
+                }
+                else
+                {
+                    merch.Stock += addToStock;
+                    stockTextBlock.Text = merch.Stock.ToString();
+                }
                 
 
             }
