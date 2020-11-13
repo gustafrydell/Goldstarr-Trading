@@ -4,12 +4,12 @@ using Windows.ApplicationModel;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
 {
-    public class CustomerViewList
+    public class CustomerManager
     {
         const string notAvailable = "Ej tillgänglig";
         public static ObservableCollection<Customer> Customers { get; set; }
 
-        public CustomerViewList()
+        public CustomerManager()
         {
             //Customers = CreateCustomers();
         }
@@ -31,14 +31,14 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         }
 
 
-        public static void AddNewStoreUser(string name, string address, string phonenumber, CustomerType customerType)
+        public static void AddNewUser(string name, string address, string phonenumber, CustomerType customerType, string deliveryAddress = notAvailable, string creditCardNumber = notAvailable, string customerEmail = notAvailable)
         {
-            Customers.Add(new Customer { Name = name, Address = address, PhoneNumber = phonenumber, IsOnline = customerType, DeliveryAddress = notAvailable, CreditCardNumber = notAvailable, CustomerEmail = notAvailable });
+            Customers.Add(new Customer { Name = name, Address = address, PhoneNumber = phonenumber, IsOnline = customerType, DeliveryAddress = deliveryAddress, CreditCardNumber = creditCardNumber, CustomerEmail = customerEmail });
         }
 
-        public static void AddNewOnlineUser(string name, string address, string phonenumber, CustomerType customerType, string deliveryAdress, string creditCardNumber, string customerEmail)
-        {
-            Customers.Add(new Customer { Name = name, Address = address, PhoneNumber = phonenumber, IsOnline = customerType, DeliveryAddress = deliveryAdress, CreditCardNumber = creditCardNumber, CustomerEmail = customerEmail });
-        }
+        //public static void AddNewOnlineUser(string name, string address, string phonenumber, CustomerType customerType, string deliveryAdress, string creditCardNumber, string customerEmail)
+        //{
+        //    Customers.Add(new Customer { Name = name, Address = address, PhoneNumber = phonenumber, IsOnline = customerType, DeliveryAddress = deliveryAdress, CreditCardNumber = creditCardNumber, CustomerEmail = customerEmail });
+        //}
     }
 }

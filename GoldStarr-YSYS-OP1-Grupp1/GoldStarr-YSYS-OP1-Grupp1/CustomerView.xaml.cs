@@ -27,7 +27,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public CustomerView()
         {
             this.InitializeComponent();
-            Customers = CustomerViewList.Customers;
+            Customers = CustomerManager.Customers;
         }
 
         private async void AddNewUser(object sender, RoutedEventArgs e)

@@ -29,7 +29,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         private void ContentDialog_OKButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
 
-            if (string.IsNullOrEmpty(NameText.Text) || OnlyNumbers(NameText.Text) || string.IsNullOrEmpty(AddressText.Text) || string.IsNullOrEmpty(PhonenumberText.Text))
+            if (string.IsNullOrEmpty(NameText.Text) || string.IsNullOrEmpty(AddressText.Text) || 
+                string.IsNullOrEmpty(PhonenumberText.Text) || OnlyNumbers(NameText.Text))
             {
                 var dialog = new MessageDialog("Ej giltig inmatning");
                 var t = dialog.ShowAsync().GetAwaiter();
@@ -40,7 +41,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 {
                     if (StringToLong(PhonenumberText.Text))
                     {
-                    CustomerViewList.AddNewStoreUser(NameText.Text, AddressText.Text, PhonenumberText.Text,CustomerType.Butikskund);
+                    CustomerManager.AddNewUser(NameText.Text, AddressText.Text, PhonenumberText.Text,CustomerType.Butikskund);
 
                     }
                     else
@@ -52,7 +53,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 }
                 else if (OnlineCustomerRadioButton.IsChecked == true)
                 {
-                    if (StringToLong(CreditCardText.Text) && StringToLong(PhonenumberText.Text ))
+                    if (StringToLong(CreditCardText.Text) && StringToLong(PhonenumberText.Text ) && !OnlyNumbers(DeliveryAddressText.Text))
                     {
 
                         if (string.IsNullOrEmpty(CreditCardText.Text) || string.IsNullOrEmpty(DeliveryAddressText.Text))
@@ -62,7 +63,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                         }
                         else
                         {
-                            CustomerViewList.AddNewOnlineUser(NameText.Text, AddressText.Text, PhonenumberText.Text, CustomerType.Onlinekund, DeliveryAddressText.Text, CreditCardText.Text, CustomerEmailText.Text);
+                            CustomerManager.AddNewUser(NameText.Text, AddressText.Text, PhonenumberText.Text, CustomerType.Onlinekund, DeliveryAddressText.Text, CreditCardText.Text, CustomerEmailText.Text);
                         }
                     }
                     else

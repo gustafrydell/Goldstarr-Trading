@@ -29,7 +29,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public static CustomerOrder currentOrder;
         public static ObservableCollection<CustomerOrder> customerOrders;
         public static CustomerOrder selectedCustomerOrder;
-        public SupplierViewList SupplierList;
+        public SupplierManager SupplierList;
 
         public App()
         {
@@ -37,7 +37,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             this.Suspending += OnSuspending;
             _merchandiseManager = new MerchandiseManager();
             Restock = new RestockOption();
-            SupplierList = new SupplierViewList();
+            SupplierList = new SupplierManager();
         }
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
@@ -46,10 +46,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
 
             FileManager readCustomerFile = new FileManager("Customers.json");
-            CustomerViewList.Customers = await readCustomerFile.ReadFromFile<ObservableCollection<Customer>>();
-            if (CustomerViewList.Customers == null)
+            CustomerManager.Customers = await readCustomerFile.ReadFromFile<ObservableCollection<Customer>>();
+            if (CustomerManager.Customers == null)
             {
-                CustomerViewList.Customers = CustomerViewList.CreateCustomers();
+                CustomerManager.Customers = CustomerManager.CreateCustomers();
             }
             FileManager readMerchFile = new FileManager("Merchandise.json");
             _merchandiseManager.merchlist = await readMerchFile.ReadFromFile<ObservableCollection<Merchandise>>();
@@ -124,7 +124,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             FileManager customerFile = new FileManager("Customers.json");
-            customerFile.SaveFile(CustomerViewList.Customers);
+            customerFile.SaveFile(CustomerManager.Customers);
 
             FileManager merchFile = new FileManager("Merchandise.json");
             merchFile.SaveFile(_merchandiseManager.merchlist);

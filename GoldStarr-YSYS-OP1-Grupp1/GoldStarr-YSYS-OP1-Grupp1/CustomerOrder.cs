@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
 {
-    public class CustomerOrder : INotifyPropertyChanged
+    public class CustomerOrder
     {
         public DateTime DateTime { get; set; }
         public Customer Customer { get; set; }
@@ -17,16 +17,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public CustomerOrder()
         {
             ProductsBoughtList = new ObservableCollection<ProductBought>();
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged(String property)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-            }
         }
     }
 }

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
 {
-    public class SupplierViewList
+    public class SupplierManager
     {
         public ObservableCollection<Suppliers> Suppliers { get; set; }
 
-        public SupplierViewList()
+        public SupplierManager()
         {
            // CreateSupplierInfo();
         }

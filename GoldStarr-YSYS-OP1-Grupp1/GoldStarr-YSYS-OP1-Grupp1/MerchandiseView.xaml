@@ -19,8 +19,6 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Merch" FontSize="50" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"/>
-
         <GridView x:Name="ProductView" ItemsSource="{x:Bind merchListView}" Grid.Column="1" IsItemClickEnabled="True" ItemClick="MerchClick">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:Merchandise">
@@ -40,7 +38,7 @@
         <ComboBox PlaceholderText="Sortera"
                   x:Name="SortingBox"
                   FontSize="18" 
-                  Margin="10,80,0,0" 
+                  Margin="64,150,0,0" 
                   Width="Auto" Height="40" 
                   IsEnabled="True" 
                   SelectionChanged="ColorComboBox_SelectionChanged" Background="LightGray">
@@ -50,5 +48,6 @@
             <x:String>Leverantör Stigande</x:String>
             <x:String>Leverantör Fallande</x:String>
         </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Text="Produkter" TextWrapping="Wrap" VerticalAlignment="Top" Height="64" Width="252" FontSize="50" FontWeight="Bold"/>
     </Grid>
 </Page>
