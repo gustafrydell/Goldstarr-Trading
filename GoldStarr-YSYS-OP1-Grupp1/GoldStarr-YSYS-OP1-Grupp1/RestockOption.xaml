@@ -18,10 +18,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <GridView ItemsSource="{x:Bind _merchandiseManager.merchlist, Mode=TwoWay}" Grid.Column="1" Margin="20,20,20,20">
+        <GridView ItemsSource="{x:Bind _merchandiseManager.merchlist, Mode=TwoWay}" Grid.Column="1" Margin="0,70,0,0">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:Merchandise">
-                    <StackPanel>
+                    <StackPanel Margin="20,20,20,20">
                         <Image Width="200" Source="{x:Bind CoverImage}" />
                         <TextBlock FontSize="25" Name="NameTextBlock" Text="{x:Bind Name, Mode=OneWay}" HorizontalAlignment="Left"/>
                         <TextBlock FontSize="18" Text="{x:Bind Supplier, Mode=OneWay}" HorizontalAlignment="Left"/>

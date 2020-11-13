@@ -19,10 +19,10 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <GridView x:Name="ProductView" ItemsSource="{x:Bind merchListView}" Grid.Column="1" IsItemClickEnabled="True" ItemClick="MerchClick">
+        <GridView Margin="0,70,0,0" x:Name="ProductView" ItemsSource="{x:Bind merchListView}" Grid.Column="1" IsItemClickEnabled="True" ItemClick="MerchClick">
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="local:Merchandise">
-                    <StackPanel>
+                    <StackPanel Margin="20,20,20,20">
                         <Image Width="200" Source="{x:Bind CoverImage}" />
                         <TextBlock FontSize="20"  Text="{x:Bind Name}" HorizontalAlignment="Left"/>
                         <TextBlock FontSize="15" Text="{x:Bind Supplier}" HorizontalAlignment="Left"/>
