@@ -13,26 +13,26 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="*"/>
-            
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="6*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Column="1">
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Margin="115,27,99,773" Grid.RowSpan="2">
             <TextBlock HorizontalAlignment="Left" Text="Namn" TextWrapping="Wrap" FontSize="36" Width="200" Margin="30,20,10,0"/>
             <TextBlock HorizontalAlignment="Left" Text="Adress" TextWrapping="Wrap"  Width="220" Margin="20,20,10,0" FontSize="36"/>
             <TextBlock HorizontalAlignment="Left" Text="Telefonnr" TextWrapping="Wrap" Width="220" Margin="0,20,10,0" FontSize="36"/>
             <TextBlock HorizontalAlignment="Left" Text="Kundtyp" TextWrapping="Wrap" Width="220" Margin="10,20,10,0" FontSize="36"/>
-            
+
             <CommandBar Background="Transparent" DefaultLabelPosition="Right" VerticalAlignment="Bottom"  >
                 <AppBarButton x:Name="Add_User_Button" Icon="Add" Label="Lägg till kund" Click="AddNewUser"  />
                 <AppBarButton x:Name="Remove_User_Button" Icon="Remove" Label="Ta bort kund" Click="RemoveUser" />
             </CommandBar>
         </StackPanel>
 
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="115,27,99,73" Grid.RowSpan="2">
 
             <ListView x:Name="CustomerListView" ItemsSource="{x:Bind Customers, Mode=TwoWay}" BorderBrush="#FF6A6A6A" BorderThickness="1,1,1,1">
                 <ListView.ItemContainerStyle>
@@ -62,7 +62,7 @@
                             <TextBlock Grid.Column="2" FontSize="24" Width="220" Margin="10,0,10,0">
                                 <Run Text="{x:Bind PhoneNumber}"/>
                             </TextBlock>
-                            
+
                             <TextBlock Grid.Column="3" FontSize="24" Width="150" Margin="10,0,10,0">
                                 <Run Text="{x:Bind IsOnline}"/>
                             </TextBlock>
@@ -70,7 +70,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
+
         </Grid>
     </Grid>
 </Page>
