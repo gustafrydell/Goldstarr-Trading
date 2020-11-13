@@ -55,7 +55,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     merchList.Add(new Merchandise { Name = "Sneakers", Supplier = "AdidasSämreHälft", Stock = 10, MerchandiseId = 3, CoverImage = "Assets/dog-with-doggie-shoes.jpg" });
                     merchList.Add(new Merchandise { Name = "Rånarluva", Supplier = "NotShadyInc", Stock = 10, MerchandiseId = 4, CoverImage = "Assets/SkimaskDog.jfif" });
                     merchList.Add(new Merchandise { Name = "SuperStrumpor", Supplier = "WeLoveSocksEnterprise", Stock = 10, MerchandiseId = 5, CoverImage = "Assets/SuperStrumpor.jpg" });
-                    merchList.Add(new Merchandise { Name = "LabbJacka", Supplier = "KemisternaAB", Stock = 10, MerchandiseId = 6, CoverImage = "Assets/LabcoatDog.jpg" });
+                    merchList.Add(new Merchandise { Name = "LabbRock", Supplier = "KemisternaAB", Stock = 10, MerchandiseId = 6, CoverImage = "Assets/LabcoatDog.jpg" });
                     merchList.Add(new Merchandise { Name = "SörensOnsie", Supplier = "SörenAB", Stock = 10, MerchandiseId = 7, CoverImage = "Assets/SorenOnsie.jpg" });
                     return merchList;
                 }
