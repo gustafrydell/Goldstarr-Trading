@@ -31,6 +31,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             supplierList.Add(new Suppliers { Name = "NotShadyInc", Email = "NotShadyInc@gmail.com", PhoneNr = "0708112233" });
             supplierList.Add(new Suppliers { Name = "WeLoveSocksEnterprise", Email = "SuperSocksInternational@gmail.com", PhoneNr = "0708112233" });
             supplierList.Add(new Suppliers { Name = "KemisternaAB", Email = "PotionsGoesBoom@gmail.com", PhoneNr = "0708112233" });
+            supplierList.Add(new Suppliers { Name = "SörenAB", Email = "SörenGoesBarkBark@hotmail.com", PhoneNr = "070454545" });
 
             Suppliers = supplierList;
         }
