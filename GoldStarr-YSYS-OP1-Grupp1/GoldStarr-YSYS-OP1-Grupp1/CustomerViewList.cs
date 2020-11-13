@@ -30,9 +30,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         }
 
 
-        public static void AddNewUser(string name, string address, string phonenumber)
-        {
-            Customers.Add(new Customer { Name = name, Address = address, PhoneNumber = phonenumber });
-        }
+        //public static void AddNewUser(string name, string address, string phonenumber)
+        //{
+        //    Customers.Add(new Customer { Name = name, Address = address, PhoneNumber = phonenumber });
+        //}
     }
 }
