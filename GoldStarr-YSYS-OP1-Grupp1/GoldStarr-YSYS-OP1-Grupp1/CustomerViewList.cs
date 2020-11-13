@@ -3,12 +3,12 @@ using Windows.ApplicationModel;
 
 namespace GoldStarr_YSYS_OP1_Grupp1
 {
-    public class CustomerViewList
+    public class CustomerManager
     {
 
         public static List<Customer> Customers { get; set; } = new List<Customer>();
 
-        public CustomerViewList()
+        public CustomerManager()
         {
             Customers = GetCustomers();
         }

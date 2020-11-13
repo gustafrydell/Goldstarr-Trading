@@ -31,10 +31,10 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         }
 
 
-        public string GetInStock()
-        {
-            return $"{Stock} i lager";
-        }
+        //public string GetInStock()
+        //{
+        //    return $"{Stock} i lager";
+        //}
         
 
 

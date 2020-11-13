@@ -26,7 +26,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
 
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            CustomerViewList.AddNewUser(NameText.Text, AddressText.Text, PhonenumberText.Text);
+            CustomerManager.AddNewUser(NameText.Text, AddressText.Text, PhonenumberText.Text);
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
