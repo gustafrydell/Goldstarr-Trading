@@ -13,6 +13,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         public DateTime DateTime { get; set; }
         public Customer Customer { get; set; }
         public ObservableCollection <ProductBought> ProductsBoughtList { get; set; }
+        public int Quantity { get; set; }
 
         public CustomerOrder()
         {

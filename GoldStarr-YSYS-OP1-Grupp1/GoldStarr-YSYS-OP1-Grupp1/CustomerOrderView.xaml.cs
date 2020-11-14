@@ -111,18 +111,22 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 }
 
                 if (!found)
+                {
                     clickedProduct.QuantityBought = _quantity;
+                    customerOrder.Quantity += _quantity;
+                }
 
                 if (clickedProduct.QuantityBought <= clickedProduct.ProductCurrentStock && clickedProduct.QuantityBought > 0)
                 {
                     if (found)
                     {
                         customerOrder.ProductsBoughtList.RemoveAt(foundIndex);
+                        customerOrder.Quantity += _quantity;
                     }
 
                     customerOrder.ProductsBoughtList.Add(clickedProduct);
                     clickedProduct.ProductCurrentStock -= clickedProduct.QuantityBought;
-
+                    
                     
                     AddToCart_listview.Visibility = Visibility.Visible;
 
@@ -156,6 +160,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 if (item.Name == removedProduct.Product.Name)
                 {
                     removedProduct.ProductCurrentStock += removedProduct.QuantityBought;
+                    customerOrder.Quantity -= removedProduct.QuantityBought;
                 }
             }
         }
