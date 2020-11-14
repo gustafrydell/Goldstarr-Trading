@@ -31,9 +31,9 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         }
 
 
-        public static void AddNewUser(string name, string address, string phonenumber, CustomerType customerType, string deliveryAddress = notAvailable, string creditCardNumber = notAvailable, string customerEmail = notAvailable)
+        public static void AddNewUser(string name, string address, CustomerType customerType, string phonenumber = notAvailable, string deliveryAddress = notAvailable, string creditCardNumber = notAvailable, string customerEmail = notAvailable)
         {
-            Customers.Add(new Customer { Name = name, Address = address, PhoneNumber = phonenumber, IsOnline = customerType, DeliveryAddress = deliveryAddress, CreditCardNumber = creditCardNumber, CustomerEmail = customerEmail });
+            Customers.Add(new Customer { Name = name, Address = address, IsOnline = customerType, PhoneNumber = phonenumber, DeliveryAddress = deliveryAddress, CreditCardNumber = creditCardNumber, CustomerEmail = customerEmail });
         }
 
         //public static void AddNewOnlineUser(string name, string address, string phonenumber, CustomerType customerType, string deliveryAdress, string creditCardNumber, string customerEmail)

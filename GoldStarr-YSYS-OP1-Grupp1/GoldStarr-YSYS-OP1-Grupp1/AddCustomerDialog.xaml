@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
         <TextBox x:Name="NameText" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Namn (obligatoriskt)"/>
         <TextBox x:Name="AddressText" Grid.Row="1" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Adress (obligatoriskt)"/>
-        <TextBox x:Name="PhonenumberText" Grid.Row="2" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Telefon nummer (obligatoriskt)"/>
+        <TextBox x:Name="PhonenumberText" Grid.Row="2" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" PlaceholderText="Telefonnummer"/>
         <RadioButton x:Name="StoreCustomerRadioButton" Content="Butikskund" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="StoreCustomer_IsChecked"/>
         <RadioButton x:Name="OnlineCustomerRadioButton" Content="Onlinekund" Grid.Row="3"  HorizontalAlignment="Right" VerticalAlignment="Top" Checked="OnlineCustomer_IsChecked"/>
      

@@ -30,7 +30,7 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         {
 
             if (string.IsNullOrEmpty(NameText.Text) || string.IsNullOrEmpty(AddressText.Text) || 
-                string.IsNullOrEmpty(PhonenumberText.Text) || OnlyNumbers(NameText.Text))
+                OnlyNumbers(NameText.Text))
             {
                 var dialog = new MessageDialog("Ej giltig inmatning");
                 var t = dialog.ShowAsync().GetAwaiter();
@@ -39,11 +39,20 @@ namespace GoldStarr_YSYS_OP1_Grupp1
             {
                 if (StoreCustomerRadioButton.IsChecked == true)
                 {
-                    if (StringToLong(PhonenumberText.Text))
-                    {
-                    CustomerManager.AddNewUser(NameText.Text, AddressText.Text, PhonenumberText.Text,CustomerType.Butikskund);
-
-                    }
+                    if (!OnlyNumbers(NameText.Text) && !OnlyNumbers(AddressText.Text))
+                        if (string.IsNullOrEmpty(PhonenumberText.Text))
+                        {
+                            CustomerManager.AddNewUser(NameText.Text, AddressText.Text, CustomerType.Butikskund);
+                        }
+                        else if (OnlyNumbers(PhonenumberText.Text))
+                        {
+                            CustomerManager.AddNewUser(NameText.Text, AddressText.Text, CustomerType.Butikskund, phonenumber: PhonenumberText.Text) ;
+                        }
+                        else
+                        {
+                            var dialog = new MessageDialog("Du har fyllt telefonnummer med fel format");
+                            var t = dialog.ShowAsync().GetAwaiter();
+                        }
                     else
                     {
                         var dialog = new MessageDialog("Du har fyllt rutorna med fel format");
@@ -53,22 +62,29 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                 }
                 else if (OnlineCustomerRadioButton.IsChecked == true)
                 {
-                    if (StringToLong(CreditCardText.Text) && StringToLong(PhonenumberText.Text ) && !OnlyNumbers(DeliveryAddressText.Text))
+                    if (string.IsNullOrEmpty(CreditCardText.Text) || string.IsNullOrEmpty(DeliveryAddressText.Text))
                     {
-
-                        if (string.IsNullOrEmpty(CreditCardText.Text) || string.IsNullOrEmpty(DeliveryAddressText.Text))
+                        var dialog = new MessageDialog("Du har inte fyllt i alla obligatoriska rutor");
+                        var t = dialog.ShowAsync().GetAwaiter();
+                    }
+                    else if (OnlyNumbers(CreditCardText.Text) && !OnlyNumbers(DeliveryAddressText.Text) && !OnlyNumbers(NameText.Text) && !OnlyNumbers(AddressText.Text))
+                    {
+                        if (string.IsNullOrEmpty(PhonenumberText.Text))
                         {
-                            var dialog = new MessageDialog("Du har inte fyllt i alla obligatoriska rutor");
-                            var t = dialog.ShowAsync().GetAwaiter();
+                            CustomerManager.AddNewUser(NameText.Text, AddressText.Text, CustomerType.Onlinekund, deliveryAddress: DeliveryAddressText.Text, creditCardNumber: CreditCardText.Text, customerEmail: CustomerEmailText.Text);
+                        }
+                        else if (OnlyNumbers(PhonenumberText.Text))
+                        {
+                            CustomerManager.AddNewUser(NameText.Text, AddressText.Text, CustomerType.Onlinekund, deliveryAddress: DeliveryAddressText.Text, creditCardNumber: CreditCardText.Text, customerEmail: CustomerEmailText.Text, phonenumber: PhonenumberText.Text);
                         }
                         else
                         {
-                            CustomerManager.AddNewUser(NameText.Text, AddressText.Text, PhonenumberText.Text, CustomerType.Onlinekund, DeliveryAddressText.Text, CreditCardText.Text, CustomerEmailText.Text);
+                            var dialog = new MessageDialog("Du har fyllt telefonnummer med fel format");
+                            var t = dialog.ShowAsync().GetAwaiter();
                         }
                     }
                     else
                     {
-                        //throw exception
                         var dialog = new MessageDialog("Du har fyllt rutorna med fel format");
                         var t = dialog.ShowAsync().GetAwaiter();
                     }
@@ -78,23 +94,6 @@ namespace GoldStarr_YSYS_OP1_Grupp1
                     var anotherDialog = new MessageDialog("Du har inte valt kundtyp");
                     var y = anotherDialog.ShowAsync().GetAwaiter();
                 }
-                    
-            }
-            
-        }
-
-        private bool StringToLong(string text)
-        {
-            bool isNumber = false;
-            long number;
-            if (long.TryParse(text, out number))
-            {
-                isNumber = true;
-                return isNumber;
-            }
-            else
-            {
-            return isNumber;
             }
         }
 
