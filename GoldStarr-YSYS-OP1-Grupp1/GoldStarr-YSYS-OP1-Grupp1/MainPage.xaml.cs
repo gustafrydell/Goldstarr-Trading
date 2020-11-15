@@ -29,8 +29,8 @@ namespace GoldStarr_YSYS_OP1_Grupp1
         }
 
         public readonly string CustomerListLabel = "Kunder";
-        public readonly string CustomerOrderListLabel = "NyOrder";
-        public readonly string OrderListLabel = "OrderLista";
+        public readonly string CustomerOrderListLabel = "Ny order";
+        public readonly string OrderListLabel = "Orderlista";
         public readonly string MerchandiseListLabel = "Produkter";
         public readonly string ReStockOptionLabel = "Lager";
         public readonly string OurSupplierLabel = "Leverantörer";

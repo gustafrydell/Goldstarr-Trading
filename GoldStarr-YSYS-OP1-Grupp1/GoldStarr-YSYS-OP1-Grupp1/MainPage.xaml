@@ -31,13 +31,13 @@
 
             <NavigationViewItem
                 x:Name="CustomerOrdersListMeny"
-                Content="NyOrder"
+                Content="Ny order"
                 ToolTipService.ToolTip="Show customer orders"
                 Icon="Shop" FontSize="20"/>
 
             <NavigationViewItem
                 x:Name="OrderListMeny"
-                Content="OrderLista"
+                Content="Orderlista"
                 ToolTipService.ToolTip="Show order list"
                 Icon="Account" FontSize="20"/>
             
