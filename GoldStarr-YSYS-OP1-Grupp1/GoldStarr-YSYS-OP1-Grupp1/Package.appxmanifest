@@ -34,11 +34,10 @@
       <uap:VisualElements
         DisplayName="GoldStarr-YSYS-OP1-Grupp1"
         Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png"
         Description="GoldStarr-YSYS-OP1-Grupp1"
-        BackgroundColor="transparent">
+        BackgroundColor="transparent" Square44x44Logo="Assets\doge.png">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:SplashScreen Image="Assets\doge.png" />
       </uap:VisualElements>
     </Application>
   </Applications>

@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\dog-with-doggie-shoes.jpg" />
+    <Content Include="Assets\doge.png" />
     <Content Include="Assets\DogJeans.jpg" />
     <Content Include="Assets\Goldenpants.jpg" />
     <Content Include="Assets\LabcoatDog.jpg" />
